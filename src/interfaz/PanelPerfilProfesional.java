@@ -5,7 +5,7 @@ import dominio.Sistema;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
-public class PanelHomeProfesional extends javax.swing.JPanel {
+public class PanelPerfilProfesional extends javax.swing.JPanel {
 
     //Atributos
     private Profesional profesional;
@@ -14,7 +14,7 @@ public class PanelHomeProfesional extends javax.swing.JPanel {
     private JFrame ventana;
 
     //Cosntructor
-    public PanelHomeProfesional(Sistema unSistema,
+    public PanelPerfilProfesional(Sistema unSistema,
             InterfazBotonesProfesional interfazActual, JFrame unaVentana) {
         initComponents();
         sistema = unSistema;

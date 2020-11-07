@@ -2,8 +2,12 @@ package interfaz;
 
 import dominio.Sistema;
 import dominio.Usuario;
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class InterfazBotonesUsuario extends javax.swing.JPanel {
 
@@ -21,6 +25,9 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
         ventana.add(this);
         ventana.add(actual);
         etiquetaUsuarioActual.setText(this.usuarioActual.getNombre());
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnHome.setBorder(border);
     }
 
     public JPanel getActual() {
@@ -75,7 +82,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnHome);
-        btnHome.setBounds(2, 36, 270, 46);
+        btnHome.setBounds(2, 36, 245, 46);
 
         btnPedirPlan.setBackground(new java.awt.Color(255, 0, 102));
         btnPedirPlan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -90,7 +97,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnPedirPlan);
-        btnPedirPlan.setBounds(2, 231, 270, 43);
+        btnPedirPlan.setBounds(2, 231, 245, 43);
 
         btnConsultaDirecta.setBackground(new java.awt.Color(255, 0, 102));
         btnConsultaDirecta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -105,7 +112,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnConsultaDirecta);
-        btnConsultaDirecta.setBounds(2, 167, 270, 43);
+        btnConsultaDirecta.setBounds(2, 167, 245, 43);
 
         btnPerfil.setBackground(new java.awt.Color(255, 0, 102));
         btnPerfil.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -120,7 +127,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnPerfil);
-        btnPerfil.setBounds(2, 103, 270, 43);
+        btnPerfil.setBounds(2, 103, 245, 43);
 
         btnCambiarUsuario.setBackground(new java.awt.Color(255, 0, 102));
         btnCambiarUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -135,12 +142,12 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnCambiarUsuario);
-        btnCambiarUsuario.setBounds(2, 361, 270, 45);
+        btnCambiarUsuario.setBounds(2, 361, 245, 45);
 
         btnAgregarComida.setBackground(new java.awt.Color(255, 0, 102));
         btnAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnAgregarComida.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarComida.setText("Agregar Comida a Dieta");
+        btnAgregarComida.setText("Agregar Ingesta");
         btnAgregarComida.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAgregarComida.setContentAreaFilled(false);
         btnAgregarComida.setOpaque(true);
@@ -150,7 +157,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnAgregarComida);
-        btnAgregarComida.setBounds(2, 295, 270, 45);
+        btnAgregarComida.setBounds(2, 300, 245, 45);
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.png"))); // NOI18N
         panelBotonesUsuario.add(fondo);
@@ -163,6 +170,9 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnHome.setBorder(border);
         ventana.remove(actual);
         actual = new PanelHomeUsuario(sistema, this, ventana);
         ventana.add(actual);
@@ -170,6 +180,9 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnPedirPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedirPlanActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnPedirPlan.setBorder(border);
         ventana.remove(actual);
         actual = new PanelPlanAlimentacionUsuario(sistema, ventana, this);
         ventana.add(actual);
@@ -177,6 +190,9 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPedirPlanActionPerformed
 
     private void btnConsultaDirectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaDirectaActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnConsultaDirecta.setBorder(border);
         ventana.remove(actual);
         actual = new PanelConsultaProfesional(sistema, this, ventana);
         ventana.add(actual);
@@ -184,6 +200,9 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_btnConsultaDirectaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnPerfil.setBorder(border);
         ventana.remove(actual);
         actual = new PanelPerfilUsuario(sistema, ventana, this);
         ventana.add(actual);
@@ -191,6 +210,9 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnCambiarUsuario.setBorder(border);
         ventana.remove(actual);
         actual = new PanelCambioDeUsuario(ventana, sistema, this);
         ventana.add(actual);
@@ -198,13 +220,24 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCambiarUsuarioActionPerformed
 
     private void btnAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarComidaActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnAgregarComida.setBorder(border);
         ventana.remove(actual);
         actual = new PanelDietaDiariaUsuario(sistema, ventana, this);
         ventana.add(actual);
         ventana.pack();
     }//GEN-LAST:event_btnAgregarComidaActionPerformed
 
-   
+    private void deselectButtons() {
+        Border border = new BevelBorder(0);
+        btnCambiarUsuario.setBorder(border);
+        btnConsultaDirecta.setBorder(border);
+        btnHome.setBorder(border);
+        btnPerfil.setBorder(border);
+        btnPedirPlan.setBorder(border);
+        btnAgregarComida.setBorder(border);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,8 +1,12 @@
 package interfaz;
 
 import dominio.Sistema;
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class InterfazBotonesAdministrador extends javax.swing.JPanel {
 
@@ -19,6 +23,9 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
         actual = new PanelRegistroUsuario(sistema, ventana);
         ventana.add(this);
         ventana.add(actual);
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnRegistrarUsuario.setBorder(border);
 
     }
 
@@ -55,6 +62,8 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
         btnRegistrarUsuario.setText("Registrar Usuario");
         btnRegistrarUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegistrarUsuario.setContentAreaFilled(false);
+        btnRegistrarUsuario.setMaximumSize(new java.awt.Dimension(191, 35));
+        btnRegistrarUsuario.setMinimumSize(new java.awt.Dimension(191, 35));
         btnRegistrarUsuario.setOpaque(true);
         btnRegistrarUsuario.setPreferredSize(new java.awt.Dimension(193, 136));
         btnRegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +72,7 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
             }
         });
         panelBotonesAdministrador.add(btnRegistrarUsuario);
-        btnRegistrarUsuario.setBounds(0, 30, 260, 50);
+        btnRegistrarUsuario.setBounds(0, 30, 245, 50);
 
         btnRegistrarProfesional.setBackground(new java.awt.Color(255, 0, 102));
         btnRegistrarProfesional.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -71,15 +80,17 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
         btnRegistrarProfesional.setText("Registrar Profesional");
         btnRegistrarProfesional.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegistrarProfesional.setContentAreaFilled(false);
+        btnRegistrarProfesional.setMaximumSize(new java.awt.Dimension(191, 35));
+        btnRegistrarProfesional.setMinimumSize(new java.awt.Dimension(191, 35));
         btnRegistrarProfesional.setOpaque(true);
-        btnRegistrarProfesional.setPreferredSize(new java.awt.Dimension(225, 196));
+        btnRegistrarProfesional.setPreferredSize(new java.awt.Dimension(193, 136));
         btnRegistrarProfesional.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarProfesionalActionPerformed(evt);
             }
         });
         panelBotonesAdministrador.add(btnRegistrarProfesional);
-        btnRegistrarProfesional.setBounds(0, 110, 260, 50);
+        btnRegistrarProfesional.setBounds(0, 110, 245, 50);
 
         btnRegistrarAlimento.setBackground(new java.awt.Color(255, 0, 102));
         btnRegistrarAlimento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -87,15 +98,17 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
         btnRegistrarAlimento.setText("Registrar Alimento");
         btnRegistrarAlimento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegistrarAlimento.setContentAreaFilled(false);
+        btnRegistrarAlimento.setMaximumSize(new java.awt.Dimension(191, 35));
+        btnRegistrarAlimento.setMinimumSize(new java.awt.Dimension(191, 35));
         btnRegistrarAlimento.setOpaque(true);
-        btnRegistrarAlimento.setPreferredSize(new java.awt.Dimension(205, 196));
+        btnRegistrarAlimento.setPreferredSize(new java.awt.Dimension(193, 136));
         btnRegistrarAlimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarAlimentoActionPerformed(evt);
             }
         });
         panelBotonesAdministrador.add(btnRegistrarAlimento);
-        btnRegistrarAlimento.setBounds(0, 190, 260, 50);
+        btnRegistrarAlimento.setBounds(0, 190, 245, 50);
 
         btnCambiarUsuario.setBackground(new java.awt.Color(255, 0, 102));
         btnCambiarUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -104,14 +117,17 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
         btnCambiarUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCambiarUsuario.setContentAreaFilled(false);
         btnCambiarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCambiarUsuario.setMaximumSize(new java.awt.Dimension(191, 35));
+        btnCambiarUsuario.setMinimumSize(new java.awt.Dimension(191, 35));
         btnCambiarUsuario.setOpaque(true);
+        btnCambiarUsuario.setPreferredSize(new java.awt.Dimension(193, 136));
         btnCambiarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambiarUsuarioActionPerformed(evt);
             }
         });
         panelBotonesAdministrador.add(btnCambiarUsuario);
-        btnCambiarUsuario.setBounds(0, 270, 260, 50);
+        btnCambiarUsuario.setBounds(0, 270, 245, 50);
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.png"))); // NOI18N
         fondo.setText("jLabel1");
@@ -123,6 +139,9 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUsuarioActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnRegistrarUsuario.setBorder(border);
         ventana.remove(actual);
         actual = new PanelRegistroUsuario(sistema, ventana);
         ventana.add(actual);
@@ -130,6 +149,9 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegistrarUsuarioActionPerformed
 
     private void btnRegistrarProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarProfesionalActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnRegistrarProfesional.setBorder(border);
         ventana.remove(actual);
         actual = new PanelRegistroProfesional(sistema, ventana);
         ventana.add(actual);
@@ -137,6 +159,9 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegistrarProfesionalActionPerformed
 
     private void btnRegistrarAlimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAlimentoActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnRegistrarAlimento.setBorder(border);
         ventana.remove(actual);
         actual = new PanelRegistroAlimento(sistema, ventana);
         ventana.add(actual);
@@ -144,12 +169,22 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegistrarAlimentoActionPerformed
 
     private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnCambiarUsuario.setBorder(border);
         ventana.remove(actual);
         actual = new PanelCambioDeUsuario(ventana, sistema, this);
         ventana.add(actual);
         ventana.pack();
     }//GEN-LAST:event_btnCambiarUsuarioActionPerformed
 
+    private void deselectButtons() {
+        Border border = new BevelBorder(0);
+        btnCambiarUsuario.setBorder(border);
+        btnRegistrarProfesional.setBorder(border);
+        btnRegistrarAlimento.setBorder(border);
+        btnRegistrarUsuario.setBorder(border);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiarUsuario;
