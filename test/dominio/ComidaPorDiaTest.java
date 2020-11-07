@@ -44,7 +44,7 @@ public class ComidaPorDiaTest {
         ComidaPorDia comida10deAgosto = new ComidaPorDia();
         comida10deAgosto.setFecha("10/08");
 
-        assertEquals("Comidas ingeridas el: 10/08", comida10deAgosto);
+        assertEquals("Comidas ingeridas el: 10/08", comida10deAgosto.toString());
     }
 
 }

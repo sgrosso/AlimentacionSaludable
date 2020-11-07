@@ -55,8 +55,8 @@ public class MensajeTest {
         Mensaje unMensaje = new Mensaje();
         unMensaje.setAsunto("Gracias");
         Persona usuario = (Persona) new Usuario();
-        usuario.setNombre("Juan");
+        usuario.setNombreUsuario("Juan");
         unMensaje.setOrigen(usuario);
-        assertEquals("Mensaje de: Juan con Asunto: Gracoas", unMensaje);
+        assertEquals("Mensaje de: Juan con Asunto: Gracias", unMensaje.toString());
     }
 }
