@@ -1,12 +1,15 @@
 package interfaz;
 
-import dominio.Persona;
 import dominio.Sistema;
 import dominio.Profesional;
 import dominio.Usuario;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -19,7 +22,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
     private Sistema sistema;
     private Profesional prof;
     private JFrame ventana;
-    
+
     //Constructor
     public PanelRegistroProfesional(Sistema unSistema, JFrame unaVentana) {
         initComponents();
@@ -30,7 +33,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
         listaPaisDeGraduacion.setModel(new DefaultComboBoxModel(listaPaises));
         listaPaisDeGraduacion.setSelectedIndex(Profesional.Pais.Uruguay.ordinal());
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -181,11 +184,11 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
 
         etiquetaErrorApellidoProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorApellidoProf);
-        etiquetaErrorApellidoProf.setBounds(720, 170, 400, 26);
+        etiquetaErrorApellidoProf.setBounds(740, 170, 400, 26);
 
         etiquetaErrorNombreUsuarioProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorNombreUsuarioProf);
-        etiquetaErrorNombreUsuarioProf.setBounds(720, 220, 400, 26);
+        etiquetaErrorNombreUsuarioProf.setBounds(740, 220, 400, 26);
 
         etiquetaErrorNombreTituloProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorNombreTituloProf);
@@ -201,7 +204,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
             }
         });
         panelRegProf.add(fechaNacimiento);
-        fechaNacimiento.setBounds(560, 270, 160, 32);
+        fechaNacimiento.setBounds(560, 270, 160, 22);
 
         etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorFechaNacimiento);
@@ -213,11 +216,11 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
             }
         });
         panelRegProf.add(fechaGraduacion);
-        fechaGraduacion.setBounds(560, 370, 160, 32);
+        fechaGraduacion.setBounds(560, 370, 160, 22);
 
         etiquetaErrorFechaGraduacion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorFechaGraduacion);
-        etiquetaErrorFechaGraduacion.setBounds(740, 370, 310, 26);
+        etiquetaErrorFechaGraduacion.setBounds(740, 370, 390, 26);
 
         btnCambiarFoto.setBackground(new java.awt.Color(255, 0, 102));
         btnCambiarFoto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -242,7 +245,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
+            .addGap(0, 1147, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -269,7 +272,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
 
     private void cajaApellidosProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaApellidosProfFocusLost
         String apellido = cajaApellidosProf.getText();
- 
+
     }//GEN-LAST:event_cajaApellidosProfFocusLost
 
     private void cajaUsuarioProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaUsuarioProfFocusLost
@@ -300,7 +303,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
     private void btnAceptarProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarProfActionPerformed
         Profesional profesional = new Profesional();
         boolean nombreValido = !cajaNombreProf.getText().trim().isEmpty();
-        
+        boolean apellidoValido = !cajaApellidosProf.getText().trim().isEmpty();
         Usuario comparoUsr = new Usuario();
         comparoUsr.setNombreUsuario(cajaUsuarioProf.getText());
         Profesional comparoProf = new Profesional();
@@ -309,9 +312,20 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
                 && !sistema.getListaUsuarios().contains(comparoUsr)
                 && !sistema.getListaProfesionales().contains(comparoProf);
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
-        boolean nombreTituloValido = !cajaNombreTituloProf.getText().trim().isEmpty();
         boolean fGraduacionValido = fechaGraduacion.getCalendar() != null;
-        if (nombreValido && nombreUsuarioValido
+        if (fNacimientoValido && fGraduacionValido) {
+            Date diaActual = new Date();
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            Date fecNac = fechaNacimiento.getCalendar().getTime();
+            LocalDate diaAct = LocalDate.now();
+            LocalDate fecNac2 = LocalDate.parse(fecNac.toString(), fmt);
+            Period period = Period.between(fecNac2, diaAct);
+            fNacimientoValido = fecNac.before(diaActual) && period.getYears() >= 18;
+            Date fecGrad = fechaNacimiento.getCalendar().getTime();
+            fGraduacionValido = fecGrad.before(diaActual) && fecGrad.after(fecNac);
+        }
+        boolean nombreTituloValido = !cajaNombreTituloProf.getText().trim().isEmpty();
+        if (nombreValido && nombreUsuarioValido && apellidoValido
                 && fNacimientoValido && nombreTituloValido && fGraduacionValido) {
             profesional.setNombre(cajaNombreProf.getText());
             profesional.setApellidos(cajaApellidosProf.getText());
@@ -332,7 +346,6 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
             if (nombreValido == false) {
                 etiquetaErrorNombreProf.setText("El nombre no puede ser vacío");
             }
-            
             if (nombreUsuarioValido == false) {
                 etiquetaErrorNombreUsuarioProf.setText("Nombre de usuario no válido");
             }
@@ -344,6 +357,9 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
             }
             if (fGraduacionValido == false) {
                 etiquetaErrorFechaGraduacion.setText("Fecha de graduación no válida");
+            }
+            if (!apellidoValido) {
+                etiquetaErrorApellidoProf.setText("El apellido no puede ser vacío");
             }
         }
     }//GEN-LAST:event_btnAceptarProfActionPerformed
@@ -378,17 +394,17 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
     private void cajaApellidosProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaApellidosProfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cajaApellidosProfActionPerformed
-    
+
     void actualizar() {
         fotoPerfil.setIcon(prof.getFotoPerfil());
     }
-    
+
     ImageIcon resizeImageIcon(ImageIcon imageIcon, Integer width, Integer height) {
         BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
         Graphics2D graphics2D = bufferedImage.createGraphics();
         graphics2D.drawImage(imageIcon.getImage(), 0, 0, width, height, null);
         graphics2D.dispose();
-        
+
         return new ImageIcon(bufferedImage, imageIcon.getDescription());
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

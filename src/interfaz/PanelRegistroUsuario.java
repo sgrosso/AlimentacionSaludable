@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -40,7 +42,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
         listaNacionalidadesUsuario.setSelectedIndex(Usuario.Nacionalidades.Uruguaya.ordinal());
         fotoPerfil.setSize(210, 240);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -193,11 +195,11 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
 
         etiquetaMedidaPeso.setText("Kg");
         panelRegUsuario.add(etiquetaMedidaPeso);
-        etiquetaMedidaPeso.setBounds(650, 380, 24, 26);
+        etiquetaMedidaPeso.setBounds(650, 380, 14, 16);
 
         etiquetaMedidaAltura.setText("Cm");
         panelRegUsuario.add(etiquetaMedidaAltura);
-        etiquetaMedidaAltura.setBounds(650, 330, 31, 26);
+        etiquetaMedidaAltura.setBounds(650, 330, 19, 16);
 
         btnAceptarUsuario.setBackground(new java.awt.Color(255, 0, 102));
         btnAceptarUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -285,7 +287,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             }
         });
         panelRegUsuario.add(checkBoxIntoleranteLactosa);
-        checkBoxIntoleranteLactosa.setBounds(590, 460, 285, 37);
+        checkBoxIntoleranteLactosa.setBounds(590, 460, 275, 37);
 
         checkBoxDiabetico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         checkBoxDiabetico.setText("Diabético");
@@ -346,11 +348,11 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             }
         });
         panelRegUsuario.add(fechaNacimiento);
-        fechaNacimiento.setBounds(480, 280, 160, 32);
+        fechaNacimiento.setBounds(480, 280, 160, 22);
 
         etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegUsuario.add(etiquetaErrorFechaNacimiento);
-        etiquetaErrorFechaNacimiento.setBounds(660, 280, 310, 0);
+        etiquetaErrorFechaNacimiento.setBounds(660, 280, 360, 30);
 
         etiquetaPreferencias.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaPreferencias.setText("Preferencias:");
@@ -489,16 +491,21 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
         comparoProf.setNombreUsuario(cajaNombUsuario.getText());
         Usuario comparoUsr = new Usuario();
         comparoUsr.setNombreUsuario(cajaNombUsuario.getText());
-       
+        boolean nombreValido = !cajaNombUsuario.getText().trim().isEmpty();
         boolean apellidoValido = !cajaApellidos.getText().trim().isEmpty();
         boolean nombreUsuarioValido = !cajaNombUsuario.getText().trim().isEmpty()
                 && !sistema.getListaUsuarios().contains(comparoUsr)
                 && !sistema.getListaProfesionales().contains(comparoProf);
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
+        if (fNacimientoValido) {
+            Date diaActual = new Date();
+            Date fecNac = fechaNacimiento.getCalendar().getTime();
+            fNacimientoValido = fNacimientoValido && fecNac.before(diaActual);
+        }
         boolean altura = pidoDatoNumerico(cajaAltura.getText(), 0, 265, etiquetaErrorAltura);
         boolean peso = pidoDatoNumerico(cajaPeso.getText(), 0, 600, etiquetaErrorPeso);
         boolean sexoPred = sexoPredeterminado();
-        if (apellidoValido && nombreUsuarioValido
+        if (apellidoValido && nombreUsuarioValido && nombreValido
                 && altura && peso && fNacimientoValido) {
             usuario.setNombre(cajaNombre.getText());
             usuario.setApellidos(cajaApellidos.getText());
@@ -517,24 +524,27 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             usuario.setFotoPerfil((ImageIcon) fotoPerfil.getIcon());
             sistema.getListaUsuarios().add(usuario);
             etiquetaMensajeAlAceptar.setText("Usuario registrado correctamente");
-            
+
         } else {
             etiquetaMensajeAlAceptar.setText("Error al ingresar el usuario");
-            
+
             if (apellidoValido == false) {
                 etiquetaErrorApellido.setText("El apellido no puede ser vacío");
             }
             if (nombreUsuarioValido == false) {
                 etiquetaErrorNombreUsuario.setText("Nombre de usuario no válido");
             }
+            if (!nombreValido) {
+                etiquetaErrorNombre.setText("El nombre no puede ser vacío");
+            }
             if (fNacimientoValido == false) {
                 etiquetaErrorFechaNacimiento.setText("Fecha de nacimiento no válida");
             }
             if (altura == false) {
-                 etiquetaErrorAltura.setText("La altura no puede estar vacía");
+                etiquetaErrorAltura.setText("La altura no puede estar vacía");
             }
             if (peso == false) {
-                 etiquetaErrorPeso.setText("El peso no puede estar vacío");
+                etiquetaErrorPeso.setText("El peso no puede estar vacío");
             }
         }
     }//GEN-LAST:event_btnAceptarUsuarioActionPerformed
@@ -622,18 +632,18 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
         }
         actualizar();
     }//GEN-LAST:event_btnCambiarFotoActionPerformed
-    
+
     void actualizar() {
         fotoPerfil.setIcon(usuario.getFotoPerfil());
     }
-    
+
     ImageIcon resizeImageIcon(ImageIcon imageIcon, Integer width, Integer height) {
         BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
-        
+
         Graphics2D graphics2D = bufferedImage.createGraphics();
         graphics2D.drawImage(imageIcon.getImage(), 0, 0, width, height, null);
         graphics2D.dispose();
-        
+
         return new ImageIcon(bufferedImage, imageIcon.getDescription());
     }
 
@@ -700,7 +710,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
         }
         return pidiendo;
     }
-    
+
     private boolean sexoPredeterminado() {
         boolean predeterminado = true;
         if (rBtnMasculinoUsuario.isSelected() == false) {

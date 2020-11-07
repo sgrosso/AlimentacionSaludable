@@ -5,6 +5,10 @@ import dominio.Profesional;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -282,8 +286,19 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         boolean nombreValido = !cajaNombreProf.getText().trim().isEmpty();
         boolean apellidoValido = !cajaApellidosProf.getText().trim().isEmpty();
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
-        boolean nombreTituloValido = !cajaNombreTituloProf.getText().trim().isEmpty();
         boolean fGraduacionValido = fechaGraduacion.getCalendar() != null;
+        if (fNacimientoValido && fGraduacionValido) {
+            Date diaActual = new Date();
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            Date fecNac = fechaNacimiento.getCalendar().getTime();
+            LocalDate diaAct = LocalDate.now();
+            LocalDate fecNac2 = LocalDate.parse(fecNac.toString(), fmt);
+            Period period = Period.between(fecNac2, diaAct);
+            fNacimientoValido = fecNac.before(diaActual) && period.getYears() >= 18;
+            Date fecGrad = fechaNacimiento.getCalendar().getTime();
+            fGraduacionValido = fecGrad.before(diaActual) && fecGrad.after(fecNac);
+        }
+        boolean nombreTituloValido = !cajaNombreTituloProf.getText().trim().isEmpty();
         if (nombreValido && apellidoValido
                 && fNacimientoValido && nombreTituloValido && fGraduacionValido) {
             profesional.setNombre(cajaNombreProf.getText());

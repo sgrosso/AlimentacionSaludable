@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -464,6 +465,11 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         boolean nombreValido = !cajaNombre.getText().trim().isEmpty();
         boolean apellidoValido = !cajaApellidos.getText().trim().isEmpty();
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
+        if (fNacimientoValido) {
+            Date diaActual = new Date();
+            Date fecNac = fechaNacimiento.getCalendar().getTime();
+            fNacimientoValido = fNacimientoValido && fecNac.before(diaActual);
+        }
         boolean altura = pidoDatoNumerico(cajaAltura.getText(), 0, 265, etiquetaErrorAltura);
         boolean peso = pidoDatoNumerico(cajaPeso.getText(), 0, 265, etiquetaErrorPeso);
         boolean sexoPred = sexoPredeterminado();
