@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JFrame;
 
-
 public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
 
     private Sistema sistema;
@@ -31,6 +30,7 @@ public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
         etiquetaTitulo = new javax.swing.JLabel();
         btnAgregarComida = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        etiquetaMensajeAlAgregar = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1147, 784));
@@ -73,13 +73,23 @@ public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
         });
         add(btnVolver);
         btnVolver.setBounds(0, 10, 110, 70);
+
+        etiquetaMensajeAlAgregar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaMensajeAlAgregar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(etiquetaMensajeAlAgregar);
+        etiquetaMensajeAlAgregar.setBounds(520, 590, 510, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarComidaActionPerformed
         Alimento comidaSeleccionada = (Alimento) listaComidasDiarias.getSelectedValue();
-        interfaz.getUsuarioActual().getHistorialDelDia().getComidasIngeridas().add(comidaSeleccionada);
-        LocalDate diaActual = LocalDate.now();
-        interfaz.getUsuarioActual().setFechaUltimaAdicion(diaActual.toString());
+        if (comidaSeleccionada != null) {
+            interfaz.getUsuarioActual().getHistorialDelDia().getComidasIngeridas().add(comidaSeleccionada);
+            LocalDate diaActual = LocalDate.now();
+            interfaz.getUsuarioActual().setFechaUltimaAdicion(diaActual.toString());
+            etiquetaMensajeAlAgregar.setText("Se ha añadido la comida correctamente");
+        } else {
+           etiquetaMensajeAlAgregar.setText("Debe seleccionar la comida que desea agregar"); 
+        }
     }//GEN-LAST:event_btnAgregarComidaActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
@@ -94,6 +104,7 @@ public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarComida;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel etiquetaMensajeAlAgregar;
     private javax.swing.JLabel etiquetaTitulo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList listaComidasDiarias;

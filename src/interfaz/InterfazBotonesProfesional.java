@@ -2,8 +2,12 @@ package interfaz;
 
 import dominio.Profesional;
 import dominio.Sistema;
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class InterfazBotonesProfesional extends javax.swing.JPanel {
 
@@ -23,6 +27,9 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
         actual = new PanelHomeProfesional(unSistema, this, unaVentana);
         ventana.add(this);
         ventana.add(actual);
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnHome.setBorder(border);
     }
 
     public JPanel getActual() {
@@ -69,7 +76,7 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
             }
         });
         add(btnHome);
-        btnHome.setBounds(2, 32, 258, 41);
+        btnHome.setBounds(2, 32, 245, 41);
 
         btnRealizarPlan.setBackground(new java.awt.Color(255, 0, 102));
         btnRealizarPlan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -84,7 +91,7 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
             }
         });
         add(btnRealizarPlan);
-        btnRealizarPlan.setBounds(2, 91, 258, 44);
+        btnRealizarPlan.setBounds(2, 91, 245, 44);
 
         btnConsultaDirecta.setBackground(new java.awt.Color(255, 0, 102));
         btnConsultaDirecta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -99,7 +106,7 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
             }
         });
         add(btnConsultaDirecta);
-        btnConsultaDirecta.setBounds(2, 156, 258, 43);
+        btnConsultaDirecta.setBounds(2, 156, 245, 43);
 
         btnCambiarUsuario.setBackground(new java.awt.Color(255, 0, 102));
         btnCambiarUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -114,7 +121,7 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
             }
         });
         add(btnCambiarUsuario);
-        btnCambiarUsuario.setBounds(2, 220, 258, 44);
+        btnCambiarUsuario.setBounds(2, 220, 245, 44);
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.png"))); // NOI18N
         add(fondo);
@@ -122,6 +129,9 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnHome.setBorder(border);
         ventana.remove(actual);
         actual = new PanelHomeProfesional(sistema, this, ventana);
         ventana.add(actual);
@@ -129,6 +139,9 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnConsultaDirectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaDirectaActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnConsultaDirecta.setBorder(border);
         ventana.remove(actual);
         actual = new PanelConsultaProfesionalDesdeProfesional(sistema, this, ventana);
         ventana.add(actual);
@@ -136,6 +149,9 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
     }//GEN-LAST:event_btnConsultaDirectaActionPerformed
 
     private void btnRealizarPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarPlanActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnRealizarPlan.setBorder(border);
         ventana.remove(actual);
         actual = new PanelSeleccionarPlanARealizar(sistema, this, ventana);
         ventana.add(actual);
@@ -143,12 +159,22 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRealizarPlanActionPerformed
 
     private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed
+        deselectButtons();
+        Border border = new LineBorder(Color.BLACK, 3);
+        btnCambiarUsuario.setBorder(border);
         ventana.remove(actual);
         actual = new PanelCambioDeUsuario(ventana, sistema, this);
         ventana.add(actual);
         ventana.pack();
     }//GEN-LAST:event_btnCambiarUsuarioActionPerformed
 
+    private void deselectButtons() {
+        Border border = new BevelBorder(0);
+        btnCambiarUsuario.setBorder(border);
+        btnConsultaDirecta.setBorder(border);
+        btnHome.setBorder(border);
+        btnRealizarPlan.setBorder(border);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiarUsuario;
