@@ -5,8 +5,10 @@ import dominio.Profesional;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -191,7 +193,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
             }
         });
         panelRegProf.add(fechaNacimiento);
-        fechaNacimiento.setBounds(560, 220, 160, 32);
+        fechaNacimiento.setBounds(560, 220, 160, 22);
 
         etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorFechaNacimiento);
@@ -203,7 +205,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
             }
         });
         panelRegProf.add(fechaGraduacion);
-        fechaGraduacion.setBounds(560, 320, 160, 32);
+        fechaGraduacion.setBounds(560, 320, 160, 22);
 
         etiquetaErrorFechaGraduacion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaErrorFechaGraduacion);
@@ -223,10 +225,10 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         panelRegProf.add(btnCambiarFoto);
         btnCambiarFoto.setBounds(40, 390, 190, 40);
 
-        fotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaProfesional.png"))); // NOI18N
+        fotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"))); // NOI18N
         fotoPerfil.setPreferredSize(new java.awt.Dimension(210, 270));
         panelRegProf.add(fotoPerfil);
-        fotoPerfil.setBounds(30, 120, 210, 270);
+        fotoPerfil.setBounds(30, 140, 210, 220);
 
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
         btnVolver.setBorderPainted(false);
@@ -289,13 +291,13 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         boolean fGraduacionValido = fechaGraduacion.getCalendar() != null;
         if (fNacimientoValido && fGraduacionValido) {
             Date diaActual = new Date();
-            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             Date fecNac = fechaNacimiento.getCalendar().getTime();
             LocalDate diaAct = LocalDate.now();
-            LocalDate fecNac2 = LocalDate.parse(fecNac.toString(), fmt);
-            Period period = Period.between(fecNac2, diaAct);
+            Instant instante = fecNac.toInstant();
+            LocalDate fecNacimiento = instante.atZone(ZoneId.systemDefault()).toLocalDate();
+            Period period = Period.between(fecNacimiento, diaAct);
             fNacimientoValido = fecNac.before(diaActual) && period.getYears() >= 18;
-            Date fecGrad = fechaNacimiento.getCalendar().getTime();
+            Date fecGrad = fechaGraduacion.getCalendar().getTime();
             fGraduacionValido = fecGrad.before(diaActual) && fecGrad.after(fecNac);
         }
         boolean nombreTituloValido = !cajaNombreTituloProf.getText().trim().isEmpty();
@@ -350,7 +352,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         ventana.remove(this);
-        PanelHomeProfesional nuevo = new PanelHomeProfesional(sistema, interfaz, ventana);
+        PanelPerfilProfesional nuevo = new PanelPerfilProfesional(sistema, interfaz, ventana);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
         ventana.pack();

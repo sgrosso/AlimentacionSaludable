@@ -24,7 +24,7 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
         sistema = unSistema;
         ventana = unaVentana;
         usuarioActivo = unProfesional;
-        actual = new PanelHomeProfesional(unSistema, this, unaVentana);
+        actual = new PanelPerfilProfesional(unSistema, this, unaVentana);
         ventana.add(this);
         ventana.add(actual);
         deselectButtons();
@@ -66,7 +66,7 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
         btnHome.setBackground(new java.awt.Color(255, 0, 102));
         btnHome.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
-        btnHome.setText("Home");
+        btnHome.setText("Perfil");
         btnHome.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnHome.setContentAreaFilled(false);
         btnHome.setOpaque(true);
@@ -133,7 +133,7 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
         Border border = new LineBorder(Color.BLACK, 3);
         btnHome.setBorder(border);
         ventana.remove(actual);
-        actual = new PanelHomeProfesional(sistema, this, ventana);
+        actual = new PanelPerfilProfesional(sistema, this, ventana);
         ventana.add(actual);
         ventana.pack();
     }//GEN-LAST:event_btnHomeActionPerformed

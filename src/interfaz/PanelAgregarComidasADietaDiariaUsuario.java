@@ -2,8 +2,7 @@ package interfaz;
 
 import dominio.Alimento;
 import dominio.Sistema;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javax.swing.JFrame;
 
 public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
@@ -84,7 +83,7 @@ public class PanelAgregarComidasADietaDiariaUsuario extends javax.swing.JPanel {
         Alimento comidaSeleccionada = (Alimento) listaComidasDiarias.getSelectedValue();
         if (comidaSeleccionada != null) {
             interfaz.getUsuarioActual().getHistorialDelDia().getComidasIngeridas().add(comidaSeleccionada);
-            LocalDate diaActual = LocalDate.now();
+            Date diaActual = new Date();
             interfaz.getUsuarioActual().setFechaUltimaAdicion(diaActual.toString());
             etiquetaMensajeAlAgregar.setText("Se ha añadido la comida correctamente");
         } else {

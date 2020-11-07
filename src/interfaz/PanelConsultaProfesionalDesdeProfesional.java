@@ -96,7 +96,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
 
         etiquetaTituloConsultas.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         etiquetaTituloConsultas.setForeground(new java.awt.Color(255, 0, 102));
-        etiquetaTituloConsultas.setText("Consultas a Profesionales");
+        etiquetaTituloConsultas.setText("Consultas de Usuarios");
         panelConsultaProf.add(etiquetaTituloConsultas);
         etiquetaTituloConsultas.setBounds(330, 10, 420, 44);
 

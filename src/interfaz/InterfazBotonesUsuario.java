@@ -147,7 +147,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
         btnAgregarComida.setBackground(new java.awt.Color(255, 0, 102));
         btnAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnAgregarComida.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarComida.setText("Agregar Comida a Dieta");
+        btnAgregarComida.setText("Agregar Ingesta");
         btnAgregarComida.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAgregarComida.setContentAreaFilled(false);
         btnAgregarComida.setOpaque(true);
@@ -157,7 +157,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnAgregarComida);
-        btnAgregarComida.setBounds(2, 295, 245, 45);
+        btnAgregarComida.setBounds(2, 300, 245, 45);
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.png"))); // NOI18N
         panelBotonesUsuario.add(fondo);
