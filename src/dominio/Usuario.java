@@ -217,18 +217,6 @@ public class Usuario extends Persona implements Serializable {
         Rusa, Sudáfricana, Surcoreana, Uruguaya, Venezolana
     }
 
-    String[] inicializoListaNacionalidades() {
-        String[] listaPaisesPivot = {"Alemana", "Australiana", "Austriaca",
-            "Brasileña","Canadiense", "Chilena", "China", "Colombiana",
-            "Surcoreana", "Cubana", "Ecuatoriana", "Egipcia",
-            "Española", "EstadoUnidense", "Francesa", "Griega",
-            "Holandesa", "India", "Inglesa", "Israeli", "Italiana",
-            "Japonesa", "Méxicana", "Paraguaya", "Peruana",
-            "Portuguesa", "Rusa", "Sudáfricana", "Uruguaya",
-            "Venezolana"};
-        return listaPaisesPivot;
-    }
-
     public Nacionalidades[] inicializoListaEnum() {
         Nacionalidades[] listaEnumPivot = {
             Nacionalidades.Alemana, Nacionalidades.Argentina,
