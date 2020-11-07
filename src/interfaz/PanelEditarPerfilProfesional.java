@@ -4,12 +4,12 @@ import dominio.Sistema;
 import dominio.Profesional;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -36,6 +36,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         Profesional.Pais[] listaPaises = profesional.getListaEnumPais();
         listaPaisDeGraduacion.setModel(new DefaultComboBoxModel(listaPaises));
         listaPaisDeGraduacion.setSelectedIndex(Profesional.Pais.Uruguay.ordinal());
+        cargarValoresActuales();
     }
 
     @SuppressWarnings("unchecked")
@@ -369,6 +370,27 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         graphics2D.dispose();
         return new ImageIcon(bufferedImage, imageIcon.getDescription());
     }
+
+    private void cargarValoresActuales() {
+        this.cajaNombreProf.setText(profesional.getNombre());
+        this.cajaApellidosProf.setText(profesional.getApellidos());
+        try {
+            Date fechaNacimientoDate;
+            fechaNacimientoDate = new SimpleDateFormat("dd/MM/yyyy").parse(profesional.getFechaNacimiento());
+            this.fechaNacimiento.setDate(fechaNacimientoDate);
+        } catch (ParseException ex) {
+        }
+        this.cajaNombreTituloProf.setText(profesional.getNombreTituloProf());
+        try {
+            Date fechaGraduacionDate;
+            fechaGraduacionDate = new SimpleDateFormat("dd/MM/yyyy").parse(profesional.getFechaGraduacion());
+            this.fechaGraduacion.setDate(fechaGraduacionDate);
+        } catch (ParseException ex) {
+        }
+        this.listaPaisDeGraduacion.setSelectedItem(profesional.getPaisObtuvoTitulo());
+        actualizar();
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarProf;
     private javax.swing.JButton btnCambiarFoto;
