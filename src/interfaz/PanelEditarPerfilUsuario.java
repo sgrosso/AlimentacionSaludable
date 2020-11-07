@@ -2,8 +2,10 @@ package interfaz;
 
 import dominio.Sistema;
 import dominio.Usuario;
+import dominio.Usuario.Preferencias;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,9 +43,10 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         Usuario.Nacionalidades[] listaNac = usuario.getListaEnumNac();
         listaNacionalidadesUsuario.setModel(new DefaultComboBoxModel(listaNac));
         listaNacionalidadesUsuario.setSelectedIndex(Usuario.Nacionalidades.Uruguaya.ordinal());
-        usuario.setListaRestricciones(new boolean[usuario.getListaRestricciones().length]);
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Ninguna);
+        //usuario.setListaRestricciones(new boolean[usuario.getListaRestricciones().length]);
+        //usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Ninguna);
         fotoPerfil.setSize(210, 240);
+        cargarValoresActuales();
     }
 
     @SuppressWarnings("unchecked")
@@ -472,8 +475,8 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             } else {
                 usuario.setSexo("Femenino");
             }
-            usuario.setAlturaCm(Integer.parseInt(cajaAltura.getText()));
-            usuario.setPesoKg(Integer.parseInt(cajaPeso.getText()));
+            usuario.setAlturaCm(Double.parseDouble(cajaAltura.getText()));
+            usuario.setPesoKg(Double.parseDouble(cajaPeso.getText()));
             usuario.setFotoPerfil((ImageIcon) fotoPerfil.getIcon());
             etiquetaMensajeAlAceptar.setText("Usuario editado correctamente");
 
@@ -489,10 +492,10 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
                 etiquetaErrorFechaNacimiento.setText("Fecha de nacimiento no válida");
             }
             if (altura == false) {
-                 etiquetaErrorAltura.setText("La altura no puede estar vacía");
+                etiquetaErrorAltura.setText("La altura no puede estar vacía");
             }
             if (peso == false) {
-                 etiquetaErrorPeso.setText("El peso no puede estar vacío");
+                etiquetaErrorPeso.setText("El peso no puede estar vacío");
             }
         }
     }//GEN-LAST:event_btnAceptarUsuarioActionPerformed
@@ -644,10 +647,10 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private boolean pidoDatoNumerico(String dato, int min, int max, JLabel etiqueta) {
-        int datoAVerificar = 0;
+        double datoAVerificar = 0;
         boolean pidiendo = false;
         try {
-            datoAVerificar = Integer.parseInt(dato);
+            datoAVerificar = Double.parseDouble(dato);
             if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
                 pidiendo = true;
             } else {
@@ -666,5 +669,54 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             predeterminado = false;
         }
         return predeterminado;
+    }
+
+    private void cargarValoresActuales() {
+        this.cajaNombre.setText(usuario.getNombre());
+        this.cajaApellidos.setText(usuario.getApellidos());
+        this.listaNacionalidadesUsuario.setSelectedItem(usuario.getNacionalidad());
+        try {
+            Date fechaNacimientoDate;
+            fechaNacimientoDate = new SimpleDateFormat("dd/MM/yyyy").parse(usuario.getFechaNacimiento());
+            this.fechaNacimiento.setDate(fechaNacimientoDate);
+        } catch (ParseException ex) {
+        }
+        this.cajaAltura.setText(String.valueOf(usuario.getAlturaCm()));
+        this.cajaPeso.setText(String.valueOf(usuario.getPesoKg()));
+        if ("Masculino".equals(usuario.getSexo())) {
+            grupoBotonesSexo.clearSelection();
+            rBtnMasculinoUsuario.setSelected(true);
+        } else {
+            grupoBotonesSexo.clearSelection();
+            rBtnFemeninoUsuario.setSelected(true);
+        }
+
+        if (usuario.getListaRestricciones()[0]) {
+            checkBoxCeliaco.setSelected(true);
+        }
+        if (usuario.getListaRestricciones()[1]) {
+            checkBoxIntoleranteLactosa.setSelected(true);
+        }
+        if (usuario.getListaRestricciones()[2]) {
+            checkBoxDiabetico.setSelected(true);
+        }
+        if (usuario.getListaRestricciones()[3]) {
+            checkBoxHipertension.setSelected(true);
+        }
+
+        if (Preferencias.Vegano.equals(usuario.getPreferenciasAlimentarias())) {
+            grupoBotonesPreferencias.clearSelection();
+            rBVegano.setSelected(true);
+        } else if (Preferencias.Vegetariano.equals(usuario.getPreferenciasAlimentarias())) {
+            grupoBotonesPreferencias.clearSelection();
+            rBVegetariano.setSelected(true);
+        } else if (Preferencias.Macrobiotico.equals(usuario.getPreferenciasAlimentarias())) {
+            grupoBotonesPreferencias.clearSelection();
+            rBMacrobiotico.setSelected(true);
+        } else if (Preferencias.Organico.equals(usuario.getPreferenciasAlimentarias())) {
+            grupoBotonesPreferencias.clearSelection();
+            rBOrganico.setSelected(true);
+        }
+        actualizar();
     }
 }
