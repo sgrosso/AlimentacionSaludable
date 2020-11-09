@@ -3,6 +3,7 @@ package dominio;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ComidaPorDia implements Serializable {
     //Atributos
@@ -46,20 +47,22 @@ public class ComidaPorDia implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        boolean retorno=true;
         if (obj == null) {
-            retorno= false;
+            return false;
         }
+        
         if (getClass() != obj.getClass()) {
-            retorno= false;
+            return false;
         }
-        if (retorno == true) {
-            ComidaPorDia other = (ComidaPorDia) obj;
-            retorno=other.getComidasIngeridas()
-                    .equals(this.getComidasIngeridas()) && 
-                    other.getFecha().equalsIgnoreCase(this.getFecha());
-        }
-        return retorno;
+        
+        ComidaPorDia other = (ComidaPorDia) obj;
+        return other.comidasIngeridas.equals(this.getComidasIngeridas())
+            && other.getFecha().equalsIgnoreCase(this.getFecha());
+    }
+
+    @Override
+    public int hashCode() {
+        return 97 * 7 + Objects.hashCode(this.comidasIngeridas) + Objects.hashCode(this.fecha);
     }
     
     

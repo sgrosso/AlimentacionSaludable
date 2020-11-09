@@ -9,9 +9,9 @@ import javax.swing.JFrame;
 public class PanelRedactarConsulta extends javax.swing.JPanel {
 
     //Atributos
-    private Sistema sistema;
-    private InterfazBotonesUsuario interfazUsuario;
-    private JFrame ventana;
+    private final Sistema sistema;
+    private final InterfazBotonesUsuario interfazUsuario;
+    private final JFrame ventana;
 
     //Constructor para usuarios
     public PanelRedactarConsulta(Sistema unSistema,
@@ -132,7 +132,7 @@ public class PanelRedactarConsulta extends javax.swing.JPanel {
         mensajeAEnviar.setOrigen(interfazUsuario.getUsuarioActual());
         mensajeAEnviar.setDestino(destino);
         mensajeAEnviar.setAsunto(cajaAsunto.getText());
-        mensajeAEnviar.setMensaje(textoConsultaAEnviar.getText());
+        mensajeAEnviar.setTexto(textoConsultaAEnviar.getText());
         destino.getCasillaDeEntrada().add(mensajeAEnviar);
         mensajeAlAceptar.setText("Se ha enviado la consulta");
     }//GEN-LAST:event_btnEnviarConsultaActionPerformed

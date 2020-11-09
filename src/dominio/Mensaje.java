@@ -6,19 +6,19 @@ import java.io.Serializable;
 public class Mensaje implements Serializable {
     
     //Atributos
-     private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private Persona origen;
     private Persona destino;
     private String asunto;
-    private String mensaje;
+    private String texto;
     
     //Constructor
     public Mensaje() {
-        Persona p = (Persona) new Usuario();
-        this.origen = p;
-        this.destino = p;
+        Persona persona = (Persona) new Usuario();
+        this.origen = persona;
+        this.destino = persona;
         this.asunto = "no tiene texto";
-        this.mensaje = "no tiene texto";
+        this.texto = "no tiene texto";
     }
     
     //Metodos de la clase Mensaje
@@ -47,12 +47,12 @@ public class Mensaje implements Serializable {
         this.asunto = asunto;
     }
 
-    public String getMensaje() {
-        return mensaje;
+    public String getTexto() {
+        return texto;
     }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
+    public void setTexto(String mensaje) {
+        this.texto = mensaje;
     }
     
     //Redefino toString

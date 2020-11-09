@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel {
 
     //Atrubutos
-    private Sistema sistema;
-    private InterfazBotonesProfesional interfaz;
-    private JFrame ventana;
+    private final Sistema sistema;
+    private final InterfazBotonesProfesional interfaz;
+    private final JFrame ventana;
     private Mensaje mensajeSeleccionado;
 
     //Constructor
@@ -130,7 +130,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
     private void listaMensajesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaMensajesValueChanged
         mensajeSeleccionado = (Mensaje) listaMensajes.getSelectedValue();
         if (mensajeSeleccionado != null) {
-            textoLeerMensaje.setText(mensajeSeleccionado.getMensaje());
+            textoLeerMensaje.setText(mensajeSeleccionado.getTexto());
         }
     }//GEN-LAST:event_listaMensajesValueChanged
 

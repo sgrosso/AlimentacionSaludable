@@ -4,7 +4,7 @@ import dominio.Alimento;
 import dominio.PlanDeAlimentacion;
 import dominio.Sistema;
 import dominio.Usuario;
-import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 
 public class PanelRealizarPlanAlimentacion extends javax.swing.JPanel {
@@ -158,7 +158,7 @@ public class PanelRealizarPlanAlimentacion extends javax.swing.JPanel {
 
     private void btnAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarComidaActionPerformed
         ventana.remove(this);
-        ArrayList<Alimento> listaActiva = listaActiva();
+        List<Alimento> listaActiva = listaActiva();
         PanelAgregarComidasAPlan nuevo = new PanelAgregarComidasAPlan(sistema, interfaz, ventana, listaActiva, nuevoPlan, usuarioAModificar);
         interfaz.setActual(nuevo);
         ventana.add(nuevo);
@@ -182,53 +182,53 @@ public class PanelRealizarPlanAlimentacion extends javax.swing.JPanel {
         mensajeAlAceptar.setText("Se ha enviado correctamente");
     }//GEN-LAST:event_btnEnviarPlanActionPerformed
 
-    void actualizarLista() {
-        if (listaDiasDeLaSemana.getSelectedItem().equals("lunes")) {
+    public void actualizarLista() {
+        if (listaDiasDeLaSemana.getSelectedItem().equals("lunes"))
             listaComidasDiarias.setListData(nuevoPlan.getListaLunes().toArray());
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("martes")) {
+            
+        if (listaDiasDeLaSemana.getSelectedItem().equals("martes"))
             listaComidasDiarias.setListData(nuevoPlan.getListaMartes().toArray());
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("miercoles")) {
+            
+        if (listaDiasDeLaSemana.getSelectedItem().equals("miercoles"))
             listaComidasDiarias.setListData(nuevoPlan.getListaMiercoles().toArray());
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("jueves")) {
+            
+        if (listaDiasDeLaSemana.getSelectedItem().equals("jueves"))
             listaComidasDiarias.setListData(nuevoPlan.getListaJueves().toArray());
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("viernes")) {
+            
+        if (listaDiasDeLaSemana.getSelectedItem().equals("viernes"))
             listaComidasDiarias.setListData(nuevoPlan.getListaViernes().toArray());
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("sabado")) {
+            
+        if (listaDiasDeLaSemana.getSelectedItem().equals("sabado"))
             listaComidasDiarias.setListData(nuevoPlan.getListaSabado().toArray());
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("domingo")) {
+            
+        if (listaDiasDeLaSemana.getSelectedItem().equals("domingo"))
             listaComidasDiarias.setListData(nuevoPlan.getListaDomingo().toArray());
-        }
     }
 
-    ArrayList<Alimento> listaActiva() {
-        ArrayList<Alimento> retorno = null;
-        if (listaDiasDeLaSemana.getSelectedItem().equals("lunes")) {
+    public List<Alimento> listaActiva() {
+        List<Alimento> retorno = null;
+        
+        if (listaDiasDeLaSemana.getSelectedItem().equals("lunes"))
             retorno = nuevoPlan.getListaLunes();
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("martes")) {
+        
+        if (listaDiasDeLaSemana.getSelectedItem().equals("martes"))
             retorno = nuevoPlan.getListaMartes();
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("miercoles")) {
+        
+        if (listaDiasDeLaSemana.getSelectedItem().equals("miercoles"))
             retorno = nuevoPlan.getListaMiercoles();
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("jueves")) {
+        
+        if (listaDiasDeLaSemana.getSelectedItem().equals("jueves"))
             retorno = nuevoPlan.getListaJueves();
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("viernes")) {
+        
+        if (listaDiasDeLaSemana.getSelectedItem().equals("viernes"))
             retorno = nuevoPlan.getListaViernes();
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("sabado")) {
+        
+        if (listaDiasDeLaSemana.getSelectedItem().equals("sabado"))
             retorno = nuevoPlan.getListaSabado();
-        }
-        if (listaDiasDeLaSemana.getSelectedItem().equals("domingo")) {
+        
+        if (listaDiasDeLaSemana.getSelectedItem().equals("domingo"))
             retorno = nuevoPlan.getListaDomingo();
-        }
+        
         return retorno;
     }
 

@@ -16,13 +16,12 @@ public class Profesional extends Persona implements Serializable {
     //Constructor
 
     public Profesional() {
-        super("no ingreso nombre", "no ingreso apellido", "no ingreso usuario",
-              "no ingreso fecha nacimiento", null);
+        super("no ingreso nombre", "no ingreso apellido", "no ingreso usuario", "no ingreso fecha nacimiento", null);
         this.setFotoPerfil(new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaProfesional.png")));
         this.nombreTituloProf = "no ingreso titulo prof";
         this.fechaGraduacion = "no ingreso fecha graduacion";
         this.paisObtuvoTitulo = Pais.URUGUAY;
-        this.casillaDeEntrada = new ArrayList<Mensaje>();
+        this.casillaDeEntrada = new ArrayList<>();
     }
 
     // Metodos de la clase profesional

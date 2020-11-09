@@ -22,7 +22,7 @@ public class Sistema implements Serializable {
     private TipoUsuario[] listaTiposDeUsuario;
     TipoUsuario usuarioActivo;
 
-    //Cosntructor
+    //Constructor
     public Sistema(ArrayList<Alimento> listaAlimentos,
             ArrayList<Usuario> listaUsuarios,
             ArrayList<Profesional> listaProfesionales,
@@ -34,9 +34,9 @@ public class Sistema implements Serializable {
     }
 
     public Sistema() {
-        this.listaAlimentos = new ArrayList();
-        this.listaUsuarios = new ArrayList();
-        this.listaProfesionales = new ArrayList();
+        this.listaAlimentos = new ArrayList<>();
+        this.listaUsuarios = new ArrayList<>();
+        this.listaProfesionales = new ArrayList<>();
         this.usuarioActivo = TipoUsuario.NO_SELECCIONADO;
     }
     
@@ -109,22 +109,16 @@ public class Sistema implements Serializable {
     }
 
     //Metodo que adapta el tamaño de la imagen al deseado
-    ImageIcon resizeImageIcon(ImageIcon imageIcon, Integer width,
-                              Integer height) {
-        BufferedImage bufferedImage = new BufferedImage
-                                      (width, height,
-                                       BufferedImage.TRANSLUCENT);
+    public ImageIcon resizeImageIcon(ImageIcon imageIcon, Integer width, Integer height) {
+        BufferedImage bufferedImage = new BufferedImage (width, height, BufferedImage.TRANSLUCENT);
         Graphics2D graphics2D = bufferedImage.createGraphics();
         graphics2D.drawImage(imageIcon.getImage(), 0, 0, width, height, null);
         graphics2D.dispose();
         return new ImageIcon(bufferedImage, imageIcon.getDescription());
     }
 
-    void registroUsuario(String unNombre, String unApellido, String unUsuario,
-                         String unSexo, String unaFechaNacimiento,
-                         double unaAltura, ImageIcon unaFotoPerfil,
-                         double unPeso,
-                         Pais unaNacionalidad) {
+    void registroUsuario(String unNombre, String unApellido, String unUsuario, String unSexo, String unaFechaNacimiento, double unaAltura, ImageIcon unaFotoPerfil,
+        double unPeso, Pais unaNacionalidad) {
         Usuario usuario = new Usuario();
         usuario.setNombre(unNombre);
         usuario.setApellidos(unApellido);

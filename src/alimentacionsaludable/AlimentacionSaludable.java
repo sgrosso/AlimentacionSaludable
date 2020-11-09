@@ -4,15 +4,18 @@
  * and open the template in the editor.
  */
 package alimentacionsaludable;
+
 import dominio.Sistema;
 import interfaz.PanelCambioDeUsuario;
 import interfaz.PanelPrincipal;
 import java.io.IOException;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author ale
  */
+
 public class AlimentacionSaludable {
 
     /**
@@ -20,16 +23,16 @@ public class AlimentacionSaludable {
      */
     
     public static void main(String[] args) throws Exception {
-        Sistema s = new Sistema();
+        Sistema sistema = new Sistema();
         
         boolean errorCargarDatos = false;
         try {
-            s.cargarSistema();
+            sistema.cargarSistema();
         } catch (IOException ioException) {
             errorCargarDatos = true;
         } 
         
-        PanelPrincipal pantallaPrincipal = new PanelPrincipal(s);
+        PanelPrincipal pantallaPrincipal = new PanelPrincipal(sistema);
         
         if (errorCargarDatos) {
             JOptionPane.showMessageDialog(pantallaPrincipal, "Ocurrió un error cargando los datos del sistema.");
