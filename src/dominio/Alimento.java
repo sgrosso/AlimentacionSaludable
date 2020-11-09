@@ -115,6 +115,23 @@ public class Alimento implements Serializable {
     public String toString() {
         return nombre;
     }
+    
+    //Redefino el equals
+    @Override
+    public boolean equals(Object obj) {
+        boolean retorno = true;
+        if (obj == null) {
+            retorno = false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            retorno = false;
+        }
+        if(retorno){
+            Alimento unAlimento = (Alimento) obj;
+            retorno = this.getNombre().equalsIgnoreCase(unAlimento.getNombre());
+        }
+        return retorno;
+    }
 
     @Override
     public int hashCode() {

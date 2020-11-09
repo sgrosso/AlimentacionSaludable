@@ -43,6 +43,7 @@ public class PanelAgregarComidasAPlan extends javax.swing.JPanel {
         listaComidas = new javax.swing.JList();
         btnAgregarComida = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        etiquetaMensajeAlAgregar = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1147, 784));
@@ -84,6 +85,11 @@ public class PanelAgregarComidasAPlan extends javax.swing.JPanel {
         });
         add(btnVolver);
         btnVolver.setBounds(10, 10, 100, 60);
+
+        etiquetaMensajeAlAgregar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaMensajeAlAgregar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(etiquetaMensajeAlAgregar);
+        etiquetaMensajeAlAgregar.setBounds(500, 590, 510, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
@@ -96,13 +102,19 @@ public class PanelAgregarComidasAPlan extends javax.swing.JPanel {
 
     private void btnAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarComidaActionPerformed
         Alimento alimentoAAgregar = (Alimento) listaComidas.getSelectedValue();
-        listaAModificar.add(alimentoAAgregar);
+        if (alimentoAAgregar != null) {
+            listaAModificar.add(alimentoAAgregar);
+            etiquetaMensajeAlAgregar.setText("Se ha añadido la comida correctamente");
+        } else {
+            etiquetaMensajeAlAgregar.setText("Debe seleccionar la comida que desea agregar");
+        }
     }//GEN-LAST:event_btnAgregarComidaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarComida;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel etiquetaMensajeAlAgregar;
     private javax.swing.JLabel etiquetaTitulo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList listaComidas;
