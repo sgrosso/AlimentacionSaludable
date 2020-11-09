@@ -1,12 +1,13 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.swing.ImageIcon;
 
 public abstract class Persona implements Serializable {
 
     //Atributos
-    private static final long serialVersionUID = 6106269076155338045L;
+    private static final long serialVersionUID = 1L;
     private String nombre;
     private String apellidos;
     private String nombreUsuario;
@@ -64,21 +65,28 @@ public abstract class Persona implements Serializable {
         this.fotoPerfil = fotoPerfil;
     }
 
+    @Override
+    public int hashCode() {
+        return 47 * 7 + Objects.hashCode(this.nombreUsuario);
+    }
+    
     //Redefino el equals
     @Override
     public boolean equals(Object obj) {
-        boolean retorno = true;
+        if (this == obj) {
+            return true;
+        }
+        
         if (obj == null) {
-            retorno = false;
+            return false;
         }
-        if (obj.getClass() != this.getClass()) {
-            retorno = false;
+        
+        if (getClass() != obj.getClass()) {
+            return false;
         }
-        if(retorno == true){
-            Persona p = (Persona) obj;
-            retorno = this.getNombreUsuario()
-                      .equalsIgnoreCase(p.getNombreUsuario());
-        }
-        return retorno;
+        
+        final Persona other = (Persona) obj;
+        return Objects.equals(this.nombreUsuario, other.nombreUsuario);
     }
+    
 }

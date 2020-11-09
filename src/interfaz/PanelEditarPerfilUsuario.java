@@ -1,5 +1,6 @@
 package interfaz;
 
+import dominio.Pais;
 import dominio.Sistema;
 import dominio.Usuario;
 import dominio.Usuario.Preferencias;
@@ -7,9 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -20,10 +19,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
 
     //Atributos
-    private Sistema sistema;
-    private Usuario usuario;
-    private JFrame ventana;
-    private InterfazBotonesUsuario interfaz;
+    private final Sistema sistema;
+    private final Usuario usuario;
+    private final JFrame ventana;
+    private final InterfazBotonesUsuario interfaz;
 
     //Constructor
     public PanelEditarPerfilUsuario(Sistema unSistema, JFrame unaVentana,
@@ -40,9 +39,8 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         grupoBotonesPreferencias.add(rBVegetariano);
         grupoBotonesPreferencias.add(rBMacrobiotico);
         grupoBotonesPreferencias.add(rBOrganico);
-        Usuario.Nacionalidades[] listaNac = usuario.getListaEnumNac();
-        listaNacionalidadesUsuario.setModel(new DefaultComboBoxModel(listaNac));
-        listaNacionalidadesUsuario.setSelectedIndex(Usuario.Nacionalidades.Uruguaya.ordinal());
+        listaNacionalidadesUsuario.setModel(new DefaultComboBoxModel(Pais.values()));
+        listaNacionalidadesUsuario.setSelectedIndex(Pais.URUGUAY.ordinal());
         //usuario.setListaRestricciones(new boolean[usuario.getListaRestricciones().length]);
         //usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Ninguna);
         fotoPerfil.setSize(210, 240);
@@ -466,7 +464,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
                 && altura && peso && fNacimientoValido) {
             usuario.setNombre(cajaNombre.getText());
             usuario.setApellidos(cajaApellidos.getText());
-            usuario.setNacionalidad(usuario.getListaEnumNac()[listaNacionalidadesUsuario.getSelectedIndex()]);
+            usuario.setNacionalidad(Pais.values()[listaNacionalidadesUsuario.getSelectedIndex()]);
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             String fNacimiento = formatter.format(fechaNacimiento.getCalendar().getTime());
             usuario.setFechaNacimiento(fNacimiento);
@@ -516,19 +514,19 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_fechaNacimientoFocusLost
 
     private void checkBoxIntoleranteLactosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxIntoleranteLactosaActionPerformed
-        int posicionEnum = Usuario.Restricciones.IntoleranteALaLactosa.ordinal();
+        int posicionEnum = Usuario.Restricciones.INTOLERANTE_A_LA_LACTOSA.ordinal();
         boolean valorEnPos = usuario.getListaRestricciones()[posicionEnum];
         usuario.getListaRestricciones()[posicionEnum] = !valorEnPos;
     }//GEN-LAST:event_checkBoxIntoleranteLactosaActionPerformed
 
     private void checkBoxHipertensionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxHipertensionActionPerformed
-        int posicionEnum = Usuario.Restricciones.Hipertension.ordinal();
+        int posicionEnum = Usuario.Restricciones.HIPERTENSION.ordinal();
         boolean valorEnPos = usuario.getListaRestricciones()[posicionEnum];
         usuario.getListaRestricciones()[posicionEnum] = !valorEnPos;
     }//GEN-LAST:event_checkBoxHipertensionActionPerformed
 
     private void rBMacrobioticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBMacrobioticoActionPerformed
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Macrobiotico);
+        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.MACROBIOTICO);
     }//GEN-LAST:event_rBMacrobioticoActionPerformed
 
     private void listaNacionalidadesUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaNacionalidadesUsuarioActionPerformed
@@ -536,25 +534,25 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_listaNacionalidadesUsuarioActionPerformed
 
     private void rBVeganoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBVeganoActionPerformed
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Vegano);
+        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.VEGANO);
     }//GEN-LAST:event_rBVeganoActionPerformed
 
     private void rBVegetarianoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBVegetarianoActionPerformed
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Vegetariano);
+        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.VEGETARIANO);
     }//GEN-LAST:event_rBVegetarianoActionPerformed
 
     private void rBOrganicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBOrganicoActionPerformed
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Organico);
+        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.ORGANICO);
     }//GEN-LAST:event_rBOrganicoActionPerformed
 
     private void checkBoxCeliacoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCeliacoActionPerformed
-        int posicionEnum = Usuario.Restricciones.Celiaco.ordinal();
+        int posicionEnum = Usuario.Restricciones.CELIACO.ordinal();
         boolean valorEnPos = usuario.getListaRestricciones()[posicionEnum];
         usuario.getListaRestricciones()[posicionEnum] = !valorEnPos;
     }//GEN-LAST:event_checkBoxCeliacoActionPerformed
 
     private void checkBoxDiabeticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxDiabeticoActionPerformed
-        int posicionEnum = Usuario.Restricciones.Diabetico.ordinal();
+        int posicionEnum = Usuario.Restricciones.DIABETICO.ordinal();
         boolean valorEnPos = usuario.getListaRestricciones()[posicionEnum];
         usuario.getListaRestricciones()[posicionEnum] = !valorEnPos;
     }//GEN-LAST:event_checkBoxDiabeticoActionPerformed
@@ -647,10 +645,9 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private boolean pidoDatoNumerico(String dato, int min, int max, JLabel etiqueta) {
-        double datoAVerificar = 0;
         boolean pidiendo = false;
         try {
-            datoAVerificar = Double.parseDouble(dato);
+            double datoAVerificar = Double.parseDouble(dato);
             if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
                 pidiendo = true;
             } else {
@@ -704,16 +701,16 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             checkBoxHipertension.setSelected(true);
         }
 
-        if (Preferencias.Vegano.equals(usuario.getPreferenciasAlimentarias())) {
+        if (Preferencias.VEGANO.equals(usuario.getPreferenciasAlimentarias())) {
             grupoBotonesPreferencias.clearSelection();
             rBVegano.setSelected(true);
-        } else if (Preferencias.Vegetariano.equals(usuario.getPreferenciasAlimentarias())) {
+        } else if (Preferencias.VEGETARIANO.equals(usuario.getPreferenciasAlimentarias())) {
             grupoBotonesPreferencias.clearSelection();
             rBVegetariano.setSelected(true);
-        } else if (Preferencias.Macrobiotico.equals(usuario.getPreferenciasAlimentarias())) {
+        } else if (Preferencias.MACROBIOTICO.equals(usuario.getPreferenciasAlimentarias())) {
             grupoBotonesPreferencias.clearSelection();
             rBMacrobiotico.setSelected(true);
-        } else if (Preferencias.Organico.equals(usuario.getPreferenciasAlimentarias())) {
+        } else if (Preferencias.ORGANICO.equals(usuario.getPreferenciasAlimentarias())) {
             grupoBotonesPreferencias.clearSelection();
             rBOrganico.setSelected(true);
         }

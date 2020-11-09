@@ -1,71 +1,55 @@
 package dominio;
 
-import com.toedter.calendar.JDateChooser;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Optional;
+import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class Sistema implements Serializable {
 
     //Atributos
-    private static final long serialVersionUID = 6106269076155338045L;
-    ArrayList<Alimento> listaAlimentos;
-    ArrayList<Usuario> listaUsuarios;
-    ArrayList<Profesional> listaProfesionales;
-    tipoUsuario[] listaTiposDeUsuario;
-    tipoUsuario usuarioActivo;
+    private static final long serialVersionUID = 1L;
+    private List<Alimento> listaAlimentos;
+    private List<Usuario> listaUsuarios;
+    private List<Profesional> listaProfesionales;
+    private TipoUsuario[] listaTiposDeUsuario;
+    TipoUsuario usuarioActivo;
 
     //Cosntructor
     public Sistema(ArrayList<Alimento> listaAlimentos,
             ArrayList<Usuario> listaUsuarios,
             ArrayList<Profesional> listaProfesionales,
-            tipoUsuario usuarioActivo) {
+            TipoUsuario usuarioActivo) {
         this.listaAlimentos = listaAlimentos;
         this.listaUsuarios = listaUsuarios;
         this.listaProfesionales = listaProfesionales;
         this.usuarioActivo = usuarioActivo;
-        this.listaTiposDeUsuario = inicializoListaTiposDeUsuario();
     }
 
     public Sistema() {
         this.listaAlimentos = new ArrayList();
         this.listaUsuarios = new ArrayList();
         this.listaProfesionales = new ArrayList();
-        this.usuarioActivo = tipoUsuario.NoSeleccionado;
-        this.listaTiposDeUsuario = inicializoListaTiposDeUsuario();
+        this.usuarioActivo = TipoUsuario.NO_SELECCIONADO;
     }
+    
     //Metodos de la clase sistema
-
-    public tipoUsuario[] getListaTiposDeUsuario() {
-        tipoUsuario[] lista = listaTiposDeUsuario;
-        return lista;
-    }
-
-    public void setListaTiposDeUsuario(tipoUsuario[] listaTiposDeUsuario) {
-        this.listaTiposDeUsuario = Optional
-                .ofNullable(listaTiposDeUsuario)
-                .orElse(null);
-    }
-
-    public ArrayList<Alimento> getListaAlimentos() {
+    public List<Alimento> getListaAlimentos() {
         return listaAlimentos;
     }
 
-    public void setListaAlimentos(ArrayList<Alimento> listaAlimentos) {
+    public void setListaAlimentos(List<Alimento> listaAlimentos) {
         this.listaAlimentos = listaAlimentos;
     }
 
-    public ArrayList<Usuario> getListaUsuarios() {
+    public List<Usuario> getListaUsuarios() {
         return listaUsuarios;
     }
 
@@ -73,82 +57,55 @@ public class Sistema implements Serializable {
         this.listaUsuarios = listaUsuarios;
     }
 
-    public ArrayList<Profesional> getListaProfesionales() {
+    public List<Profesional> getListaProfesionales() {
         return listaProfesionales;
     }
 
-    public void setListaProfesionales(ArrayList<Profesional>
-                                      listaProfesionales) {
+    public void setListaProfesionales(List<Profesional> listaProfesionales) {
         this.listaProfesionales = listaProfesionales;
     }
 
-    public tipoUsuario getUsuarioActivo() {
+    public TipoUsuario getUsuarioActivo() {
         return usuarioActivo;
     }
 
-    public void setUsuarioActivo(tipoUsuario usuarioActivo) {
+    public void setUsuarioActivo(TipoUsuario usuarioActivo) {
         this.usuarioActivo = usuarioActivo;
     }
 
-    public enum tipoUsuario {
-        Profesional, Usuario, NoSeleccionado
-    }
-
-    //Metodo para inicializar lista de enums de tipo de usuario
-    tipoUsuario[] inicializoListaTiposDeUsuario() {
-        tipoUsuario[] listaPivot = {tipoUsuario.Profesional,
-            tipoUsuario.Usuario};
-        return listaPivot;
-    }
-
     //CARGAR Y GUARDAR SISTEMA
-    public void cargarSistema() {
+    public void cargarSistema() throws IOException, Exception {
         try {
-            ObjectInputStream in = new ObjectInputStream
-                                   (new FileInputStream("sis.ser"));
-            ArrayList<Alimento> listAlimentos = (ArrayList<Alimento>)
-                                                in.readObject();
-            listaAlimentos = listAlimentos;
-            ArrayList<Usuario> listUsuarios = (ArrayList<Usuario>)
-                                              in.readObject();
-            listaUsuarios = listUsuarios;
-            ArrayList<Profesional> listProfesionales = (ArrayList<Profesional>)
-                                                        in.readObject();
-            listaProfesionales = listProfesionales;
-            in.close();
-        } catch (Exception ex) {
-            listaAlimentos = new ArrayList<Alimento>();
-            listaUsuarios = new ArrayList<Usuario>();
-            listaProfesionales = new ArrayList<Profesional>();
+            ObjectInputStream datosSerializados = new ObjectInputStream(Files.newInputStream(Path.of("sis.ser")));
+            listaAlimentos = (List<Alimento>) datosSerializados.readObject();
+            listaUsuarios = (List<Usuario>) datosSerializados.readObject();
+            listaProfesionales = (List<Profesional>) datosSerializados.readObject();
+            datosSerializados.close();
+        } catch (IOException ioException) {
+            throw ioException;
+        } catch (Exception exception) {
+            throw exception;
         }
     }
 
-    public void guardarSistema() {
+    public void guardarSistema() throws IOException, Exception {
         try {
-            ObjectOutputStream out = new ObjectOutputStream
-                                         (new FileOutputStream("sis.ser"));
-            out.writeObject(listaAlimentos);
-            out.writeObject(listaUsuarios);
-            out.writeObject(listaProfesionales);
-            out.flush();
-            out.close();
-        } catch (IOException ex) {
+            ObjectOutputStream datosSerializados = new ObjectOutputStream(Files.newOutputStream(Path.of("sis.ser")));
+            datosSerializados.writeObject(listaAlimentos);
+            datosSerializados.writeObject(listaUsuarios);
+            datosSerializados.writeObject(listaProfesionales);
+            datosSerializados.flush();
+            datosSerializados.close();
+        } catch (IOException ioException) {
+            throw ioException;
+        } catch (Exception exception) {
+            throw exception;
         }
     }
 
     //Metodo para validarque el dato sea numericoF
     public boolean pidoDatoNumerico(int dato, int min, int max) {
-        int datoAVerificar = 0;
-        boolean pidiendo = false;
-        try {
-            datoAVerificar = dato;
-            if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
-                pidiendo = true;
-            }
-        } catch (NumberFormatException ex) {
-            
-        }
-        return pidiendo;
+        return dato >= min && dato <= max;
     }
 
     //Metodo que adapta el tamaño de la imagen al deseado
@@ -167,13 +124,12 @@ public class Sistema implements Serializable {
                          String unSexo, String unaFechaNacimiento,
                          double unaAltura, ImageIcon unaFotoPerfil,
                          double unPeso,
-                         Usuario.Nacionalidades unaNacionalidad) {
+                         Pais unaNacionalidad) {
         Usuario usuario = new Usuario();
         usuario.setNombre(unNombre);
         usuario.setApellidos(unApellido);
         usuario.setNombreUsuario(unUsuario);
-        usuario.setNacionalidad(usuario.getListaEnumNac()
-                                [unaNacionalidad.ordinal()]);
+        usuario.setNacionalidad(Pais.values()[unaNacionalidad.ordinal()]);
         usuario.setFechaNacimiento(unaFechaNacimiento);
         usuario.setSexo(unSexo);
         usuario.setAlturaCm(unaAltura);
@@ -187,11 +143,11 @@ public class Sistema implements Serializable {
     public void registroProfesional(String unNombre, String unApellido,
                                     String unNombreUsuario,
                                     String unNombreTitulo,
-                                    Profesional.Pais unPais,
+                                    Pais unPais,
                                     ImageIcon unaFotoPerfil,
                                     String unaFechaNacimiento,
                                     String unaFechaGraduacion,
-                                    Profesional.Pais unPaisTitulo) {
+                                    Pais unPaisTitulo) {
         Profesional profesional = new Profesional();
         profesional.setNombre(unNombre);
         profesional.setApellidos(unApellido);
@@ -206,13 +162,10 @@ public class Sistema implements Serializable {
         }
     }
 
-    public void registroAlimento(String nombreAlim,
-                                 Alimento.TipoAlimento unTipo,
-                                 boolean[] unaListaNutrientes) {
+    public void registroAlimento(String nombreAlim, TipoAlimento unTipo, boolean[] unaListaNutrientes) {
         Alimento alimento = new Alimento();
         alimento.setNombre(nombreAlim);
-        alimento.setTipo(alimento.getListaEnumTipoAlimento()
-                        [unTipo.ordinal()]);
+        alimento.setTipo(TipoAlimento.values()[unTipo.ordinal()]);
         alimento.setListaNutrientesSeleccionados(unaListaNutrientes);
         if(!this.getListaAlimentos().contains(alimento)){
             this.getListaAlimentos().add(alimento);

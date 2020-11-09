@@ -1,17 +1,15 @@
 package dominio;
 
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import java.io.Serializable;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ImageIcon;
 
 public class Usuario extends Persona implements Serializable {
 
     //Atributos
-    private static final long serialVersionUID = 6106269076155338045L;
-    private Nacionalidades nacionalidad;
-    private Nacionalidades[] listaEnumNac;
+    private static final long serialVersionUID = 1L;
+    private Pais nacionalidad;
     private double pesoKg;
     private double alturaCm;
     private Preferencias preferenciasAlimentarias;
@@ -21,13 +19,13 @@ public class Usuario extends Persona implements Serializable {
     private boolean necesitoPlan;
     private Profesional profesionalAsignado;
     private String sexo;
-    private ArrayList<ComidaPorDia> historialComidas;
+    private List<ComidaPorDia> historialComidas;
     private ComidaPorDia historialDelDia;
-    private ArrayList<Mensaje> casillaDeEntrada;
+    private List<Mensaje> casillaDeEntrada;
     private String fechaUltimaAdicion;
 
     //Costructor
-    public Usuario(Nacionalidades nacionalidad, double pesoKg, double alturaCm,
+    public Usuario(Pais nacionalidad, double pesoKg, double alturaCm,
             Preferencias preferenciasAlimentarias, Restricciones restricciones,
             PlanDeAlimentacion plan, String sexo, String nombre,
             String apellidos, String nombreUsuario, String fechaNacimiento,
@@ -43,34 +41,28 @@ public class Usuario extends Persona implements Serializable {
         this.necesitoPlan = false;
         this.profesionalAsignado = new Profesional();
         this.sexo = sexo;
-        this.historialComidas = new ArrayList<ComidaPorDia>();
+        this.historialComidas = new ArrayList<>();
         this.historialDelDia = new ComidaPorDia();
-        this.listaEnumNac = inicializoListaEnum();
-        this.casillaDeEntrada = new ArrayList<Mensaje>();
+        this.casillaDeEntrada = new ArrayList<>();
         this.fechaUltimaAdicion = "no se ingreso";
     }
 
     public Usuario() {
-        super("no ingreso nombre", "no ingreso apellido", "no ingreso usuario",
-              "no ingreso fecha nacimiento", null);
-        this.setFotoPerfil(new javax
-                           .swing.ImageIcon(getClass()
-                           .getResource
-                           ("/imagenes/predeterminadaUsuario.jpg")));
-        this.nacionalidad = Nacionalidades.Uruguaya;
+        super("no ingreso nombre", "no ingreso apellido", "no ingreso usuario", "no ingreso fecha nacimiento", null);
+        this.setFotoPerfil(new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg")));
+        this.nacionalidad = Pais.URUGUAY;
         this.pesoKg = 0;
         this.alturaCm = 0;
-        this.preferenciasAlimentarias = Preferencias.Ninguna;
-        this.restricciones = Restricciones.Ninguna;
+        this.preferenciasAlimentarias = Preferencias.NINGUNA;
+        this.restricciones = Restricciones.NINGUNA;
         this.listaRestricciones = new boolean[5];
         this.necesitoPlan = false;
         this.profesionalAsignado = new Profesional();
         this.plan = new PlanDeAlimentacion(this);
         this.sexo = "no se ingreso";
-        this.historialComidas = new ArrayList<ComidaPorDia>();
+        this.historialComidas = new ArrayList<>();
         this.historialDelDia = new ComidaPorDia();
-        this.listaEnumNac = inicializoListaEnum();
-        this.casillaDeEntrada = new ArrayList<Mensaje>();
+        this.casillaDeEntrada = new ArrayList<>();
         this.fechaUltimaAdicion = "no se ingreso";
     }
 
@@ -99,31 +91,20 @@ public class Usuario extends Persona implements Serializable {
         this.profesionalAsignado = profesionalAsignado;
     }
 
-    public ArrayList<Mensaje> getCasillaDeEntrada() {
+    public List<Mensaje> getCasillaDeEntrada() {
         return casillaDeEntrada;
     }
 
-    public void setCasillaDeEntrada(ArrayList<Mensaje> casillaDeEntrada) {
+    public void setCasillaDeEntrada(List<Mensaje> casillaDeEntrada) {
         this.casillaDeEntrada = casillaDeEntrada;
     }
 
-    public Nacionalidades getNacionalidad() {
+    public Pais getNacionalidad() {
         return nacionalidad;
     }
 
-    public void setNacionalidad(Nacionalidades nacionalidad) {
+    public void setNacionalidad(Pais nacionalidad) {
         this.nacionalidad = nacionalidad;
-    }
-
-    public Nacionalidades[] getListaEnumNac() {
-        Nacionalidades[] lista = listaEnumNac;
-        return lista;
-    }
-
-    public void setListaEnumNac(Nacionalidades[] listaEnumNac) {
-        this.listaEnumNac = Optional
-                .ofNullable(listaEnumNac)
-                .orElse(null);
     }
 
     public double getPesoKg() {
@@ -131,10 +112,9 @@ public class Usuario extends Persona implements Serializable {
     }
 
     public void setPesoKg(double pesoKg) {
-        if(pesoKg > 0 && pesoKg < 501){
+        if (pesoKg > 0 && pesoKg < 501) {
             this.pesoKg = pesoKg;
-        }
-        
+        }   
     }
 
     public double getAlturaCm() {
@@ -142,7 +122,7 @@ public class Usuario extends Persona implements Serializable {
     }
 
     public void setAlturaCm(double alturaCm) {
-        if(alturaCm > 0 && alturaCm < 266){
+        if (alturaCm > 0 && alturaCm < 266) {
             this.alturaCm = alturaCm;
         }
     }
@@ -177,20 +157,17 @@ public class Usuario extends Persona implements Serializable {
     }
 
     public void setSexo(String sexo) {
-        if(sexo.equals("Masculino") || sexo.equals("Femenino")){
+        if ("Masculino".equals(sexo) || "Femenino".equals(sexo)) {
             this.sexo = sexo;
         }
     }
 
     public boolean[] getListaRestricciones() {
-        boolean[] lista = listaRestricciones;
-        return lista;
+        return listaRestricciones;
     }
 
     public void setListaRestricciones(boolean[] listaRestricciones) {
-        this.listaRestricciones = Optional
-                .ofNullable(listaRestricciones)
-                .orElse(null);
+        this.listaRestricciones = listaRestricciones;
     }
 
     public boolean isNecesitoPlan() {
@@ -201,50 +178,78 @@ public class Usuario extends Persona implements Serializable {
         this.necesitoPlan = necesitoPlan;
     }
 
-    public ArrayList<ComidaPorDia> getHistorialComidas() {
+    public List<ComidaPorDia> getHistorialComidas() {
         return historialComidas;
     }
 
-    public void setHistorialComidas(ArrayList<ComidaPorDia> historialComidas) {
+    public void setHistorialComidas(List<ComidaPorDia> historialComidas) {
         this.historialComidas = historialComidas;
     }
 
-    public enum Nacionalidades {
-        Alemana, Argentina, Australiana, Austriaca, Brasileña, Canadiense,
-        Chilena, China, Colombiana, Cubana, Ecuatoriana, Egipcia,
-        Española, EstadoUnidense, Francesa, Griega, Holandesa, India, Inglesa,
-        Israeli, Italiana, Japonesa, Méxicana, Paraguaya, Peruana, Portuguesa,
-        Rusa, Sudáfricana, Surcoreana, Uruguaya, Venezolana
-    }
-
-    public Nacionalidades[] inicializoListaEnum() {
-        Nacionalidades[] listaEnumPivot = {
-            Nacionalidades.Alemana, Nacionalidades.Argentina,
-            Nacionalidades.Australiana, Nacionalidades.Austriaca,
-            Nacionalidades.Brasileña, Nacionalidades.Canadiense,
-            Nacionalidades.Chilena, Nacionalidades.China,
-            Nacionalidades.Colombiana, Nacionalidades.Surcoreana,
-            Nacionalidades.Cubana, Nacionalidades.Ecuatoriana, 
-            Nacionalidades.Egipcia, Nacionalidades.Española, 
-            Nacionalidades.EstadoUnidense, Nacionalidades.Francesa,
-            Nacionalidades.Griega, Nacionalidades.Holandesa,
-            Nacionalidades.India, Nacionalidades.Inglesa,
-            Nacionalidades.Israeli, Nacionalidades.Italiana,
-            Nacionalidades.Japonesa, Nacionalidades.Méxicana,
-            Nacionalidades.Paraguaya, Nacionalidades.Peruana,
-            Nacionalidades.Portuguesa, Nacionalidades.Rusa,
-            Nacionalidades.Sudáfricana, Nacionalidades.Uruguaya,
-            Nacionalidades.Venezolana
-        };
-        return listaEnumPivot;
-    }
-
     public enum Preferencias {
-        Vegano, Vegetariano, Macrobiotico, Organico, Ninguna
+        VEGANO {
+            @Override
+            public String toString() {
+                return "Vegano";
+            }
+        },
+        VEGETARIANO {
+            @Override
+            public String toString() {
+                return "Vegetariano";
+            }
+        },
+        MACROBIOTICO {
+            @Override
+            public String toString() {
+                return "Macrobiótico";
+            }
+        },
+        ORGANICO {
+            @Override
+            public String toString() {
+                return "Orgánico";
+            }
+        },
+        NINGUNA {
+            @Override
+            public String toString() {
+                return "Ninguna";
+            }
+        }
     }
 
     public enum Restricciones {
-        Celiaco, IntoleranteALaLactosa, Diabetico, Hipertension, Ninguna
+        CELIACO {
+            @Override
+            public String toString() {
+                return "Celíaco";
+            }
+        },
+        INTOLERANTE_A_LA_LACTOSA {
+            @Override
+            public String toString() {
+                return "Intolerante a la lactosa";
+            }
+        },
+        DIABETICO {
+            @Override
+            public String toString() {
+                return "Diabético";
+            }
+        },
+        HIPERTENSION {
+            @Override
+            public String toString() {
+                return "Hipertensión";
+            }
+        },
+        NINGUNA {
+            @Override
+            public String toString() {
+                return "Ninguna";
+            }
+        }
     }
 
     @Override

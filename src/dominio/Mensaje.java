@@ -3,10 +3,10 @@ package dominio;
 import java.io.Serializable;
 
 
-public class Mensaje implements Serializable{
+public class Mensaje implements Serializable {
     
     //Atributos
-     private static final long serialVersionUID = 6106269076155338045L;
+     private static final long serialVersionUID = 1L;
     private Persona origen;
     private Persona destino;
     private String asunto;

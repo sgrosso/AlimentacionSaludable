@@ -2,14 +2,11 @@ package dominio;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Objects;
 
-public class ComidaPorDia implements Serializable{
+public class ComidaPorDia implements Serializable {
     //Atributos
-     private static final long serialVersionUID = 6106269076155338045L;
+     private static final long serialVersionUID = 1L;
      private ArrayList<Alimento> comidasIngeridas;
      private String fecha;
      

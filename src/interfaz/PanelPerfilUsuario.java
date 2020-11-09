@@ -8,10 +8,10 @@ import javax.swing.JFrame;
 public class PanelPerfilUsuario extends javax.swing.JPanel {
 
     //Atrubutos
-    private Sistema sistema;
-    private Usuario usuario;
-    private JFrame ventana;
-    private InterfazBotonesUsuario interfaz;
+    private final Sistema sistema;
+    private final Usuario usuario;
+    private final JFrame ventana;
+    private final InterfazBotonesUsuario interfaz;
 
     //Constructor
     public PanelPerfilUsuario(Sistema unSistema, JFrame unaVentana, InterfazBotonesUsuario interfazActual) {
@@ -136,11 +136,11 @@ public class PanelPerfilUsuario extends javax.swing.JPanel {
         String retorno = "";
         int contador = 0;
         for (int i = 0; i < unUsuario.getListaRestricciones().length; i++) {
-            if (unUsuario.getListaRestricciones()[i] == true) {
+            if (unUsuario.getListaRestricciones()[i]) {
                 cantidadDeRestricciones++;
             }
         }
-        if (unUsuario.getListaRestricciones()[Usuario.Restricciones.Celiaco.ordinal()] == true) {
+        if (unUsuario.getListaRestricciones()[Usuario.Restricciones.CELIACO.ordinal()]) {
             if (contador == cantidadDeRestricciones - 1) {
                 retorno += "Celiaco";
             } else {
@@ -149,7 +149,7 @@ public class PanelPerfilUsuario extends javax.swing.JPanel {
             }
 
         }
-        if (unUsuario.getListaRestricciones()[Usuario.Restricciones.Diabetico.ordinal()] == true) {
+        if (unUsuario.getListaRestricciones()[Usuario.Restricciones.DIABETICO.ordinal()]) {
             if (contador == cantidadDeRestricciones - 1) {
                 retorno += "Diabético";
             } else {
@@ -157,7 +157,7 @@ public class PanelPerfilUsuario extends javax.swing.JPanel {
                 contador++;
             }
         }
-        if (unUsuario.getListaRestricciones()[Usuario.Restricciones.Hipertension.ordinal()] == true) {
+        if (unUsuario.getListaRestricciones()[Usuario.Restricciones.HIPERTENSION.ordinal()]) {
             if (contador == cantidadDeRestricciones - 1) {
                 retorno += "Hipertensión";
             } else {
@@ -165,7 +165,7 @@ public class PanelPerfilUsuario extends javax.swing.JPanel {
                 contador++;
             }
         }
-        if (unUsuario.getListaRestricciones()[Usuario.Restricciones.IntoleranteALaLactosa.ordinal()] == true) {
+        if (unUsuario.getListaRestricciones()[Usuario.Restricciones.INTOLERANTE_A_LA_LACTOSA.ordinal()]) {
             if (contador == cantidadDeRestricciones - 1) {
                 retorno += "Intolerancia a la lactosa";
             } else {

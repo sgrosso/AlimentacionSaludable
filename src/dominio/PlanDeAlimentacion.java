@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class PlanDeAlimentacion implements Serializable{
+public class PlanDeAlimentacion implements Serializable {
    
     //Atributos
-    private static final long serialVersionUID = 6106269076155338045L;
+    private static final long serialVersionUID = 1L;
     private Usuario usuario;
     private ArrayList<Alimento> listaLunes;
     private ArrayList<Alimento> listaMartes;

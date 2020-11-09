@@ -1,5 +1,6 @@
 package interfaz;
 
+import dominio.Pais;
 import dominio.Sistema;
 import dominio.Profesional;
 import dominio.Usuario;
@@ -10,7 +11,6 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -21,9 +21,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class PanelRegistroProfesional extends javax.swing.JPanel {
 
     //Atributos
-    private Sistema sistema;
-    private Profesional prof;
-    private JFrame ventana;
+    private final Sistema sistema;
+    private final Profesional prof;
+    private final JFrame ventana;
 
     //Constructor
     public PanelRegistroProfesional(Sistema unSistema, JFrame unaVentana) {
@@ -31,9 +31,8 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
         sistema = unSistema;
         ventana = unaVentana;
         prof = new Profesional();
-        Profesional.Pais[] listaPaises = prof.inicializoListaEnumPaises();
-        listaPaisDeGraduacion.setModel(new DefaultComboBoxModel(listaPaises));
-        listaPaisDeGraduacion.setSelectedIndex(Profesional.Pais.Uruguay.ordinal());
+        listaPaisDeGraduacion.setModel(new DefaultComboBoxModel(Pais.values()));
+        listaPaisDeGraduacion.setSelectedIndex(Pais.URUGUAY.ordinal());
     }
 
     @SuppressWarnings("unchecked")
@@ -339,7 +338,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
             SimpleDateFormat formatter2 = new SimpleDateFormat("dd/MM/yyyy");
             String fGraduacion = formatter2.format(fechaGraduacion.getCalendar().getTime());
             profesional.setFechaGraduacion(fGraduacion);
-            profesional.setPaisObtuvoTitulo(profesional.getListaEnumPais()[listaPaisDeGraduacion.getSelectedIndex()]);
+            profesional.setPaisObtuvoTitulo(Pais.values()[listaPaisDeGraduacion.getSelectedIndex()]);
             profesional.setFotoPerfil((ImageIcon) fotoPerfil.getIcon());
             sistema.getListaProfesionales().add(profesional);
             etiquetaMensajeAlAceptar.setText("Profesional registrado correctamente");

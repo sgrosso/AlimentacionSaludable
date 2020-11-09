@@ -2,24 +2,20 @@ package dominio;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Optional;
 
 public class Alimento implements Serializable {
 
     //Atrubutos
-    private static final long serialVersionUID = 6106269076155338045L;
+    private static final long serialVersionUID = 1L;
     private String nombre;
     private TipoAlimento tipo;
-    private TipoAlimento[] listaEnumTipoAlimento = inicializoEnumTipoAlimento();
-    private Nutrientes[] listaEnumNutrientes = inicializoEnumNutrientes();
     private boolean[] listaNutrientesSeleccionados;
 
     //Constructor
     public Alimento() {
         this.nombre = "sin nombre";
-        this.tipo = TipoAlimento.Otro;
-        this.listaNutrientesSeleccionados = new boolean[listaEnumNutrientes
-                                                        .length];
+        this.tipo = TipoAlimento.OTRO;
+        this.listaNutrientesSeleccionados = new boolean[Nutrientes.values().length];
     }
 
     //Metodos de la clase Aliemntos
@@ -41,73 +37,13 @@ public class Alimento implements Serializable {
         this.tipo = tipo;
     }
 
-    public Nutrientes[] getListaEnumNutrientes() {
-        Nutrientes[] lista = listaEnumNutrientes;
-        return lista;
-    }
-
-    public void setListaEnumNutrientes(Nutrientes[] listaEnumNutrientes) {
-        this.listaEnumNutrientes = Optional
-                .ofNullable(listaEnumNutrientes)
-                .orElse(null);
-    }
-
-    public TipoAlimento[] getListaEnumTipoAlimento() {
-        TipoAlimento[] lista = listaEnumTipoAlimento;
-        return lista;
-    }
-
-    public void setListaEnumTipoAlimento(TipoAlimento[]
-                                         listaEnumTipoAlimento) {
-        this.listaEnumTipoAlimento = Optional
-                .ofNullable(listaEnumTipoAlimento)
-                .orElse(null);
-    }
-
     public boolean[] getListaNutrientesSeleccionados() {
         boolean[] lista = listaNutrientesSeleccionados;
         return lista;
     }
 
-    public void setListaNutrientesSeleccionados(boolean[]
-                                                listaNutrientesSeleccionados) {
-        this.listaNutrientesSeleccionados = Optional
-                .ofNullable(listaNutrientesSeleccionados)
-                .orElse(null);
-    }
-
-    public enum TipoAlimento {
-        Fruta, Cereal, Legumbre, CarnesBlancas, CarnesRojas, Vegetales,
-        Embutidos, Lacteos, Bebidas, Mariscos, Postres, Otro,
-        ProvenienteDeAnimales
-    }
-
-    public TipoAlimento[] inicializoEnumTipoAlimento() {
-        TipoAlimento[] listaEnumPivot = {
-            TipoAlimento.Bebidas, TipoAlimento.CarnesBlancas,
-            TipoAlimento.CarnesRojas, TipoAlimento.Cereal,
-            TipoAlimento.Embutidos, TipoAlimento.Fruta,
-            TipoAlimento.Lacteos, TipoAlimento.Legumbre,
-            TipoAlimento.Mariscos, TipoAlimento.Otro,
-            TipoAlimento.Postres, TipoAlimento.ProvenienteDeAnimales,
-            TipoAlimento.Vegetales
-        };
-        return listaEnumPivot;
-    }
-
-    public enum Nutrientes {
-        Proteinas, Lipidos, HidratosDeCarbono, Vitaminas, Minerales, Agua,
-        Fibra, Ninguna
-    }
-
-    public Nutrientes[] inicializoEnumNutrientes() {
-        Nutrientes[] listaEnumPivot = {
-            Nutrientes.Agua, Nutrientes.Fibra,
-            Nutrientes.HidratosDeCarbono,
-            Nutrientes.Lipidos, Nutrientes.Minerales,
-            Nutrientes.Proteinas, Nutrientes.Vitaminas
-        };
-        return listaEnumPivot;
+    public void setListaNutrientesSeleccionados(boolean[] listaNutrientesSeleccionados) {
+        this.listaNutrientesSeleccionados = listaNutrientesSeleccionados;
     }
 
     //redefino toString
@@ -119,25 +55,20 @@ public class Alimento implements Serializable {
     //Redefino el equals
     @Override
     public boolean equals(Object obj) {
-        boolean retorno = true;
         if (obj == null) {
-            retorno = false;
+            return false;
         }
+        
         if (obj.getClass() != this.getClass()) {
-            retorno = false;
+            return false;
         }
-        if(retorno){
-            Alimento unAlimento = (Alimento) obj;
-            retorno = this.getNombre().equalsIgnoreCase(unAlimento.getNombre());
-        }
-        return retorno;
+        
+        Alimento unAlimento = (Alimento) obj;
+        return this.nombre.equalsIgnoreCase(unAlimento.getNombre());
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        return hash;
-    } 
-    
-
+        return 67 * 7 + Objects.hashCode(this.nombre);
+    }
 }
