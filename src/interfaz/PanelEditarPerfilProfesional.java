@@ -185,7 +185,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
 
         etiquetaErrorFechaGraduacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         panelRegProf.add(etiquetaErrorFechaGraduacion);
-        etiquetaErrorFechaGraduacion.setBounds(730, 320, 310, 26);
+        etiquetaErrorFechaGraduacion.setBounds(740, 320, 310, 26);
 
         etiquetaErrorPaisGraduacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         panelRegProf.add(etiquetaErrorPaisGraduacion);
