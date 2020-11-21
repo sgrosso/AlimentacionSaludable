@@ -4,6 +4,7 @@ import dominio.Sistema;
 import dominio.Profesional;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.beans.PropertyChangeEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -29,6 +30,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
     public PanelEditarPerfilProfesional(Sistema unSistema, JFrame unaVentana,
             InterfazBotonesProfesional interfazActual) {
         initComponents();
+        
         sistema = unSistema;
         ventana = unaVentana;
         interfaz = interfazActual;
@@ -36,6 +38,8 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         Profesional.Pais[] listaPaises = profesional.getListaEnumPais();
         listaPaisDeGraduacion.setModel(new DefaultComboBoxModel(listaPaises));
         listaPaisDeGraduacion.setSelectedIndex(Profesional.Pais.Uruguay.ordinal());
+        
+        addJDateChooserEvents();
         cargarValoresActuales();
     }
 
@@ -59,13 +63,13 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         listaPaisDeGraduacion = new javax.swing.JComboBox<>();
         etiquetaErrorNombreProf = new javax.swing.JLabel();
         etiquetaErrorApellidoProf = new javax.swing.JLabel();
-        etiquetaErrorNombreUsuarioProf = new javax.swing.JLabel();
+        etiquetaErrorFechaNacimiento = new javax.swing.JLabel();
         etiquetaErrorNombreTituloProf = new javax.swing.JLabel();
+        etiquetaErrorFechaGraduacion = new javax.swing.JLabel();
+        etiquetaErrorPaisGraduacion = new javax.swing.JLabel();
         etiquetaMensajeAlAceptar = new javax.swing.JLabel();
         fechaNacimiento = new com.toedter.calendar.JDateChooser();
-        etiquetaErrorFechaNacimiento = new javax.swing.JLabel();
         fechaGraduacion = new com.toedter.calendar.JDateChooser();
-        etiquetaErrorFechaGraduacion = new javax.swing.JLabel();
         btnCambiarFoto = new javax.swing.JButton();
         fotoPerfil = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
@@ -127,11 +131,6 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
                 cajaApellidosProfFocusLost(evt);
             }
         });
-        cajaApellidosProf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaApellidosProfActionPerformed(evt);
-            }
-        });
         panelRegProf.add(cajaApellidosProf);
         cajaApellidosProf.setBounds(560, 170, 160, 35);
 
@@ -168,49 +167,37 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         panelRegProf.add(listaPaisDeGraduacion);
         listaPaisDeGraduacion.setBounds(560, 370, 160, 35);
 
-        etiquetaErrorNombreProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaErrorNombreProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         panelRegProf.add(etiquetaErrorNombreProf);
         etiquetaErrorNombreProf.setBounds(740, 120, 310, 26);
 
-        etiquetaErrorApellidoProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaErrorApellidoProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         panelRegProf.add(etiquetaErrorApellidoProf);
         etiquetaErrorApellidoProf.setBounds(740, 170, 330, 26);
 
-        etiquetaErrorNombreUsuarioProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelRegProf.add(etiquetaErrorNombreUsuarioProf);
-        etiquetaErrorNombreUsuarioProf.setBounds(740, 220, 370, 26);
+        etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        panelRegProf.add(etiquetaErrorFechaNacimiento);
+        etiquetaErrorFechaNacimiento.setBounds(740, 220, 390, 26);
 
-        etiquetaErrorNombreTituloProf.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaErrorNombreTituloProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         panelRegProf.add(etiquetaErrorNombreTituloProf);
-        etiquetaErrorNombreTituloProf.setBounds(740, 320, 340, 26);
+        etiquetaErrorNombreTituloProf.setBounds(740, 270, 340, 26);
+
+        etiquetaErrorFechaGraduacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        panelRegProf.add(etiquetaErrorFechaGraduacion);
+        etiquetaErrorFechaGraduacion.setBounds(730, 320, 310, 26);
+
+        etiquetaErrorPaisGraduacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        panelRegProf.add(etiquetaErrorPaisGraduacion);
+        etiquetaErrorPaisGraduacion.setBounds(740, 370, 310, 26);
 
         etiquetaMensajeAlAceptar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panelRegProf.add(etiquetaMensajeAlAceptar);
         etiquetaMensajeAlAceptar.setBounds(750, 540, 380, 40);
-
-        fechaNacimiento.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fechaNacimientoFocusLost(evt);
-            }
-        });
         panelRegProf.add(fechaNacimiento);
-        fechaNacimiento.setBounds(560, 220, 160, 22);
-
-        etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelRegProf.add(etiquetaErrorFechaNacimiento);
-        etiquetaErrorFechaNacimiento.setBounds(740, 270, 390, 26);
-
-        fechaGraduacion.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fechaGraduacionFocusLost(evt);
-            }
-        });
+        fechaNacimiento.setBounds(560, 220, 160, 28);
         panelRegProf.add(fechaGraduacion);
-        fechaGraduacion.setBounds(560, 320, 160, 22);
-
-        etiquetaErrorFechaGraduacion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelRegProf.add(etiquetaErrorFechaGraduacion);
-        etiquetaErrorFechaGraduacion.setBounds(740, 370, 310, 26);
+        fechaGraduacion.setBounds(560, 320, 160, 28);
 
         btnCambiarFoto.setBackground(new java.awt.Color(255, 0, 102));
         btnCambiarFoto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -268,20 +255,17 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         String nombre = cajaNombreProf.getText();
         if (nombre.trim().isEmpty()) {
             etiquetaErrorNombreProf.setText("El nombre no puede ser vacío");
+        } else {
+            etiquetaErrorNombreProf.setText("");
         }
     }//GEN-LAST:event_cajaNombreProfFocusLost
-
-    private void cajaApellidosProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaApellidosProfFocusLost
-        String apellido = cajaApellidosProf.getText();
-        if (apellido.trim().isEmpty()) {
-            etiquetaErrorApellidoProf.setText("El apellido no puede ser vacío");
-        }
-    }//GEN-LAST:event_cajaApellidosProfFocusLost
 
     private void cajaNombreTituloProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreTituloProfFocusLost
         String nombreTitulo = cajaNombreTituloProf.getText();
         if (nombreTitulo.trim().isEmpty()) {
-            etiquetaErrorNombreTituloProf.setText("El nombre de usuario no puede estar vacío");
+            etiquetaErrorNombreTituloProf.setText("El titulo no puede ser vacío");
+        } else {
+            etiquetaErrorNombreTituloProf.setText("");
         }
     }//GEN-LAST:event_cajaNombreTituloProfFocusLost
 
@@ -289,19 +273,8 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         boolean nombreValido = !cajaNombreProf.getText().trim().isEmpty();
         boolean apellidoValido = !cajaApellidosProf.getText().trim().isEmpty();
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
-        boolean fGraduacionValido = fechaGraduacion.getCalendar() != null;
-        if (fNacimientoValido && fGraduacionValido) {
-            Date diaActual = new Date();
-            Date fecNac = fechaNacimiento.getCalendar().getTime();
-            LocalDate diaAct = LocalDate.now();
-            Instant instante = fecNac.toInstant();
-            LocalDate fecNacimiento = instante.atZone(ZoneId.systemDefault()).toLocalDate();
-            Period period = Period.between(fecNacimiento, diaAct);
-            fNacimientoValido = fecNac.before(diaActual) && period.getYears() >= 18;
-            Date fecGrad = fechaGraduacion.getCalendar().getTime();
-            fGraduacionValido = fecGrad.before(diaActual) && fecGrad.after(fecNac);
-        }
         boolean nombreTituloValido = !cajaNombreTituloProf.getText().trim().isEmpty();
+        boolean fGraduacionValido = fechaGraduacion.getCalendar() != null;
         if (nombreValido && apellidoValido
                 && fNacimientoValido && nombreTituloValido && fGraduacionValido) {
             profesional.setNombre(cajaNombreProf.getText());
@@ -320,20 +293,6 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnAceptarProfActionPerformed
 
-    private void fechaNacimientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaNacimientoFocusLost
-        //Metodo para validar que se seleccione la fecha de nacimiento 
-        if (fechaNacimiento.getCalendar() == null) {
-            etiquetaErrorFechaNacimiento.setText("Debe ingresar una fecha");
-        }
-    }//GEN-LAST:event_fechaNacimientoFocusLost
-
-    private void fechaGraduacionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaGraduacionFocusLost
-        //Metodo para validar que se seleccione la fecha de graduacion 
-        if (fechaGraduacion.getCalendar() == null) {
-            etiquetaErrorFechaGraduacion.setText("Debe ingresar una fecha");
-        }
-    }//GEN-LAST:event_fechaGraduacionFocusLost
-
     private void btnCambiarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarFotoActionPerformed
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter file = new FileNameExtensionFilter("Archivo imagen", "jpg");
@@ -347,10 +306,6 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         actualizar();
     }//GEN-LAST:event_btnCambiarFotoActionPerformed
 
-    private void cajaApellidosProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaApellidosProfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cajaApellidosProfActionPerformed
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         ventana.remove(this);
         PanelPerfilProfesional nuevo = new PanelPerfilProfesional(sistema, interfaz, ventana);
@@ -358,6 +313,15 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         ventana.add(nuevo);
         ventana.pack();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void cajaApellidosProfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaApellidosProfFocusLost
+        String apellido = cajaApellidosProf.getText();
+        if (apellido.trim().isEmpty()) {
+            etiquetaErrorApellidoProf.setText("El apellido no puede ser vacío");
+        } else {
+            etiquetaErrorApellidoProf.setText("");
+        }
+    }//GEN-LAST:event_cajaApellidosProfFocusLost
 
     void actualizar() {
         fotoPerfil.setIcon(profesional.getFotoPerfil());
@@ -404,7 +368,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
     private javax.swing.JLabel etiquetaErrorFechaNacimiento;
     private javax.swing.JLabel etiquetaErrorNombreProf;
     private javax.swing.JLabel etiquetaErrorNombreTituloProf;
-    private javax.swing.JLabel etiquetaErrorNombreUsuarioProf;
+    private javax.swing.JLabel etiquetaErrorPaisGraduacion;
     private javax.swing.JLabel etiquetaFechaGradProf;
     private javax.swing.JLabel etiquetaFechaNacProf;
     private javax.swing.JLabel etiquetaFotoPerfilProf;
@@ -419,4 +383,28 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> listaPaisDeGraduacion;
     private javax.swing.JPanel panelRegProf;
     // End of variables declaration//GEN-END:variables
+
+    private void addJDateChooserEvents() {
+        fechaNacimiento.getDateEditor().getUiComponent().addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if (fechaNacimiento.getCalendar() == null) {
+                    etiquetaErrorFechaNacimiento.setText("Debe ingresar una fecha");
+                } else {
+                    etiquetaErrorFechaNacimiento.setText("");
+                }
+            }
+        });
+
+        fechaGraduacion.getDateEditor().getUiComponent().addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if (fechaGraduacion.getCalendar() == null) {
+                    etiquetaErrorFechaGraduacion.setText("Debe ingresar una fecha");
+                } else {
+                    etiquetaErrorFechaGraduacion.setText("");
+                }
+            }
+        });
+    }
 }
