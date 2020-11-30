@@ -3,6 +3,7 @@ package interfaz;
 import dominio.Sistema;
 import dominio.Alimento;
 import dominio.TipoAlimento;
+import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 
@@ -216,11 +217,8 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
         checkBoxNinguno.setSelected(false);
     }//GEN-LAST:event_checkBoxHidratosDeCarbonoActionPerformed
 
-    private void checkBoxNingunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNingunoActionPerformed
+    private void checkBoxNingunoActionPerformed(java.awt.event.ActionEvent evt) {                                                
         boolean[] estadoActual = alimento.getListaNutrientesSeleccionados();
-    private void checkBoxFibraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxFibraActionPerformed
-
-    }//GEN-LAST:event_checkBoxFibraActionPerformed
         Arrays.fill(estadoActual, false);
         checkBoxFibra.setSelected(false);
         checkBoxAgua.setSelected(false);
@@ -229,7 +227,7 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
         checkBoxMinerales.setSelected(false);
         checkBoxProteinas.setSelected(false);
         checkBoxVitaminas.setSelected(false);
-    }//GEN-LAST:event_checkBoxNingunoActionPerformed
+    }
 
     private void cajaNombreAlimFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreAlimFocusLost
         String nombre = cajaNombreAlim.getText();
@@ -282,8 +280,6 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
     }//GEN-LAST:event_checkBoxAguaActionPerformed
 
     private void checkBoxFibraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxFibraActionPerformed
-        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Fibra.ordinal()];
-        estadoActual = !estadoActual;
         checkBoxNinguno.setSelected(false);
     }//GEN-LAST:event_checkBoxFibraActionPerformed
 
