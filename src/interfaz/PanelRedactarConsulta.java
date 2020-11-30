@@ -68,7 +68,7 @@ public class PanelRedactarConsulta extends javax.swing.JPanel {
             }
         });
         add(listaProfConsulta);
-        listaProfConsulta.setBounds(230, 110, 190, 35);
+        listaProfConsulta.setBounds(230, 110, 530, 35);
 
         textoConsultaAEnviar.setColumns(20);
         textoConsultaAEnviar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -93,11 +93,6 @@ public class PanelRedactarConsulta extends javax.swing.JPanel {
         btnEnviarConsulta.setBounds(730, 580, 140, 37);
 
         cajaAsunto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        cajaAsunto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaAsuntoActionPerformed(evt);
-            }
-        });
         add(cajaAsunto);
         cajaAsunto.setBounds(230, 170, 530, 35);
 
@@ -117,9 +112,9 @@ public class PanelRedactarConsulta extends javax.swing.JPanel {
         add(etiquetaTitulo);
         etiquetaTitulo.setBounds(360, 10, 320, 30);
 
-        mensajeAlAceptar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        mensajeAlAceptar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         add(mensajeAlAceptar);
-        mensajeAlAceptar.setBounds(710, 640, 370, 50);
+        mensajeAlAceptar.setBounds(620, 630, 370, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void listaProfConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaProfConsultaActionPerformed
@@ -134,7 +129,12 @@ public class PanelRedactarConsulta extends javax.swing.JPanel {
         mensajeAEnviar.setAsunto(cajaAsunto.getText());
         mensajeAEnviar.setTexto(textoConsultaAEnviar.getText());
         destino.getCasillaDeEntrada().add(mensajeAEnviar);
-        mensajeAlAceptar.setText("Se ha enviado la consulta");
+        if (!cajaAsunto.getText().trim().isEmpty() && !textoConsultaAEnviar.getText().trim().isEmpty()) {
+            destino.getCasillaDeEntrada().add(mensajeAEnviar);
+            mensajeAlAceptar.setText("Se ha enviado la consulta");
+        } else {
+            mensajeAlAceptar.setText("Debe completar todos los campos");
+        }
     }//GEN-LAST:event_btnEnviarConsultaActionPerformed
 
     private void btnVolverConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverConsultasActionPerformed
@@ -144,10 +144,6 @@ public class PanelRedactarConsulta extends javax.swing.JPanel {
         ventana.add(nuevo);
         ventana.pack();
     }//GEN-LAST:event_btnVolverConsultasActionPerformed
-
-    private void cajaAsuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaAsuntoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cajaAsuntoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
