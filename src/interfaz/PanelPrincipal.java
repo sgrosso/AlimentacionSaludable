@@ -1,8 +1,8 @@
 package interfaz;
 
 import dominio.Sistema;
-import alimentacionsaludable.AlimentacionSaludable;
 import java.io.IOException;
+
 
 public class PanelPrincipal extends javax.swing.JFrame {
 
@@ -32,7 +32,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+      try {
         sistema.guardarSistema();
+      } catch (IOException ex) {
+        return;
+      }
     }//GEN-LAST:event_formWindowClosing
 
     public Sistema getSistema() {

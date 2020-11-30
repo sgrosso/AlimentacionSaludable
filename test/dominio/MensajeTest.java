@@ -31,20 +31,20 @@ public class MensajeTest {
     @Test
     public void testCrearMensaje() {
         Mensaje unMensaje = new Mensaje();
-        assertEquals("no tiene texto", unMensaje.getMensaje());
+        assertEquals("no tiene texto", unMensaje.getTexto());
     }
 
     @Test
     public void testCrearMensajeConDatos() {
         Mensaje unMensaje = new Mensaje();
         unMensaje.setAsunto("Gracias");
-        unMensaje.setMensaje("Baje 5kg");
+        unMensaje.setTexto("Baje 5kg");
         Persona usuario = (Persona) new Usuario();
         Persona profesional = (Persona) new Profesional();
         unMensaje.setOrigen(usuario);
         unMensaje.setDestino(profesional);
         boolean esCorrecto = unMensaje.getAsunto().equals("Gracias")
-                && unMensaje.getMensaje().equals("Baje 5kg")
+                && unMensaje.getTexto().equals("Baje 5kg")
                 && unMensaje.getDestino().equals(profesional)
                 && unMensaje.getOrigen().equals(usuario);
         assertTrue(esCorrecto);

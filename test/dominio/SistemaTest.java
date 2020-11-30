@@ -1,6 +1,7 @@
 package dominio;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -30,15 +31,6 @@ public class SistemaTest {
 
     @After
     public void tearDown() {
-    }
-
-    @Test
-    public void testGetListaTiposDeUsuario() {
-        System.out.println("getListaTiposDeUsuario");
-        Sistema instance = new Sistema();
-        Sistema.tipoUsuario[] expResult = {Sistema.tipoUsuario.Profesional, Sistema.tipoUsuario.Usuario};
-        Sistema.tipoUsuario[] result = instance.getListaTiposDeUsuario();
-        assertArrayEquals(expResult, result);
     }
 
     @Test
@@ -101,7 +93,7 @@ public class SistemaTest {
         double unaAltura = 1.0;
         ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"));
         double unPeso = 1.0;
-        Usuario.Nacionalidades unaNacionalidad = Usuario.Nacionalidades.Uruguaya;
+        Pais unaNacionalidad = Pais.URUGUAY;
         Sistema instance = new Sistema();
         instance.registroUsuario(unNombre, unApellido, unUsuario, unSexo, unaFechaNacimiento, unaAltura, unaFotoPerfil, unPeso, unaNacionalidad);
         assertTrue(instance.getListaUsuarios().size() > 0);
@@ -118,7 +110,7 @@ public class SistemaTest {
         double unaAltura = 1.0;
         ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"));
         double unPeso = 1.0;
-        Usuario.Nacionalidades unaNacionalidad = Usuario.Nacionalidades.Uruguaya;
+        Pais unaNacionalidad = Pais.URUGUAY;
         Sistema instance = new Sistema();
         instance.registroUsuario(unNombre, unApellido, unUsuario, unSexo, unaFechaNacimiento, unaAltura, unaFotoPerfil, unPeso, unaNacionalidad);
         instance.registroUsuario(unNombre, unApellido, unUsuario, unSexo, unaFechaNacimiento, unaAltura, unaFotoPerfil, unPeso, unaNacionalidad);
@@ -132,11 +124,11 @@ public class SistemaTest {
         String unApellido = "apellido";
         String unNombreUsuario = "usuario";
         String unNombreTitulo = "titulo";
-        Profesional.Pais unPais = Profesional.Pais.Uruguay;
+        Pais unPais = Pais.URUGUAY;
         ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaProfesional.png"));
         String unaFechaNacimiento = "19/11/2004";
         String unaFechaGraduacion = "19/11/2004";
-        Profesional.Pais unPaisTitulo = Profesional.Pais.Uruguay;
+        Pais unPaisTitulo = Pais.URUGUAY;
         Sistema instance = new Sistema();
         instance.registroProfesional(unNombre, unApellido, unNombreUsuario, unNombreTitulo, unPais, unaFotoPerfil, unaFechaNacimiento, unaFechaGraduacion, unPaisTitulo);
         instance.registroProfesional(unNombre, unApellido, unNombreUsuario, unNombreTitulo, unPais, unaFotoPerfil, unaFechaNacimiento, unaFechaGraduacion, unPaisTitulo);
@@ -150,11 +142,11 @@ public class SistemaTest {
         String unApellido = "apellido";
         String unNombreUsuario = "usuario";
         String unNombreTitulo = "titulo";
-        Profesional.Pais unPais = Profesional.Pais.Uruguay;
+        Pais unPais = Pais.URUGUAY;
         ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaProfesional.png"));
         String unaFechaNacimiento = "19/11/2004";
         String unaFechaGraduacion = "19/11/2004";
-        Profesional.Pais unPaisTitulo = Profesional.Pais.Uruguay;
+        Pais unPaisTitulo = Pais.URUGUAY;
         Sistema instance = new Sistema();
         instance.registroProfesional(unNombre, unApellido, unNombreUsuario, unNombreTitulo, unPais, unaFotoPerfil, unaFechaNacimiento, unaFechaGraduacion, unPaisTitulo);
         assertTrue(instance.getListaProfesionales().size() > 0);
@@ -164,7 +156,7 @@ public class SistemaTest {
     public void testRegistroAlimento() {
         System.out.println("registroAlimento");
         String nombreAlim = "";
-        Alimento.TipoAlimento unTipo = Alimento.TipoAlimento.Otro;
+        TipoAlimento unTipo = TipoAlimento.OTRO;
         Alimento a = new Alimento();
         boolean[] unaListaNutrientes = new boolean[a.getListaNutrientesSeleccionados().length];
         Sistema instance = new Sistema();
@@ -176,7 +168,7 @@ public class SistemaTest {
     public void testRegistroAlimentoInvalido() {
         System.out.println("registroAlimentoInvalido");
         String nombreAlim = "";
-        Alimento.TipoAlimento unTipo = Alimento.TipoAlimento.Otro;
+        TipoAlimento unTipo = TipoAlimento.OTRO;
         Alimento a = new Alimento();
         boolean[] unaListaNutrientes = new boolean[a.getListaNutrientesSeleccionados().length];
         Sistema instance = new Sistema();
@@ -187,7 +179,7 @@ public class SistemaTest {
 
     @Test
     public void testValuesTipoUsuario() {
-        Sistema.tipoUsuario[] listaNac = Sistema.tipoUsuario.values();
+        TipoUsuario[] listaNac = TipoUsuario.values();
     }
 
     @Test
@@ -195,36 +187,36 @@ public class SistemaTest {
         ArrayList<Usuario> listaU = new ArrayList<Usuario>();
         ArrayList<Profesional> listaP = new ArrayList<Profesional>();
         ArrayList<Alimento> listaA = new ArrayList<Alimento>();
-        Sistema.tipoUsuario usuarioActivo = Sistema.tipoUsuario.NoSeleccionado;
+        TipoUsuario usuarioActivo = TipoUsuario.NO_SELECCIONADO;
         Sistema s = new Sistema(listaA, listaU, listaP, usuarioActivo);
     }
 
     @Test
-    public void testCargarSistema() {
+    public void testCargarSistema() throws IOException, Exception {
         Sistema unSistema = new Sistema();
         unSistema.cargarSistema();
         assertTrue(unSistema.getListaAlimentos() != null);
     }
 
     @Test
-    public void testGuardarSistema() {
+    public void testGuardarSistema() throws Exception {
         Sistema unSistema = new Sistema();
         Alimento unAlimento = new Alimento();
         unAlimento.setNombre("Yogurt");
-        unSistema.listaAlimentos.add(unAlimento);
+        unSistema.getListaAlimentos().add(unAlimento);
         unSistema.guardarSistema();
-
         ObjectInputStream in;
         ArrayList<Alimento> listAlimentos = null;
+       
         try {
             in = new ObjectInputStream(new FileInputStream("sis.ser"));
             listAlimentos = (ArrayList<Alimento>) in.readObject();
         } catch (Exception ex) {
+            
         }
-
+        
         assertTrue(listAlimentos != null);
-
-        unSistema.listaAlimentos.remove(unAlimento);
+        unSistema.getListaAlimentos().remove(unAlimento);
         unSistema.guardarSistema();
     }
 }

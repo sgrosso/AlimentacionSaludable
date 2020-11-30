@@ -7,9 +7,9 @@ import dominio.Mensaje;
 public class PanelConsultaProfesional extends javax.swing.JPanel {
 
     //Atrubutos
-    private Sistema sistema;
-    private InterfazBotonesUsuario interfaz;
-    private JFrame ventana;
+    private final Sistema sistema;
+    private final InterfazBotonesUsuario interfaz;
+    private final JFrame ventana;
     private Mensaje mensajeSeleccionado;
 
     //Constructor
@@ -152,7 +152,7 @@ public class PanelConsultaProfesional extends javax.swing.JPanel {
     private void listaMensajesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaMensajesValueChanged
         mensajeSeleccionado = (Mensaje) listaMensajes.getSelectedValue();
         if (mensajeSeleccionado != null) {
-            String textoMensaje = mensajeSeleccionado.getMensaje();
+            String textoMensaje = mensajeSeleccionado.getTexto();
             textoLeerMensaje.setText(textoMensaje);
         }
     }//GEN-LAST:event_listaMensajesValueChanged

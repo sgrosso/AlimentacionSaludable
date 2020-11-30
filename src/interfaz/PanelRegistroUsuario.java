@@ -1,15 +1,13 @@
 package interfaz;
 
+import dominio.Pais;
 import dominio.Profesional;
 import dominio.Sistema;
 import dominio.Usuario;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -20,9 +18,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class PanelRegistroUsuario extends javax.swing.JPanel {
 
     //Atributos
-    private Sistema sistema;
-    private Usuario usuario;
-    private JFrame ventana;
+    private final Sistema sistema;
+    private final Usuario usuario;
+    private final JFrame ventana;
 
     //Constructor
     public PanelRegistroUsuario(Sistema unSistema, JFrame unaVentana) {
@@ -37,9 +35,8 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
         grupoBotonesPreferencias.add(rBVegetariano);
         grupoBotonesPreferencias.add(rBMacrobiotico);
         grupoBotonesPreferencias.add(rBOrganico);
-        Usuario.Nacionalidades[] listaNac = usuario.getListaEnumNac();
-        listaNacionalidadesUsuario.setModel(new DefaultComboBoxModel(listaNac));
-        listaNacionalidadesUsuario.setSelectedIndex(Usuario.Nacionalidades.Uruguaya.ordinal());
+        listaNacionalidadesUsuario.setModel(new DefaultComboBoxModel(Pais.values()));
+        listaNacionalidadesUsuario.setSelectedIndex(Pais.URUGUAY.ordinal());
         fotoPerfil.setSize(210, 240);
     }
 
@@ -500,7 +497,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             usuario.setNombre(cajaNombre.getText());
             usuario.setApellidos(cajaApellidos.getText());
             usuario.setNombreUsuario(cajaNombUsuario.getText());
-            usuario.setNacionalidad(usuario.getListaEnumNac()[listaNacionalidadesUsuario.getSelectedIndex()]);
+            usuario.setNacionalidad(Pais.values()[listaNacionalidadesUsuario.getSelectedIndex()]);
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             String fNacimiento = formatter.format(fechaNacimiento.getCalendar().getTime());
             usuario.setFechaNacimiento(fNacimiento);
@@ -555,19 +552,19 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_fechaNacimientoFocusLost
 
     private void checkBoxIntoleranteLactosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxIntoleranteLactosaActionPerformed
-        int posicionEnum = Usuario.Restricciones.IntoleranteALaLactosa.ordinal();
+        int posicionEnum = Usuario.Restricciones.INTOLERANTE_A_LA_LACTOSA.ordinal();
         boolean valorEnPos = usuario.getListaRestricciones()[posicionEnum];
         usuario.getListaRestricciones()[posicionEnum] = !valorEnPos;
     }//GEN-LAST:event_checkBoxIntoleranteLactosaActionPerformed
 
     private void checkBoxHipertensionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxHipertensionActionPerformed
-        int posicionEnum = Usuario.Restricciones.Hipertension.ordinal();
+        int posicionEnum = Usuario.Restricciones.HIPERTENSION.ordinal();
         boolean valorEnPos = usuario.getListaRestricciones()[posicionEnum];
         usuario.getListaRestricciones()[posicionEnum] = !valorEnPos;
     }//GEN-LAST:event_checkBoxHipertensionActionPerformed
 
     private void rBMacrobioticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBMacrobioticoActionPerformed
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Macrobiotico);
+        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.MACROBIOTICO);
     }//GEN-LAST:event_rBMacrobioticoActionPerformed
 
     private void listaNacionalidadesUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaNacionalidadesUsuarioActionPerformed
@@ -575,25 +572,25 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_listaNacionalidadesUsuarioActionPerformed
 
     private void rBVeganoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBVeganoActionPerformed
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Vegano);
+        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.VEGANO);
     }//GEN-LAST:event_rBVeganoActionPerformed
 
     private void rBVegetarianoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBVegetarianoActionPerformed
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Vegetariano);
+        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.VEGETARIANO);
     }//GEN-LAST:event_rBVegetarianoActionPerformed
 
     private void rBOrganicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBOrganicoActionPerformed
-        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.Organico);
+        usuario.setPreferenciasAlimentarias(Usuario.Preferencias.ORGANICO);
     }//GEN-LAST:event_rBOrganicoActionPerformed
 
     private void checkBoxCeliacoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCeliacoActionPerformed
-        int posicionEnum = Usuario.Restricciones.Celiaco.ordinal();
+        int posicionEnum = Usuario.Restricciones.CELIACO.ordinal();
         boolean valorEnPos = usuario.getListaRestricciones()[posicionEnum];
         usuario.getListaRestricciones()[posicionEnum] = !valorEnPos;
     }//GEN-LAST:event_checkBoxCeliacoActionPerformed
 
     private void checkBoxDiabeticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxDiabeticoActionPerformed
-        int posicionEnum = Usuario.Restricciones.Diabetico.ordinal();
+        int posicionEnum = Usuario.Restricciones.DIABETICO.ordinal();
         boolean valorEnPos = usuario.getListaRestricciones()[posicionEnum];
         usuario.getListaRestricciones()[posicionEnum] = !valorEnPos;
     }//GEN-LAST:event_checkBoxDiabeticoActionPerformed

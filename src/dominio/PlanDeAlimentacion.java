@@ -1,98 +1,96 @@
 package dominio;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
-public class PlanDeAlimentacion implements Serializable{
-   
-    //Atributos
-    private static final long serialVersionUID = 6106269076155338045L;
-    private Usuario usuario;
-    private ArrayList<Alimento> listaLunes;
-    private ArrayList<Alimento> listaMartes;
-    private ArrayList<Alimento> listaMiercoles;
-    private ArrayList<Alimento> listaJueves;
-    private ArrayList<Alimento> listaViernes;
-    private ArrayList<Alimento> listaSabado;
-    private ArrayList<Alimento> listaDomingo;
-    
-    
-    //Constructor
-    public PlanDeAlimentacion(Usuario usuario) {
-        this.usuario = usuario;
-        listaLunes = new ArrayList<Alimento>();
-        listaMartes = new ArrayList<Alimento>();
-        listaMiercoles = new ArrayList<Alimento>();
-        listaJueves = new ArrayList<Alimento>();
-        listaViernes = new ArrayList<Alimento>();
-        listaSabado = new ArrayList<Alimento>();
-        listaDomingo = new ArrayList<Alimento>();
-    }
-    
-    //Metodos de la clase PlanDeAliemntacion
+public class PlanDeAlimentacion implements Serializable {
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+  //Atributos
+  private static final long serialVersionUID = 1L;
+  private Usuario usuario;
+  private List<Alimento> listaLunes;
+  private List<Alimento> listaMartes;
+  private List<Alimento> listaMiercoles;
+  private List<Alimento> listaJueves;
+  private List<Alimento> listaViernes;
+  private List<Alimento> listaSabado;
+  private List<Alimento> listaDomingo;
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+  //Constructor
+  public PlanDeAlimentacion(Usuario usuario) {
+    this.usuario = usuario;
+    listaLunes = new ArrayList<>();
+    listaMartes = new ArrayList<>();
+    listaMiercoles = new ArrayList<>();
+    listaJueves = new ArrayList<>();
+    listaViernes = new ArrayList<>();
+    listaSabado = new ArrayList<>();
+    listaDomingo = new ArrayList<>();
+  }
 
-    public ArrayList<Alimento> getListaLunes() {
-        return listaLunes;
-    }
+  //Metodos de la clase PlanDeAliemntacion
+  public Usuario getUsuario() {
+    return usuario;
+  }
 
-    public void setListaLunes(ArrayList<Alimento> listaLunes) {
-        this.listaLunes = listaLunes;
-    }
+  public void setUsuario(Usuario usuario) {
+    this.usuario = usuario;
+  }
 
-    public ArrayList<Alimento> getListaMartes() {
-        return listaMartes;
-    }
+  public List<Alimento> getListaLunes() {
+    return listaLunes;
+  }
 
-    public void setListaMartes(ArrayList<Alimento> listaMartes) {
-        this.listaMartes = listaMartes;
-    }
+  public void setListaLunes(List<Alimento> listaLunes) {
+    this.listaLunes = listaLunes;
+  }
 
-    public ArrayList<Alimento> getListaMiercoles() {
-        return listaMiercoles;
-    }
+  public List<Alimento> getListaMartes() {
+    return listaMartes;
+  }
 
-    public void setListaMiercoles(ArrayList<Alimento> listaMiercoles) {
-        this.listaMiercoles = listaMiercoles;
-    }
+  public void setListaMartes(List<Alimento> listaMartes) {
+    this.listaMartes = listaMartes;
+  }
 
-    public ArrayList<Alimento> getListaJueves() {
-        return listaJueves;
-    }
+  public List<Alimento> getListaMiercoles() {
+    return listaMiercoles;
+  }
 
-    public void setListaJueves(ArrayList<Alimento> listaJueves) {
-        this.listaJueves = listaJueves;
-    }
+  public void setListaMiercoles(List<Alimento> listaMiercoles) {
+    this.listaMiercoles = listaMiercoles;
+  }
 
-    public ArrayList<Alimento> getListaViernes() {
-        return listaViernes;
-    }
+  public List<Alimento> getListaJueves() {
+    return listaJueves;
+  }
 
-    public void setListaViernes(ArrayList<Alimento> listaViernes) {
-        this.listaViernes = listaViernes;
-    }
+  public void setListaJueves(List<Alimento> listaJueves) {
+    this.listaJueves = listaJueves;
+  }
 
-    public ArrayList<Alimento> getListaSabado() {
-        return listaSabado;
-    }
+  public List<Alimento> getListaViernes() {
+    return listaViernes;
+  }
 
-    public void setListaSabado(ArrayList<Alimento> listaSabado) {
-        this.listaSabado = listaSabado;
-    }
+  public void setListaViernes(List<Alimento> listaViernes) {
+    this.listaViernes = listaViernes;
+  }
 
-    public ArrayList<Alimento> getListaDomingo() {
-        return listaDomingo;
-    }
+  public List<Alimento> getListaSabado() {
+    return listaSabado;
+  }
 
-    public void setListaDomingo(ArrayList<Alimento> listaDomingo) {
-        this.listaDomingo = listaDomingo;
-    }  
+  public void setListaSabado(List<Alimento> listaSabado) {
+    this.listaSabado = listaSabado;
+  }
+
+  public List<Alimento> getListaDomingo() {
+    return listaDomingo;
+  }
+
+  public void setListaDomingo(List<Alimento> listaDomingo) {
+    this.listaDomingo = listaDomingo;
+  }
 }

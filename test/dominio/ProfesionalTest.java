@@ -1,6 +1,7 @@
 package dominio;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,15 +34,15 @@ public class ProfesionalTest {
     public void testGetCasillaDeEntrada() {
         System.out.println("getCasillaDeEntrada");
         Profesional instance = new Profesional();
-        ArrayList<Mensaje> expResult = new ArrayList<Mensaje>();
-        ArrayList<Mensaje> result = instance.getCasillaDeEntrada();
+        List<Mensaje> expResult = new ArrayList<>();
+        List<Mensaje> result = instance.getCasillaDeEntrada();
         assertEquals(expResult, result);
     }
 
     @Test
     public void testSetCasillaDeEntrada() {
         System.out.println("setCasillaDeEntrada");
-        ArrayList<Mensaje> casillaDeEntrada = new ArrayList<Mensaje>();
+        List<Mensaje> casillaDeEntrada = new ArrayList<>();
         Profesional instance = new Profesional();
         instance.setCasillaDeEntrada(casillaDeEntrada);
         assertEquals(instance.getCasillaDeEntrada(),casillaDeEntrada);
@@ -70,9 +71,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloIndia() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.India);
-        Profesional.Pais expResult = Profesional.Pais.India;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.INDIA);
+        Pais expResult = Pais.INDIA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -80,9 +81,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloInglaterra() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Inglaterra);
-        Profesional.Pais expResult = Profesional.Pais.Inglaterra;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.INGLATERRA);
+        Pais expResult = Pais.INGLATERRA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -90,9 +91,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloInglaterra() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Inglaterra);
-        Profesional.Pais expResult = Profesional.Pais.Inglaterra;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.INGLATERRA);
+        Pais expResult = Pais.INGLATERRA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -100,9 +101,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloIsrael() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Israel);
-        Profesional.Pais expResult = Profesional.Pais.Israel;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.ISRAEL);
+        Pais expResult = Pais.ISRAEL;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -110,9 +111,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloIsrael() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Israel);
-        Profesional.Pais expResult = Profesional.Pais.Israel;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.ISRAEL);
+        Pais expResult = Pais.ISRAEL;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -120,9 +121,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloItalia() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Italia);
-        Profesional.Pais expResult = Profesional.Pais.Italia;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.ITALIA);
+        Pais expResult = Pais.ITALIA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -130,9 +131,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloItalia() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Italia);
-        Profesional.Pais expResult = Profesional.Pais.Italia;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.ITALIA);
+        Pais expResult = Pais.ITALIA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -140,9 +141,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloJapon() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Japón);
-        Profesional.Pais expResult = Profesional.Pais.Japón;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.JAPON);
+        Pais expResult = Pais.JAPON;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -150,9 +151,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloJapon() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Japón);
-        Profesional.Pais expResult = Profesional.Pais.Japón;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.JAPON);
+        Pais expResult = Pais.JAPON;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -160,9 +161,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloMexico() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.México);
-        Profesional.Pais expResult = Profesional.Pais.México;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.MEXICO);
+        Pais expResult = Pais.MEXICO;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -170,9 +171,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloMexico() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.México);
-        Profesional.Pais expResult = Profesional.Pais.México;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.MEXICO);
+        Pais expResult = Pais.MEXICO;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -180,9 +181,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloParaguay() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Paraguay);
-        Profesional.Pais expResult = Profesional.Pais.Paraguay;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.PARAGUAY);
+        Pais expResult = Pais.PARAGUAY;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -190,9 +191,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloParaguay() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Paraguay);
-        Profesional.Pais expResult = Profesional.Pais.Paraguay;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.PARAGUAY);
+        Pais expResult = Pais.PARAGUAY;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -200,9 +201,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloPeru() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Perú);
-        Profesional.Pais expResult = Profesional.Pais.Perú;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.PERU);
+        Pais expResult = Pais.PERU;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -210,9 +211,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloPeru() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Perú);
-        Profesional.Pais expResult = Profesional.Pais.Perú;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.PERU);
+        Pais expResult = Pais.PERU;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -220,9 +221,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloPortugal() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Portugal);
-        Profesional.Pais expResult = Profesional.Pais.Portugal;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.PORTUGAL);
+        Pais expResult = Pais.PORTUGAL;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -230,9 +231,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloPortugal() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Portugal);
-        Profesional.Pais expResult = Profesional.Pais.Portugal;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.PORTUGAL);
+        Pais expResult = Pais.PORTUGAL;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -240,9 +241,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloRusia() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Rusia);
-        Profesional.Pais expResult = Profesional.Pais.Rusia;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.RUSIA);
+        Pais expResult = Pais.RUSIA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -250,9 +251,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloRusia() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Rusia);
-        Profesional.Pais expResult = Profesional.Pais.Rusia;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.RUSIA);
+        Pais expResult = Pais.RUSIA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -260,9 +261,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloSudafrica() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Sudáfrica);
-        Profesional.Pais expResult = Profesional.Pais.Sudáfrica;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.SUDAFRICA);
+        Pais expResult = Pais.SUDAFRICA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -270,9 +271,9 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloSudafrica() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Rusia);
-        Profesional.Pais expResult = Profesional.Pais.Rusia;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.RUSIA);
+        Pais expResult = Pais.RUSIA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -280,9 +281,9 @@ public class ProfesionalTest {
     public void testSetPaisObtuvoTituloVenezuela() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Venezuela);
-        Profesional.Pais expResult = Profesional.Pais.Venezuela;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.VENEZUELA);
+        Pais expResult = Pais.VENEZUELA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
     }
     
@@ -290,37 +291,10 @@ public class ProfesionalTest {
     public void testGetPaisObtuvoTituloVenezuela() {
         System.out.println("getPaisObtuvoTitulo");
         Profesional instance = new Profesional();
-        instance.setPaisObtuvoTitulo(Profesional.Pais.Venezuela);
-        Profesional.Pais expResult = Profesional.Pais.Venezuela;
-        Profesional.Pais result = instance.getPaisObtuvoTitulo();
+        instance.setPaisObtuvoTitulo(Pais.VENEZUELA);
+        Pais expResult = Pais.VENEZUELA;
+        Pais result = instance.getPaisObtuvoTitulo();
         assertEquals(expResult, result);
-    }
-    
-    @Test
-    public void testGetListaEnumPais() {
-        System.out.println("getListaEnumPais");
-        Profesional instance = new Profesional();
-        Profesional.Pais[] expResult = instance.inicializoListaEnumPaises();
-        Profesional.Pais[] result = instance.getListaEnumPais();
-        assertArrayEquals(expResult, result);
-    }
-
-    @Test
-    public void testSetListaEnumPais() {
-        System.out.println("setListaEnumPais");
-        Profesional instance = new Profesional();
-        Profesional.Pais[] listaEnumPais = instance.inicializoListaEnumPaises();
-        instance.setListaEnumPais(listaEnumPais);
-        assertArrayEquals(instance.getListaEnumPais(),listaEnumPais);
-    }
-
-    @Test
-    public void testInicializoListaEnumPaises() {
-        System.out.println("inicializoListaEnumPaises");
-        Profesional instance = new Profesional();
-        Profesional.Pais[] expResult = instance.inicializoListaEnumPaises();
-        Profesional.Pais[] result = instance.inicializoListaEnumPaises();
-        assertArrayEquals(expResult, result);
     }
 
     @Test

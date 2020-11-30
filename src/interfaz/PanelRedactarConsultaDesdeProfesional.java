@@ -1,7 +1,6 @@
 package interfaz;
 
 import dominio.Mensaje;
-import dominio.Profesional;
 import dominio.Sistema;
 import dominio.Usuario;
 import javax.swing.DefaultComboBoxModel;
@@ -10,9 +9,9 @@ import javax.swing.JFrame;
 public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
 
     //Atributos
-    private Sistema sistema;
-    private InterfazBotonesProfesional interfazProf;
-    private JFrame ventana;
+    private final Sistema sistema;
+    private final InterfazBotonesProfesional interfazProf;
+    private final JFrame ventana;
 
     //Constructor para profesional
     public PanelRedactarConsultaDesdeProfesional(Sistema unSistema,
@@ -137,14 +136,13 @@ public class PanelRedactarConsultaDesdeProfesional extends javax.swing.JPanel {
         mensajeAEnviar.setOrigen(interfazProf.getUsuarioActivo());
         mensajeAEnviar.setDestino(destino);
         mensajeAEnviar.setAsunto(cajaAsunto.getText());
-        mensajeAEnviar.setMensaje(textoConsultaAEnviar.getText());
+        mensajeAEnviar.setTexto(textoConsultaAEnviar.getText());
         if (!cajaAsunto.getText().trim().isEmpty() && !textoConsultaAEnviar.getText().trim().isEmpty()) {
             destino.getCasillaDeEntrada().add(mensajeAEnviar);
             etiquetaMensajeEnviado.setText("Se ha enviado la consulta");
         } else {
             etiquetaMensajeEnviado.setText("Debe completar todos los campos");
         }
-
     }//GEN-LAST:event_btnEnviarConsultaActionPerformed
 
 

@@ -1,38 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package alimentacionsaludable;
+
 import dominio.Sistema;
-import interfaz.InterfazBotonesAdministrador;
-import interfaz.InterfazBotonesProfesional;
-import interfaz.InterfazBotonesUsuario;
 import interfaz.PanelCambioDeUsuario;
-import interfaz.PanelPerfilUsuario;
 import interfaz.PanelPrincipal;
-import java.awt.Component;
-import javax.swing.JPanel;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ale
  */
 public class AlimentacionSaludable {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Sistema s = new Sistema();
-        s.cargarSistema();
-        PanelPrincipal p = new PanelPrincipal(s);
-        //InterfazBotonesAdministrador i = new InterfazBotonesAdministrador(s,p);
-        //InterfazBotonesUsuario i = new InterfazBotonesUsuario(s,p);
-        //InterfazBotonesProfesional i = new InterfazBotonesProfesional(s,p);
-        PanelCambioDeUsuario comienzo = new PanelCambioDeUsuario(p,p.getSistema());
-        p.add(comienzo);
-        p.pack();
-        p.setLocationRelativeTo(null);
-        p.setVisible(true);
+  /**
+   * @param args the command line arguments
+   */
+  public static void main(String[] args) throws Exception {
+    Sistema sistema = new Sistema();
+
+    boolean errorCargarDatos = false;
+    try {
+      sistema.cargarSistema();
+    } catch (IOException ioException) {
+      errorCargarDatos = true;
     }
+
+    PanelPrincipal pantallaPrincipal = new PanelPrincipal(sistema);
+
+    if (errorCargarDatos) {
+      JOptionPane.showMessageDialog(pantallaPrincipal,
+          "Ocurrió un error cargando los datos del sistema.");
+    }
+
+    PanelCambioDeUsuario comienzo = new PanelCambioDeUsuario(
+        pantallaPrincipal, pantallaPrincipal.getSistema());
+
+    pantallaPrincipal.add(comienzo);
+    pantallaPrincipal.pack();
+    pantallaPrincipal.setLocationRelativeTo(null);
+    pantallaPrincipal.setVisible(true);
+  }
 }

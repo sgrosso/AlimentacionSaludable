@@ -4,24 +4,24 @@ import dominio.Alimento;
 import dominio.PlanDeAlimentacion;
 import dominio.Sistema;
 import dominio.Usuario;
-import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 
 public class PanelAgregarComidasAPlan extends javax.swing.JPanel {
 
     //Atributos
-    private Sistema sistema;
-    private InterfazBotonesProfesional interfaz;
-    private JFrame ventana;
-    private Usuario usuarioAModificar;
-    private ArrayList<Alimento> listaAModificar;
-    private PlanDeAlimentacion plan;
+    private final Sistema sistema;
+    private final InterfazBotonesProfesional interfaz;
+    private final JFrame ventana;
+    private final Usuario usuarioAModificar;
+    private final List<Alimento> listaAModificar;
+    private final PlanDeAlimentacion plan;
 
     //Constructor
     public PanelAgregarComidasAPlan(Sistema unSistema,
             InterfazBotonesProfesional unaInterfaz,
             JFrame unaVentana,
-            ArrayList<Alimento> unaLista,
+            List<Alimento> unaLista,
             PlanDeAlimentacion unPlan,
             Usuario unUsuario) {
         initComponents();

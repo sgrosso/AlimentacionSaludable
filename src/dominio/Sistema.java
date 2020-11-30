@@ -1,222 +1,160 @@
 package dominio;
 
-import com.toedter.calendar.JDateChooser;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Optional;
+import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class Sistema implements Serializable {
 
-    //Atributos
-    private static final long serialVersionUID = 6106269076155338045L;
-    ArrayList<Alimento> listaAlimentos;
-    ArrayList<Usuario> listaUsuarios;
-    ArrayList<Profesional> listaProfesionales;
-    tipoUsuario[] listaTiposDeUsuario;
-    tipoUsuario usuarioActivo;
+  //Atributos
+  private static final long serialVersionUID = 1L;
+  private List<Alimento> listaAlimentos;
+  private List<Usuario> listaUsuarios;
+  private List<Profesional> listaProfesionales;
+  private TipoUsuario usuarioActivo;
 
-    //Cosntructor
-    public Sistema(ArrayList<Alimento> listaAlimentos,
-            ArrayList<Usuario> listaUsuarios,
-            ArrayList<Profesional> listaProfesionales,
-            tipoUsuario usuarioActivo) {
-        this.listaAlimentos = listaAlimentos;
-        this.listaUsuarios = listaUsuarios;
-        this.listaProfesionales = listaProfesionales;
-        this.usuarioActivo = usuarioActivo;
-        this.listaTiposDeUsuario = inicializoListaTiposDeUsuario();
-    }
+  //Constructor
+  public Sistema(List<Alimento> listaAlimentos,
+      List<Usuario> listaUsuarios,
+      List<Profesional> listaProfesionales,
+      TipoUsuario usuarioActivo) {
+    this.listaAlimentos = listaAlimentos;
+    this.listaUsuarios = listaUsuarios;
+    this.listaProfesionales = listaProfesionales;
+    this.usuarioActivo = usuarioActivo;
+  }
 
-    public Sistema() {
-        this.listaAlimentos = new ArrayList();
-        this.listaUsuarios = new ArrayList();
-        this.listaProfesionales = new ArrayList();
-        this.usuarioActivo = tipoUsuario.NoSeleccionado;
-        this.listaTiposDeUsuario = inicializoListaTiposDeUsuario();
-    }
-    //Metodos de la clase sistema
+  public Sistema() {
+    this.listaAlimentos = new ArrayList<>();
+    this.listaUsuarios = new ArrayList<>();
+    this.listaProfesionales = new ArrayList<>();
+    this.usuarioActivo = TipoUsuario.NO_SELECCIONADO;
+  }
 
-    public tipoUsuario[] getListaTiposDeUsuario() {
-        tipoUsuario[] lista = listaTiposDeUsuario;
-        return lista;
-    }
+  //Metodos de la clase sistema
+  public List<Alimento> getListaAlimentos() {
+    return listaAlimentos;
+  }
 
-    public void setListaTiposDeUsuario(tipoUsuario[] listaTiposDeUsuario) {
-        this.listaTiposDeUsuario = Optional
-                .ofNullable(listaTiposDeUsuario)
-                .orElse(null);
-    }
+  public void setListaAlimentos(List<Alimento> listaAlimentos) {
+    this.listaAlimentos = listaAlimentos;
+  }
 
-    public ArrayList<Alimento> getListaAlimentos() {
-        return listaAlimentos;
-    }
+  public List<Usuario> getListaUsuarios() {
+    return listaUsuarios;
+  }
 
-    public void setListaAlimentos(ArrayList<Alimento> listaAlimentos) {
-        this.listaAlimentos = listaAlimentos;
-    }
+  public void setListaUsuarios(List<Usuario> listaUsuarios) {
+    this.listaUsuarios = listaUsuarios;
+  }
 
-    public ArrayList<Usuario> getListaUsuarios() {
-        return listaUsuarios;
-    }
+  public List<Profesional> getListaProfesionales() {
+    return listaProfesionales;
+  }
 
-    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
-    }
+  public void setListaProfesionales(List<Profesional> listaProfesionales) {
+    this.listaProfesionales = listaProfesionales;
+  }
 
-    public ArrayList<Profesional> getListaProfesionales() {
-        return listaProfesionales;
-    }
+  public TipoUsuario getUsuarioActivo() {
+    return usuarioActivo;
+  }
 
-    public void setListaProfesionales(ArrayList<Profesional>
-                                      listaProfesionales) {
-        this.listaProfesionales = listaProfesionales;
-    }
+  public void setUsuarioActivo(TipoUsuario usuarioActivo) {
+    this.usuarioActivo = usuarioActivo;
+  }
 
-    public tipoUsuario getUsuarioActivo() {
-        return usuarioActivo;
+  //CARGAR Y GUARDAR SISTEMA
+  public void cargarSistema() throws IOException, ClassNotFoundException {
+    try (ObjectInputStream datosSerializados = new ObjectInputStream(
+        Files.newInputStream(Path.of("sis.ser")))) {
+      listaAlimentos = (List<Alimento>) datosSerializados.readObject();
+      listaUsuarios = (List<Usuario>) datosSerializados.readObject();
+      listaProfesionales = (List<Profesional>) datosSerializados.readObject();
     }
+  }
 
-    public void setUsuarioActivo(tipoUsuario usuarioActivo) {
-        this.usuarioActivo = usuarioActivo;
+  public void guardarSistema() throws IOException {
+    try (ObjectOutputStream datosSerializados = new ObjectOutputStream(
+        Files.newOutputStream(Path.of("sis.ser")))) {
+      datosSerializados.writeObject(listaAlimentos);
+      datosSerializados.writeObject(listaUsuarios);
+      datosSerializados.writeObject(listaProfesionales);
+      datosSerializados.flush();
     }
+  }
 
-    public enum tipoUsuario {
-        Profesional, Usuario, NoSeleccionado
-    }
+  //Metodo para validarque el dato sea numericoF
+  public boolean pidoDatoNumerico(int dato, int min, int max) {
+    return dato >= min && dato <= max;
+  }
 
-    //Metodo para inicializar lista de enums de tipo de usuario
-    tipoUsuario[] inicializoListaTiposDeUsuario() {
-        tipoUsuario[] listaPivot = {tipoUsuario.Profesional,
-            tipoUsuario.Usuario};
-        return listaPivot;
-    }
+  //Metodo que adapta el tamaño de la imagen al deseado
+  public ImageIcon resizeImageIcon(ImageIcon imageIcon, Integer width, Integer height) {
+    BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
+    Graphics2D graphics2D = bufferedImage.createGraphics();
+    graphics2D.drawImage(imageIcon.getImage(), 0, 0, width, height, null);
+    graphics2D.dispose();
+    return new ImageIcon(bufferedImage, imageIcon.getDescription());
+  }
 
-    //CARGAR Y GUARDAR SISTEMA
-    public void cargarSistema() {
-        try {
-            ObjectInputStream in = new ObjectInputStream
-                                   (new FileInputStream("sis.ser"));
-            ArrayList<Alimento> listAlimentos = (ArrayList<Alimento>)
-                                                in.readObject();
-            listaAlimentos = listAlimentos;
-            ArrayList<Usuario> listUsuarios = (ArrayList<Usuario>)
-                                              in.readObject();
-            listaUsuarios = listUsuarios;
-            ArrayList<Profesional> listProfesionales = (ArrayList<Profesional>)
-                                                        in.readObject();
-            listaProfesionales = listProfesionales;
-            in.close();
-        } catch (Exception ex) {
-            listaAlimentos = new ArrayList<Alimento>();
-            listaUsuarios = new ArrayList<Usuario>();
-            listaProfesionales = new ArrayList<Profesional>();
-        }
+  public void registroUsuario(String unNombre, String unApellido, String unUsuario,
+      String unSexo, String unaFechaNacimiento, double unaAltura, ImageIcon unaFotoPerfil,
+      double unPeso, Pais unaNacionalidad) {
+    Usuario usuario = new Usuario();
+    usuario.setNombre(unNombre);
+    usuario.setApellidos(unApellido);
+    usuario.setNombreUsuario(unUsuario);
+    usuario.setNacionalidad(Pais.values()[unaNacionalidad.ordinal()]);
+    usuario.setFechaNacimiento(unaFechaNacimiento);
+    usuario.setSexo(unSexo);
+    usuario.setAlturaCm(unaAltura);
+    usuario.setPesoKg(unPeso);
+    usuario.setFotoPerfil(unaFotoPerfil);
+    if (!this.getListaUsuarios().contains(usuario)) {
+      this.getListaUsuarios().add(usuario);
     }
+  }
 
-    public void guardarSistema() {
-        try {
-            ObjectOutputStream out = new ObjectOutputStream
-                                         (new FileOutputStream("sis.ser"));
-            out.writeObject(listaAlimentos);
-            out.writeObject(listaUsuarios);
-            out.writeObject(listaProfesionales);
-            out.flush();
-            out.close();
-        } catch (IOException ex) {
-        }
+  public void registroProfesional(String unNombre, String unApellido,
+      String unNombreUsuario,
+      String unNombreTitulo,
+      Pais unPais,
+      ImageIcon unaFotoPerfil,
+      String unaFechaNacimiento,
+      String unaFechaGraduacion,
+      Pais unPaisTitulo) {
+    Profesional profesional = new Profesional();
+    profesional.setNombre(unNombre);
+    profesional.setApellidos(unApellido);
+    profesional.setNombreUsuario(unNombreUsuario);
+    profesional.setFechaNacimiento(unaFechaNacimiento);
+    profesional.setNombreTituloProf(unNombreTitulo);
+    profesional.setFechaGraduacion(unaFechaGraduacion);
+    profesional.setPaisObtuvoTitulo(unPaisTitulo);
+    profesional.setFotoPerfil(unaFotoPerfil);
+    if (!this.getListaProfesionales().contains(profesional)) {
+      this.getListaProfesionales().add(profesional);
     }
+  }
 
-    //Metodo para validarque el dato sea numericoF
-    public boolean pidoDatoNumerico(int dato, int min, int max) {
-        int datoAVerificar = 0;
-        boolean pidiendo = false;
-        try {
-            datoAVerificar = dato;
-            if ((datoAVerificar >= min) && (datoAVerificar <= max)) {
-                pidiendo = true;
-            }
-        } catch (NumberFormatException ex) {
-            
-        }
-        return pidiendo;
+  public void registroAlimento(String nombreAlim, TipoAlimento unTipo,
+      boolean[] unaListaNutrientes) {
+    Alimento alimento = new Alimento();
+    alimento.setNombre(nombreAlim);
+    alimento.setTipo(TipoAlimento.values()[unTipo.ordinal()]);
+    alimento.setListaNutrientesSeleccionados(unaListaNutrientes);
+    if (!this.getListaAlimentos().contains(alimento)) {
+      this.getListaAlimentos().add(alimento);
     }
-
-    //Metodo que adapta el tamaño de la imagen al deseado
-    ImageIcon resizeImageIcon(ImageIcon imageIcon, Integer width,
-                              Integer height) {
-        BufferedImage bufferedImage = new BufferedImage
-                                      (width, height,
-                                       BufferedImage.TRANSLUCENT);
-        Graphics2D graphics2D = bufferedImage.createGraphics();
-        graphics2D.drawImage(imageIcon.getImage(), 0, 0, width, height, null);
-        graphics2D.dispose();
-        return new ImageIcon(bufferedImage, imageIcon.getDescription());
-    }
-
-    void registroUsuario(String unNombre, String unApellido, String unUsuario,
-                         String unSexo, String unaFechaNacimiento,
-                         double unaAltura, ImageIcon unaFotoPerfil,
-                         double unPeso,
-                         Usuario.Nacionalidades unaNacionalidad) {
-        Usuario usuario = new Usuario();
-        usuario.setNombre(unNombre);
-        usuario.setApellidos(unApellido);
-        usuario.setNombreUsuario(unUsuario);
-        usuario.setNacionalidad(usuario.getListaEnumNac()
-                                [unaNacionalidad.ordinal()]);
-        usuario.setFechaNacimiento(unaFechaNacimiento);
-        usuario.setSexo(unSexo);
-        usuario.setAlturaCm(unaAltura);
-        usuario.setPesoKg(unPeso);
-        usuario.setFotoPerfil(unaFotoPerfil);
-        if(!this.getListaUsuarios().contains(usuario)){
-            this.getListaUsuarios().add(usuario);
-        }
-    }
-
-    public void registroProfesional(String unNombre, String unApellido,
-                                    String unNombreUsuario,
-                                    String unNombreTitulo,
-                                    Profesional.Pais unPais,
-                                    ImageIcon unaFotoPerfil,
-                                    String unaFechaNacimiento,
-                                    String unaFechaGraduacion,
-                                    Profesional.Pais unPaisTitulo) {
-        Profesional profesional = new Profesional();
-        profesional.setNombre(unNombre);
-        profesional.setApellidos(unApellido);
-        profesional.setNombreUsuario(unNombreUsuario);
-        profesional.setFechaNacimiento(unaFechaNacimiento);
-        profesional.setNombreTituloProf(unNombreTitulo);
-        profesional.setFechaGraduacion(unaFechaGraduacion);
-        profesional.setPaisObtuvoTitulo(unPaisTitulo);
-        profesional.setFotoPerfil(unaFotoPerfil);
-        if(!this.getListaProfesionales().contains(profesional)){
-            this.getListaProfesionales().add(profesional);
-        }
-    }
-
-    public void registroAlimento(String nombreAlim,
-                                 Alimento.TipoAlimento unTipo,
-                                 boolean[] unaListaNutrientes) {
-        Alimento alimento = new Alimento();
-        alimento.setNombre(nombreAlim);
-        alimento.setTipo(alimento.getListaEnumTipoAlimento()
-                        [unTipo.ordinal()]);
-        alimento.setListaNutrientesSeleccionados(unaListaNutrientes);
-        if(!this.getListaAlimentos().contains(alimento)){
-            this.getListaAlimentos().add(alimento);
-        }
-    }
+  }
 
 }

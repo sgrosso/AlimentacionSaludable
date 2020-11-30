@@ -1,5 +1,6 @@
 package interfaz;
 
+import dominio.Pais;
 import dominio.Sistema;
 import dominio.Profesional;
 import java.awt.Graphics2D;
@@ -35,10 +36,8 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         ventana = unaVentana;
         interfaz = interfazActual;
         profesional = interfaz.getUsuarioActivo();
-        Profesional.Pais[] listaPaises = profesional.getListaEnumPais();
-        listaPaisDeGraduacion.setModel(new DefaultComboBoxModel(listaPaises));
-        listaPaisDeGraduacion.setSelectedIndex(Profesional.Pais.Uruguay.ordinal());
-        
+        listaPaisDeGraduacion.setModel(new DefaultComboBoxModel(Pais.values()));
+        listaPaisDeGraduacion.setSelectedIndex(Pais.URUGUAY.ordinal());
         addJDateChooserEvents();
         cargarValoresActuales();
     }
@@ -286,7 +285,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
             SimpleDateFormat formatter2 = new SimpleDateFormat("dd/MM/yyyy");
             String fGraduacion = formatter2.format(fechaGraduacion.getCalendar().getTime());
             profesional.setFechaGraduacion(fGraduacion);
-            profesional.setPaisObtuvoTitulo(profesional.getListaEnumPais()[listaPaisDeGraduacion.getSelectedIndex()]);
+            profesional.setPaisObtuvoTitulo(Pais.values()[listaPaisDeGraduacion.getSelectedIndex()]);
             etiquetaMensajeAlAceptar.setText("Profesional editado correctamente");
         } else {
             etiquetaMensajeAlAceptar.setText("Error al editar el profesional");

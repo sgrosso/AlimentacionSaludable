@@ -2,17 +2,17 @@ package interfaz;
 
 import dominio.Sistema;
 import dominio.Alimento;
+import dominio.TipoAlimento;
 import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class PanelRegistroAlimento extends javax.swing.JPanel {
 
     //Atributos
-    private Sistema sistema;
+    private final Sistema sistema;
     private Alimento alimento;
-    private JFrame ventana;
+    private final JFrame ventana;
 
     //Cosntructor
     public PanelRegistroAlimento(Sistema unSistema, JFrame unaVentana) {
@@ -20,9 +20,8 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
         sistema = unSistema;
         ventana = unaVentana;
         alimento = new Alimento();
-        Alimento.TipoAlimento[] listaTipoAlimento = alimento.getListaEnumTipoAlimento();
-        listaTiposAlimentos.setModel(new DefaultComboBoxModel(listaTipoAlimento));
-        listaTiposAlimentos.setSelectedIndex(Alimento.TipoAlimento.Fruta.ordinal());
+        listaTiposAlimentos.setModel(new DefaultComboBoxModel(TipoAlimento.values()));
+        listaTiposAlimentos.setSelectedIndex(TipoAlimento.FRUTA.ordinal());
     }
 
     @SuppressWarnings("unchecked")
@@ -215,22 +214,20 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkBoxHidratosDeCarbonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxHidratosDeCarbonoActionPerformed
-        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.HidratosDeCarbono.ordinal()];
-        estadoActual = !estadoActual;
         checkBoxNinguno.setSelected(false);
     }//GEN-LAST:event_checkBoxHidratosDeCarbonoActionPerformed
 
-    private void checkBoxNingunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNingunoActionPerformed
+    private void checkBoxNingunoActionPerformed(java.awt.event.ActionEvent evt) {                                                
         boolean[] estadoActual = alimento.getListaNutrientesSeleccionados();
         Arrays.fill(estadoActual, false);
-        checkBoxAgua.setSelected(false);
         checkBoxFibra.setSelected(false);
+        checkBoxAgua.setSelected(false);
         checkBoxHidratosDeCarbono.setSelected(false);
         checkBoxLipidos.setSelected(false);
         checkBoxMinerales.setSelected(false);
         checkBoxProteinas.setSelected(false);
         checkBoxVitaminas.setSelected(false);
-    }//GEN-LAST:event_checkBoxNingunoActionPerformed
+    }
 
     private void cajaNombreAlimFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreAlimFocusLost
         String nombre = cajaNombreAlim.getText();
@@ -253,7 +250,7 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
                 && !sistema.getListaAlimentos().contains(comparo);
         if (nombre) {
             alimento.setNombre(cajaNombreAlim.getText());
-            alimento.setTipo(alimento.getListaEnumTipoAlimento()[listaTiposAlimentos.getSelectedIndex()]);
+            alimento.setTipo(TipoAlimento.values()[listaTiposAlimentos.getSelectedIndex()]);
             etiquetaMensajeAlAceptar.setText("Alimento registrado correctamente");
             sistema.getListaAlimentos().add(alimento);
         } else {
@@ -263,38 +260,26 @@ public class PanelRegistroAlimento extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAceptarRegAlimActionPerformed
 
     private void checkBoxProteinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxProteinasActionPerformed
-        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Proteinas.ordinal()];
-        estadoActual = !estadoActual;
         checkBoxNinguno.setSelected(false);
     }//GEN-LAST:event_checkBoxProteinasActionPerformed
 
     private void checkBoxLipidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxLipidosActionPerformed
-        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Lipidos.ordinal()];
-        estadoActual = !estadoActual;
         checkBoxNinguno.setSelected(false);
     }//GEN-LAST:event_checkBoxLipidosActionPerformed
 
     private void checkBoxVitaminasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxVitaminasActionPerformed
-        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Vitaminas.ordinal()];
-        estadoActual = !estadoActual;
         checkBoxNinguno.setSelected(false);
     }//GEN-LAST:event_checkBoxVitaminasActionPerformed
 
     private void checkBoxMineralesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxMineralesActionPerformed
-        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Minerales.ordinal()];
-        estadoActual = !estadoActual;
         checkBoxNinguno.setSelected(false);
     }//GEN-LAST:event_checkBoxMineralesActionPerformed
 
     private void checkBoxAguaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxAguaActionPerformed
-        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Agua.ordinal()];
-        estadoActual = !estadoActual;
         checkBoxNinguno.setSelected(false);
     }//GEN-LAST:event_checkBoxAguaActionPerformed
 
     private void checkBoxFibraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxFibraActionPerformed
-        boolean estadoActual = alimento.getListaNutrientesSeleccionados()[Alimento.Nutrientes.Fibra.ordinal()];
-        estadoActual = !estadoActual;
         checkBoxNinguno.setSelected(false);
     }//GEN-LAST:event_checkBoxFibraActionPerformed
 

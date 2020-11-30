@@ -1,9 +1,9 @@
 package interfaz;
 
-import dominio.Persona;
 import dominio.Profesional;
 import dominio.Usuario;
 import dominio.Sistema;
+import dominio.TipoUsuario;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 
@@ -23,7 +23,7 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         ventana = unaVentana;
         sistema = unSistema;
         interfazProf = unaInterfaz;
-        listaTiposDeUsuarios.setModel(new DefaultComboBoxModel(sistema.getListaTiposDeUsuario()));
+        listaTiposDeUsuarios.setModel(new DefaultComboBoxModel(TipoUsuario.values()));
         actualizarLista();
     }
 
@@ -35,7 +35,7 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         ventana = unaVentana;
         sistema = unSistema;
         interfazUsr = unaInterfaz;
-        listaTiposDeUsuarios.setModel(new DefaultComboBoxModel(sistema.getListaTiposDeUsuario()));
+        listaTiposDeUsuarios.setModel(new DefaultComboBoxModel(TipoUsuario.values()));
         actualizarLista();
     }
 
@@ -47,7 +47,7 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         ventana = unaVentana;
         sistema = unSistema;
         interfazAdm = unaInterfaz;
-        listaTiposDeUsuarios.setModel(new DefaultComboBoxModel(sistema.getListaTiposDeUsuario()));
+        listaTiposDeUsuarios.setModel(new DefaultComboBoxModel(TipoUsuario.values()));
         actualizarLista();
     }
 
@@ -57,7 +57,7 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         initComponents();
         ventana = unaVentana;
         sistema = unSistema;
-        listaTiposDeUsuarios.setModel(new DefaultComboBoxModel(sistema.getListaTiposDeUsuario()));
+        listaTiposDeUsuarios.setModel(new DefaultComboBoxModel(TipoUsuario.values()));
         listaTiposDeUsuarios.setSelectedIndex(0);
         actualizarLista();
     }
@@ -141,13 +141,13 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
     private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed
         if (listaUsuarios.getSelectedValue() != null) {
             this.limpioInterfaces();
-            if (listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Profesional) {
+            if (listaTiposDeUsuarios.getSelectedItem() == TipoUsuario.PROFESIONAL) {
                 Profesional profSeleccionado = (Profesional) listaUsuarios.getSelectedValue();
                 ventana.remove(this);
                 InterfazBotonesProfesional nuevaBotonera = new InterfazBotonesProfesional(sistema, ventana, profSeleccionado);
                 ventana.pack();
             }
-            if (listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Usuario) {
+            if (listaTiposDeUsuarios.getSelectedItem() == TipoUsuario.USUARIO) {
                 Usuario usuarioSeleccionado = (Usuario) listaUsuarios.getSelectedValue();
                 ventana.remove(this);
                 InterfazBotonesUsuario nuevaBotonera = new InterfazBotonesUsuario(sistema, ventana, usuarioSeleccionado);
@@ -182,19 +182,19 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         actualizarLista();
     }//GEN-LAST:event_listaTiposDeUsuariosActionPerformed
     void actualizarLista() {
-        if (sistema.getListaUsuarios().size() < 1 && listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Usuario) {
+        if (sistema.getListaUsuarios().size() < 1 && listaTiposDeUsuarios.getSelectedItem() == TipoUsuario.USUARIO) {
             btnCambiarUsuario.setEnabled(false);
         } else {
-            if (sistema.getListaProfesionales().size() < 1 && listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Profesional) {
+            if (sistema.getListaProfesionales().size() < 1 && listaTiposDeUsuarios.getSelectedItem() == TipoUsuario.PROFESIONAL) {
                 btnCambiarUsuario.setEnabled(false);
             } else {
                 btnCambiarUsuario.setEnabled(true);
             }
         }
-        if (listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Profesional) {
+        if (listaTiposDeUsuarios.getSelectedItem() == TipoUsuario.PROFESIONAL) {
             listaUsuarios.setListData(sistema.getListaProfesionales().toArray());
         }
-        if (listaTiposDeUsuarios.getSelectedItem() == Sistema.tipoUsuario.Usuario) {
+        if (listaTiposDeUsuarios.getSelectedItem() == TipoUsuario.USUARIO) {
             listaUsuarios.setListData(sistema.getListaUsuarios().toArray());
         }
     }
