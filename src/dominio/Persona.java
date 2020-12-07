@@ -67,6 +67,14 @@ public abstract class Persona implements Serializable {
     this.fotoPerfil = fotoPerfil;
   }
   
+  public String getPassword() {
+    return this.password;
+  }
+  
+  public void setPassword(String password) {
+    this.password = password;
+  }
+  
   public boolean tieneCredenciales(String nombreUsuario, String password) {
     return this.nombreUsuario.equals(nombreUsuario) && this.password.equals(password);
   }

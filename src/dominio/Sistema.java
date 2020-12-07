@@ -20,7 +20,8 @@ public class Sistema implements Serializable {
   private List<Usuario> listaUsuarios;
   private List<Profesional> listaProfesionales;
   private TipoUsuario usuarioActivo;
-
+  private Persona usuarioLogueado;
+  
   //Constructor
   public Sistema(List<Alimento> listaAlimentos,
       List<Usuario> listaUsuarios,
@@ -70,6 +71,14 @@ public class Sistema implements Serializable {
 
   public void setUsuarioActivo(TipoUsuario usuarioActivo) {
     this.usuarioActivo = usuarioActivo;
+  }
+  
+  public Persona getUsuarioLogueado() {
+    return this.usuarioLogueado;
+  }
+  
+  public void setUsuarioLogueado(Persona unUsuarioLogueado) {
+    this.usuarioLogueado = unUsuarioLogueado;
   }
 
   //CARGAR Y GUARDAR SISTEMA
@@ -171,6 +180,26 @@ public class Sistema implements Serializable {
     if (!this.getListaAlimentos().contains(alimento)) {
       this.getListaAlimentos().add(alimento);
     }
+  }
+  
+  public Persona obtenerUsuario(String nombreUsuario, String password) {
+    List<Usuario> usuarios = this.getListaUsuarios();
+    List<Profesional> profesionales = this.getListaProfesionales();
+    Persona unaPersona = null;
+    
+    unaPersona = usuarios.stream()
+        .filter(usuario -> usuario.tieneCredenciales(nombreUsuario, password))
+        .findFirst()
+        .orElse(null);
+    
+    if (unaPersona == null) {
+      unaPersona = profesionales
+          .stream()
+          .filter(profesional -> profesional.tieneCredenciales(nombreUsuario, password))
+          .findFirst()
+          .orElse(null);
+    }
+    return unaPersona;
   }
 
 }
