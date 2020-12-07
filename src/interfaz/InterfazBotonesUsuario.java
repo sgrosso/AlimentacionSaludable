@@ -11,43 +11,43 @@ import javax.swing.border.LineBorder;
 
 public class InterfazBotonesUsuario extends javax.swing.JPanel {
 
-    private Sistema sistema;
-    private JPanel actual;
-    private JFrame ventana;
-    private Usuario usuarioActual;
+  private Sistema sistema;
+  private JPanel actual;
+  private JFrame ventana;
+  private Usuario usuarioActual;
 
-    public InterfazBotonesUsuario(Sistema unSistema, JFrame unaVentana, Usuario unUsuario) {
-        initComponents();
-        sistema = unSistema;
-        ventana = unaVentana;
-        usuarioActual = unUsuario;
-        actual = new PanelHomeUsuario(sistema, this, ventana);
-        ventana.add(this);
-        ventana.add(actual);
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnHome.setBorder(border);
-        actualizarPerfil();
+  public InterfazBotonesUsuario(Sistema unSistema, JFrame unaVentana, Usuario unUsuario) {
+    initComponents();
+    sistema = unSistema;
+    ventana = unaVentana;
+    usuarioActual = unUsuario;
+    actual = new PanelHomeUsuario(sistema, this, ventana);
+    ventana.add(this);
+    ventana.add(actual);
+    deselectButtons();
+    Border border = new LineBorder(Color.BLACK, 3);
+    btnHome.setBorder(border);
+    actualizarPerfil();
 
-    }
+  }
 
-    public JPanel getActual() {
-        return actual;
-    }
+  public JPanel getActual() {
+    return actual;
+  }
 
-    public void setActual(JPanel actual) {
-        this.actual = actual;
-    }
+  public void setActual(JPanel actual) {
+    this.actual = actual;
+  }
 
-    public Usuario getUsuarioActual() {
-        return usuarioActual;
-    }
+  public Usuario getUsuarioActual() {
+    return usuarioActual;
+  }
 
-    public void setUsuarioActual(Usuario usuarioActual) {
-        this.usuarioActual = usuarioActual;
-    }
+  public void setUsuarioActual(Usuario usuarioActual) {
+    this.usuarioActual = usuarioActual;
+  }
 
-    @SuppressWarnings("unchecked")
+  @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -184,74 +184,73 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnHome.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelHomeUsuario(sistema, this, ventana);
-        ventana.add(actual);
-        ventana.pack();
+      deselectButtons();
+      Border border = new LineBorder(Color.BLACK, 3);
+      btnHome.setBorder(border);
+      ventana.remove(actual);
+      actual = new PanelHomeUsuario(sistema, this, ventana);
+      ventana.add(actual);
+      ventana.pack();
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnPedirPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedirPlanActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnPedirPlan.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelPlanAlimentacionUsuario(sistema, ventana, this);
-        ventana.add(actual);
-        ventana.pack();
+      deselectButtons();
+      Border border = new LineBorder(Color.BLACK, 3);
+      btnPedirPlan.setBorder(border);
+      ventana.remove(actual);
+      actual = new PanelPlanAlimentacionUsuario(sistema, ventana, this);
+      ventana.add(actual);
+      ventana.pack();
     }//GEN-LAST:event_btnPedirPlanActionPerformed
 
     private void btnConsultaDirectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaDirectaActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnConsultaDirecta.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelConsultaProfesional(sistema, this, ventana);
-        ventana.add(actual);
-        ventana.pack();
+      deselectButtons();
+      Border border = new LineBorder(Color.BLACK, 3);
+      btnConsultaDirecta.setBorder(border);
+      ventana.remove(actual);
+      actual = new PanelConsultaProfesional(sistema, this, ventana);
+      ventana.add(actual);
+      ventana.pack();
     }//GEN-LAST:event_btnConsultaDirectaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnPerfil.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelPerfilUsuario(sistema, ventana, this);
-        ventana.add(actual);
-        ventana.pack();
+      deselectButtons();
+      Border border = new LineBorder(Color.BLACK, 3);
+      btnPerfil.setBorder(border);
+      ventana.remove(actual);
+      actual = new PanelPerfilUsuario(sistema, ventana, this);
+      ventana.add(actual);
+      ventana.pack();
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnCambiarUsuario.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelCambioDeUsuario(ventana, sistema, this);
-        ventana.add(actual);
-        ventana.pack();
+      ventana.remove(actual);
+      ventana.remove(this);
+      Login login = new Login(ventana, sistema);
+      ventana.add(login);
+      ventana.pack();
+      ventana.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCambiarUsuarioActionPerformed
 
     private void btnAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarComidaActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnAgregarComida.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelDietaDiariaUsuario(sistema, ventana, this);
-        ventana.add(actual);
-        ventana.pack();
+      deselectButtons();
+      Border border = new LineBorder(Color.BLACK, 3);
+      btnAgregarComida.setBorder(border);
+      ventana.remove(actual);
+      actual = new PanelDietaDiariaUsuario(sistema, ventana, this);
+      ventana.add(actual);
+      ventana.pack();
     }//GEN-LAST:event_btnAgregarComidaActionPerformed
 
-    private void deselectButtons() {
-        Border border = new BevelBorder(0);
-        btnCambiarUsuario.setBorder(border);
-        btnConsultaDirecta.setBorder(border);
-        btnHome.setBorder(border);
-        btnPerfil.setBorder(border);
-        btnPedirPlan.setBorder(border);
-        btnAgregarComida.setBorder(border);
-    }
+  private void deselectButtons() {
+    Border border = new BevelBorder(0);
+    btnCambiarUsuario.setBorder(border);
+    btnConsultaDirecta.setBorder(border);
+    btnHome.setBorder(border);
+    btnPerfil.setBorder(border);
+    btnPedirPlan.setBorder(border);
+    btnAgregarComida.setBorder(border);
+  }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -268,8 +267,8 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     private javax.swing.JPanel panelBotonesUsuario;
     // End of variables declaration//GEN-END:variables
 
-    public void actualizarPerfil() {
-        this.nombreDeUsuario.setText(usuarioActual.getNombre());
-        this.imagenUsuario.setIcon(usuarioActual.getFotoPerfil());
-    }
+  public void actualizarPerfil() {
+    this.nombreDeUsuario.setText(usuarioActual.getNombre());
+    this.imagenUsuario.setIcon(usuarioActual.getFotoPerfil());
+  }
 }

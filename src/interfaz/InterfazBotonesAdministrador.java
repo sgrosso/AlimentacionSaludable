@@ -169,13 +169,12 @@ public class InterfazBotonesAdministrador extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegistrarAlimentoActionPerformed
 
     private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnCambiarUsuario.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelCambioDeUsuario(ventana, sistema, this);
-        ventana.add(actual);
-        ventana.pack();
+      ventana.remove(actual);
+      ventana.remove(this);
+      Login login = new Login(ventana, sistema);
+      ventana.add(login);
+      ventana.pack();
+      ventana.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCambiarUsuarioActionPerformed
 
     private void deselectButtons() {
