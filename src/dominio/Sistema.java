@@ -82,33 +82,39 @@ public class Sistema implements Serializable {
   }
 
   //CARGAR Y GUARDAR SISTEMA
-  public void cargarSistema()  {
+  public void cargarSistema() {
     try {
-      ObjectInputStream in = new ObjectInputStream(new FileInputStream("sis.ser"));
-      ArrayList<Alimento> listAlimentos = (ArrayList<Alimento>) in.readObject();
+      ObjectInputStream objetosSerializados;
+      objetosSerializados = new ObjectInputStream(new FileInputStream("sis.ser"));
+      ArrayList<Alimento> listAlimentos = (ArrayList<Alimento>) objetosSerializados.readObject();
       listaAlimentos = listAlimentos;
-      ArrayList<Usuario> listUsuarios = (ArrayList<Usuario>) in.readObject();
+      ArrayList<Usuario> listUsuarios = (ArrayList<Usuario>) objetosSerializados.readObject();
       listaUsuarios = listUsuarios;
-      ArrayList<Profesional> listProfesionales = (ArrayList<Profesional>) in.readObject();
+      ArrayList<Profesional> listProfesionales = (ArrayList<Profesional>) objetosSerializados.readObject();
       listaProfesionales = listProfesionales;
-      in.close();
+      objetosSerializados.close();
     } catch (IOException | ClassNotFoundException exception) {
-      listaAlimentos = new ArrayList<Alimento>();
-      listaUsuarios = new ArrayList<Usuario>();
-      listaProfesionales = new ArrayList<Profesional>();
+      listaAlimentos = new ArrayList<>();
+      listaUsuarios = new ArrayList<>();
+      listaProfesionales = new ArrayList<>();
     }
   }
 
-  public void guardarSistema() {
+  public boolean guardarSistema() {
+    boolean pudoGuardar = true;
     try {
-      ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("sis.ser"));
+      ObjectOutputStream out = new ObjectOutputStream(
+          new FileOutputStream("sis.ser"));
       out.writeObject(listaAlimentos);
       out.writeObject(listaUsuarios);
       out.writeObject(listaProfesionales);
       out.flush();
       out.close();
-    } catch (IOException ex) {
+    } catch (IOException exception) {
+      pudoGuardar = false;
     }
+
+    return pudoGuardar;
   }
 
   //Metodo para validarque el dato sea numericoF

@@ -11,7 +11,6 @@ import dominio.Sistema;
 import dominio.TipoUsuario;
 import dominio.Usuario;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 

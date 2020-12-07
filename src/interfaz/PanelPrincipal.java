@@ -1,6 +1,7 @@
 package interfaz;
 
 import dominio.Sistema;
+import javax.swing.JOptionPane;
 
 public class PanelPrincipal extends javax.swing.JFrame {
 
@@ -30,7 +31,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      sistema.guardarSistema();
+      boolean pudoGuardar = sistema.guardarSistema();
+
+      if (!pudoGuardar) {
+        JOptionPane.showMessageDialog(this,
+            "Ocurrió un error al guardar la información, los datos se perderán",
+            "Error al guardar",
+            JOptionPane.ERROR_MESSAGE);
+      }
     }//GEN-LAST:event_formWindowClosing
 
   public Sistema getSistema() {
