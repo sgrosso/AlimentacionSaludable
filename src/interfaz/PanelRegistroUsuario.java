@@ -499,7 +499,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
         boolean nombreUsuarioValido = !cajaNombUsuario.getText().trim().isEmpty()
                 && !sistema.getListaUsuarios().contains(comparoUsr)
                 && !sistema.getListaProfesionales().contains(comparoProf);
-        boolean passwordValido = !cajaPassword.getText().trim().isEmpty();
+        boolean passwordValido = cajaPassword.getText().trim().length() >= 8;
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
         if (fNacimientoValido) {
             Date diaActual = new Date();
@@ -541,7 +541,7 @@ public class PanelRegistroUsuario extends javax.swing.JPanel {
             }
             
             if (!passwordValido) {
-              etiquetaErrorPassword.setText("La contraseña no puede ser vacía");
+              etiquetaErrorPassword.setText("Al menos 8 caracteres");
             }
             
             if (!nombreValido) {

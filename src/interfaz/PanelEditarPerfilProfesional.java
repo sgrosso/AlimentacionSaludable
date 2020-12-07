@@ -8,10 +8,6 @@ import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -295,7 +291,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
         boolean nombreTituloValido = !cajaNombreTituloProf.getText().trim().isEmpty();
         boolean fGraduacionValido = fechaGraduacion.getCalendar() != null;
-        boolean passwordValido = !cajaPassword.getText().trim().isEmpty();
+        boolean passwordValido = cajaPassword.getText().trim().length() >= 8;
         if (nombreValido && apellidoValido && passwordValido
                 && fNacimientoValido && nombreTituloValido && fGraduacionValido) {
             profesional.setNombre(cajaNombreProf.getText());
@@ -347,8 +343,8 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
     }//GEN-LAST:event_cajaApellidosProfFocusLost
 
   private void cajaPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaPasswordFocusLost
-    if (cajaPassword.getText().trim().isEmpty()) {
-      etiquetaErrorPassword.setText("La contraseña no puede ser vacía");
+    if (cajaPassword.getText().trim().length() < 8) {
+      etiquetaErrorPassword.setText("Al menos 8 caracteres");
     } else {
       etiquetaErrorPassword.setText("");
     }

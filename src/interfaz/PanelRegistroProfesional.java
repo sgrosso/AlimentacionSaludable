@@ -328,7 +328,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
         boolean nombreUsuarioValido = !cajaUsuarioProf.getText().trim().isEmpty()
                 && !sistema.getListaUsuarios().contains(comparoUsr)
                 && !sistema.getListaProfesionales().contains(comparoProf);
-        boolean passwordValido = !cajaPassword.getText().trim().isEmpty();
+        boolean passwordValido = cajaPassword.getText().trim().length() >= 8;
         boolean fNacimientoValido = fechaNacimiento.getCalendar() != null;
         boolean fGraduacionValido = fechaGraduacion.getCalendar() != null;
         if (fNacimientoValido && fGraduacionValido) {
@@ -370,7 +370,7 @@ public class PanelRegistroProfesional extends javax.swing.JPanel {
             }
             
             if (!passwordValido) {
-              etiquetaErrorPassword.setText("La contraseña no puede ser vacía");
+              etiquetaErrorPassword.setText("Al menos 8 caracteres");
             }
             
             if (fNacimientoValido == false) {

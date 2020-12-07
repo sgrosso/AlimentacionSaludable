@@ -473,7 +473,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             Date fecNac = fechaNacimiento.getCalendar().getTime();
             fNacimientoValido = fNacimientoValido && fecNac.before(diaActual);
         }
-        boolean passwordValido = !cajaPassword.getText().trim().isEmpty();
+        boolean passwordValido = cajaPassword.getText().trim().length() >= 8;
         boolean altura = pidoDatoNumerico(cajaAltura.getText(), 0, 265, etiquetaErrorAltura);
         boolean peso = pidoDatoNumerico(cajaPeso.getText(), 0, 265, etiquetaErrorPeso);
         boolean sexoPred = sexoPredeterminado();
@@ -507,7 +507,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             }
             
             if (!passwordValido) {
-              etiquetaErrorPassword.setText("La contraseña no puede ser vacía");
+              etiquetaErrorPassword.setText("Al menos 8 caracteres");
             }
             
             if (fNacimientoValido == false) {
