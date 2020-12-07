@@ -90,7 +90,8 @@ public class Sistema implements Serializable {
       listaAlimentos = listAlimentos;
       ArrayList<Usuario> listUsuarios = (ArrayList<Usuario>) objetosSerializados.readObject();
       listaUsuarios = listUsuarios;
-      ArrayList<Profesional> listProfesionales = (ArrayList<Profesional>) objetosSerializados.readObject();
+      ArrayList<Profesional> listProfesionales;
+      listProfesionales = (ArrayList<Profesional>) objetosSerializados.readObject();
       listaProfesionales = listProfesionales;
       objetosSerializados.close();
     } catch (IOException | ClassNotFoundException exception) {
