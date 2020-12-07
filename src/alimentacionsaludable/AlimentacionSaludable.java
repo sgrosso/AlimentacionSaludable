@@ -28,9 +28,6 @@ public class AlimentacionSaludable {
       JOptionPane.showMessageDialog(pantallaPrincipal,
           "Ocurrió un error cargando los datos del sistema.");
     }
-
-    //PanelCambioDeUsuario comienzo = new PanelCambioDeUsuario(
-      //  pantallaPrincipal, pantallaPrincipal.getSistema());
     
     Login login = new Login(pantallaPrincipal, sistema);
 

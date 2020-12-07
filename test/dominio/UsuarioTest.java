@@ -610,4 +610,10 @@ public class UsuarioTest {
         Usuario.Preferencias[] listaNac = Usuario.Preferencias.values();
     }
     
+    @Test
+    public void testTipoUsuario() {
+      Usuario usuario = new Usuario();
+      assertEquals(TipoUsuario.USUARIO, usuario.getTipo());
+    }
+    
 }
