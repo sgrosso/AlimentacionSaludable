@@ -81,77 +81,7 @@ public class SistemaTest {
         boolean widthCorrectas = result.getIconWidth() == width;
         assertFalse(heightCorrectas && widthCorrectas);
     }
-
-    @Test
-    public void testRegistroUsuario() {
-        System.out.println("registroUsuario");
-        String unNombre = "nombre";
-        String unApellido = "apellido";
-        String unUsuario = "usuario";
-        String unSexo = "Masculino";
-        String unaFechaNacimiento = "19/11/2004";
-        double unaAltura = 1.0;
-        ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"));
-        double unPeso = 1.0;
-        Pais unaNacionalidad = Pais.URUGUAY;
-        Sistema instance = new Sistema();
-        instance.registroUsuario(unNombre, unApellido, unUsuario, unSexo, unaFechaNacimiento, unaAltura, unaFotoPerfil, unPeso, unaNacionalidad);
-        assertTrue(instance.getListaUsuarios().size() > 0);
-    }
-
-    @Test
-    public void testRegistroUsuarioInvalido() {
-        System.out.println("registroUsuario");
-        String unNombre = "nombre";
-        String unApellido = "apellido";
-        String unUsuario = "usuario";
-        String unSexo = "Masculino";
-        String unaFechaNacimiento = "19/11/2004";
-        double unaAltura = 1.0;
-        ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"));
-        double unPeso = 1.0;
-        Pais unaNacionalidad = Pais.URUGUAY;
-        Sistema instance = new Sistema();
-        instance.registroUsuario(unNombre, unApellido, unUsuario, unSexo, unaFechaNacimiento, unaAltura, unaFotoPerfil, unPeso, unaNacionalidad);
-        instance.registroUsuario(unNombre, unApellido, unUsuario, unSexo, unaFechaNacimiento, unaAltura, unaFotoPerfil, unPeso, unaNacionalidad);
-        assertFalse(instance.getListaUsuarios().size() > 1);
-    }
-
-    @Test
-    public void testRegistroProfesionalInvalido() {
-        System.out.println("registroProfesionalInvalido");
-        String unNombre = "nombre";
-        String unApellido = "apellido";
-        String unNombreUsuario = "usuario";
-        String unNombreTitulo = "titulo";
-        Pais unPais = Pais.URUGUAY;
-        ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaProfesional.png"));
-        String unaFechaNacimiento = "19/11/2004";
-        String unaFechaGraduacion = "19/11/2004";
-        Pais unPaisTitulo = Pais.URUGUAY;
-        Sistema instance = new Sistema();
-        instance.registroProfesional(unNombre, unApellido, unNombreUsuario, unNombreTitulo, unPais, unaFotoPerfil, unaFechaNacimiento, unaFechaGraduacion, unPaisTitulo);
-        instance.registroProfesional(unNombre, unApellido, unNombreUsuario, unNombreTitulo, unPais, unaFotoPerfil, unaFechaNacimiento, unaFechaGraduacion, unPaisTitulo);
-        assertFalse(instance.getListaProfesionales().size() > 1);
-    }
-
-    @Test
-    public void testRegistroProfesional() {
-        System.out.println("registroProfesional");
-        String unNombre = "nombre";
-        String unApellido = "apellido";
-        String unNombreUsuario = "usuario";
-        String unNombreTitulo = "titulo";
-        Pais unPais = Pais.URUGUAY;
-        ImageIcon unaFotoPerfil = new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaProfesional.png"));
-        String unaFechaNacimiento = "19/11/2004";
-        String unaFechaGraduacion = "19/11/2004";
-        Pais unPaisTitulo = Pais.URUGUAY;
-        Sistema instance = new Sistema();
-        instance.registroProfesional(unNombre, unApellido, unNombreUsuario, unNombreTitulo, unPais, unaFotoPerfil, unaFechaNacimiento, unaFechaGraduacion, unPaisTitulo);
-        assertTrue(instance.getListaProfesionales().size() > 0);
-    }
-
+    
     @Test
     public void testRegistroAlimento() {
         System.out.println("registroAlimento");
