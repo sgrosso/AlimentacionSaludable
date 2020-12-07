@@ -260,4 +260,9 @@ public class Usuario extends Persona implements Serializable {
   public String toString() {
     return "Usuario: " + this.getNombreUsuario();
   }
+  
+  @Override
+  public TipoUsuario getTipo() {
+    return TipoUsuario.USUARIO;
+  }
 }
