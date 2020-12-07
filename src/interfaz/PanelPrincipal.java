@@ -1,24 +1,20 @@
 package interfaz;
 
 import dominio.Sistema;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 public class PanelPrincipal extends javax.swing.JFrame {
 
-    //Atributos
-    Sistema sistema;
+  //Atributos
+  Sistema sistema;
 
-    //Constructor
-    public PanelPrincipal(Sistema unSistema) {
-        initComponents();
-        sistema = unSistema;
-        this.setResizable(false);
-    }
+  //Constructor
+  public PanelPrincipal(Sistema unSistema) {
+    initComponents();
+    sistema = unSistema;
+    this.setResizable(false);
+  }
 
-    @SuppressWarnings("unchecked")
+  @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -34,20 +30,16 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      try {
-        sistema.guardarSistema();
-      } catch (IOException ex) {
-        Logger.getLogger(PanelPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-      }
+      sistema.guardarSistema();
     }//GEN-LAST:event_formWindowClosing
 
-    public Sistema getSistema() {
-        return sistema;
-    }
+  public Sistema getSistema() {
+    return sistema;
+  }
 
-    public void setSistema(Sistema sistema) {
-        this.sistema = sistema;
-    }
+  public void setSistema(Sistema sistema) {
+    this.sistema = sistema;
+  }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
