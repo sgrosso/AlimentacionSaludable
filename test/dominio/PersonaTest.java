@@ -1,6 +1,5 @@
 package dominio;
 
-import javax.swing.ImageIcon;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -73,6 +72,11 @@ public class PersonaTest {
         public PersonaImpl() {
             super("", "", "", "", null);
         }
+
+        @Override
+        public TipoUsuario getTipo() {
+          return TipoUsuario.NO_SELECCIONADO;
+        } 
     }
     
 }

@@ -219,4 +219,27 @@ public class SistemaTest {
         unSistema.getListaAlimentos().remove(unAlimento);
         unSistema.guardarSistema();
     }
+    
+    @Test
+    public void testObtenerUsuarioRegistrado() {
+      Sistema unSistema = new Sistema();
+      
+      Usuario usuario = new Usuario();
+      usuario.setNombre( "Sebastián");
+      usuario.setApellidos("Grosso");
+      usuario.setNombreUsuario("seba");
+      usuario.setPassword("123456");
+      
+      unSistema.getListaUsuarios().add(usuario);
+      Usuario usuarioRegistrado = (Usuario) unSistema.obtenerUsuario("seba", "123456");
+      assertEquals(usuario, usuarioRegistrado);
+    }
+    
+    @Test
+    public void testObtenerUsuarioNoRegistrado() {
+      Sistema unSistema = new Sistema();
+      Persona persona = unSistema.obtenerUsuario("seba", "123456");
+      assertNull(persona);
+    }
+    
 }

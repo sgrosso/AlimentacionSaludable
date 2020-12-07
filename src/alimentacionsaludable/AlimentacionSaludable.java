@@ -1,6 +1,7 @@
 package alimentacionsaludable;
 
 import dominio.Sistema;
+import interfaz.Login;
 import interfaz.PanelCambioDeUsuario;
 import interfaz.PanelPrincipal;
 import java.io.IOException;
@@ -27,11 +28,10 @@ public class AlimentacionSaludable {
       JOptionPane.showMessageDialog(pantallaPrincipal,
           "Ocurrió un error cargando los datos del sistema.");
     }
+    
+    Login login = new Login(pantallaPrincipal, sistema);
 
-    PanelCambioDeUsuario comienzo = new PanelCambioDeUsuario(
-        pantallaPrincipal, pantallaPrincipal.getSistema());
-
-    pantallaPrincipal.add(comienzo);
+    pantallaPrincipal.add(login);
     pantallaPrincipal.pack();
     pantallaPrincipal.setLocationRelativeTo(null);
     pantallaPrincipal.setVisible(true);

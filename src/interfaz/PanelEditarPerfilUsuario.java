@@ -48,377 +48,393 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+  // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+  private void initComponents() {
 
-        grupoBotonesSexo = new javax.swing.ButtonGroup();
-        grupoBotonesPreferencias = new javax.swing.ButtonGroup();
-        panelEditarPerfilUsuario = new javax.swing.JPanel();
-        etiquetaNombre = new javax.swing.JLabel();
-        etiquetaApellidos = new javax.swing.JLabel();
-        etiquetaFDNaciomiento = new javax.swing.JLabel();
-        etiquetaFotoPerfil = new javax.swing.JLabel();
-        cajaNombre = new javax.swing.JTextField();
-        cajaApellidos = new javax.swing.JTextField();
-        etiquetaPeso = new javax.swing.JLabel();
-        etiquetaAltura = new javax.swing.JLabel();
-        cajaAltura = new javax.swing.JTextField();
-        cajaPeso = new javax.swing.JTextField();
-        btnAceptarUsuario = new javax.swing.JButton();
-        etiquetaTitulo = new javax.swing.JLabel();
-        etiquetaNacionalidadUsuario = new javax.swing.JLabel();
-        listaNacionalidadesUsuario = new javax.swing.JComboBox();
-        etiquetaSexo = new javax.swing.JLabel();
-        rBtnMasculinoUsuario = new javax.swing.JRadioButton();
-        rBtnFemeninoUsuario = new javax.swing.JRadioButton();
-        etiquetaRestricciones = new javax.swing.JLabel();
-        checkBoxCeliaco = new javax.swing.JCheckBox();
-        checkBoxIntoleranteLactosa = new javax.swing.JCheckBox();
-        checkBoxDiabetico = new javax.swing.JCheckBox();
-        checkBoxHipertension = new javax.swing.JCheckBox();
-        etiquetaErrorNombre = new javax.swing.JLabel();
-        etiquetaErrorApellido = new javax.swing.JLabel();
-        etiquetaErrorNombreUsuario = new javax.swing.JLabel();
-        etiquetaErrorAltura = new javax.swing.JLabel();
-        etiquetaErrorPeso = new javax.swing.JLabel();
-        etiquetaMensajeAlAceptar = new javax.swing.JLabel();
-        fotoPerfil = new javax.swing.JLabel();
-        fechaNacimiento = new com.toedter.calendar.JDateChooser();
-        etiquetaErrorFechaNacimiento = new javax.swing.JLabel();
-        etiquetaPreferencias = new javax.swing.JLabel();
-        rBVegano = new javax.swing.JRadioButton();
-        rBVegetariano = new javax.swing.JRadioButton();
-        rBMacrobiotico = new javax.swing.JRadioButton();
-        rBOrganico = new javax.swing.JRadioButton();
-        btnCambiarFoto = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
+    grupoBotonesSexo = new javax.swing.ButtonGroup();
+    grupoBotonesPreferencias = new javax.swing.ButtonGroup();
+    panelEditarPerfilUsuario = new javax.swing.JPanel();
+    etiquetaNombre = new javax.swing.JLabel();
+    etiquetaApellidos = new javax.swing.JLabel();
+    etiquetaFDNaciomiento = new javax.swing.JLabel();
+    etiquetaFotoPerfil = new javax.swing.JLabel();
+    cajaNombre = new javax.swing.JTextField();
+    cajaApellidos = new javax.swing.JTextField();
+    etiquetaPeso = new javax.swing.JLabel();
+    etiquetaAltura = new javax.swing.JLabel();
+    cajaAltura = new javax.swing.JTextField();
+    cajaPeso = new javax.swing.JTextField();
+    btnAceptarUsuario = new javax.swing.JButton();
+    etiquetaTitulo = new javax.swing.JLabel();
+    etiquetaNacionalidadUsuario = new javax.swing.JLabel();
+    listaNacionalidadesUsuario = new javax.swing.JComboBox();
+    etiquetaSexo = new javax.swing.JLabel();
+    rBtnMasculinoUsuario = new javax.swing.JRadioButton();
+    rBtnFemeninoUsuario = new javax.swing.JRadioButton();
+    etiquetaRestricciones = new javax.swing.JLabel();
+    checkBoxCeliaco = new javax.swing.JCheckBox();
+    checkBoxIntoleranteLactosa = new javax.swing.JCheckBox();
+    checkBoxDiabetico = new javax.swing.JCheckBox();
+    checkBoxHipertension = new javax.swing.JCheckBox();
+    etiquetaErrorNombre = new javax.swing.JLabel();
+    etiquetaErrorApellido = new javax.swing.JLabel();
+    etiquetaErrorNombreUsuario = new javax.swing.JLabel();
+    etiquetaErrorAltura = new javax.swing.JLabel();
+    etiquetaErrorPeso = new javax.swing.JLabel();
+    etiquetaMensajeAlAceptar = new javax.swing.JLabel();
+    fotoPerfil = new javax.swing.JLabel();
+    fechaNacimiento = new com.toedter.calendar.JDateChooser();
+    etiquetaErrorFechaNacimiento = new javax.swing.JLabel();
+    etiquetaPreferencias = new javax.swing.JLabel();
+    rBVegano = new javax.swing.JRadioButton();
+    rBVegetariano = new javax.swing.JRadioButton();
+    rBMacrobiotico = new javax.swing.JRadioButton();
+    rBOrganico = new javax.swing.JRadioButton();
+    btnCambiarFoto = new javax.swing.JButton();
+    btnVolver = new javax.swing.JButton();
+    jLabel2 = new javax.swing.JLabel();
+    cajaPassword = new javax.swing.JTextField();
+    etiquetaErrorPassword = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1147, 784));
+    setPreferredSize(new java.awt.Dimension(1147, 784));
 
-        panelEditarPerfilUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        panelEditarPerfilUsuario.setPreferredSize(new java.awt.Dimension(1147, 784));
-        panelEditarPerfilUsuario.setLayout(null);
+    panelEditarPerfilUsuario.setBackground(new java.awt.Color(255, 255, 255));
+    panelEditarPerfilUsuario.setPreferredSize(new java.awt.Dimension(1147, 784));
+    panelEditarPerfilUsuario.setLayout(null);
 
-        etiquetaNombre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaNombre.setText("Nombre:");
-        panelEditarPerfilUsuario.add(etiquetaNombre);
-        etiquetaNombre.setBounds(370, 80, 92, 29);
+    etiquetaNombre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaNombre.setText("Nombre:");
+    panelEditarPerfilUsuario.add(etiquetaNombre);
+    etiquetaNombre.setBounds(370, 80, 92, 29);
 
-        etiquetaApellidos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaApellidos.setText("Apellidos:");
-        panelEditarPerfilUsuario.add(etiquetaApellidos);
-        etiquetaApellidos.setBounds(360, 130, 110, 26);
+    etiquetaApellidos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaApellidos.setText("Apellidos:");
+    panelEditarPerfilUsuario.add(etiquetaApellidos);
+    etiquetaApellidos.setBounds(360, 130, 110, 26);
 
-        etiquetaFDNaciomiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaFDNaciomiento.setText("Fecha de Nacimiento:");
-        panelEditarPerfilUsuario.add(etiquetaFDNaciomiento);
-        etiquetaFDNaciomiento.setBounds(240, 230, 230, 26);
+    etiquetaFDNaciomiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaFDNaciomiento.setText("Fecha de Nacimiento:");
+    panelEditarPerfilUsuario.add(etiquetaFDNaciomiento);
+    etiquetaFDNaciomiento.setBounds(240, 270, 230, 26);
 
-        etiquetaFotoPerfil.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaFotoPerfil.setText("Foto de Perfil:");
-        panelEditarPerfilUsuario.add(etiquetaFotoPerfil);
-        etiquetaFotoPerfil.setBounds(60, 100, 160, 29);
+    etiquetaFotoPerfil.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaFotoPerfil.setText("Foto de Perfil:");
+    panelEditarPerfilUsuario.add(etiquetaFotoPerfil);
+    etiquetaFotoPerfil.setBounds(60, 100, 160, 29);
 
-        cajaNombre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        cajaNombre.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                cajaNombreFocusLost(evt);
-            }
-        });
-        cajaNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaNombreActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(cajaNombre);
-        cajaNombre.setBounds(480, 80, 160, 35);
+    cajaNombre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    cajaNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        cajaNombreFocusLost(evt);
+      }
+    });
+    cajaNombre.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cajaNombreActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(cajaNombre);
+    cajaNombre.setBounds(480, 80, 160, 37);
 
-        cajaApellidos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        cajaApellidos.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                cajaApellidosFocusLost(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(cajaApellidos);
-        cajaApellidos.setBounds(480, 130, 160, 35);
+    cajaApellidos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    cajaApellidos.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        cajaApellidosFocusLost(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(cajaApellidos);
+    cajaApellidos.setBounds(480, 130, 160, 37);
 
-        etiquetaPeso.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaPeso.setText("Peso (kg):");
-        panelEditarPerfilUsuario.add(etiquetaPeso);
-        etiquetaPeso.setBounds(360, 330, 110, 26);
+    etiquetaPeso.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaPeso.setText("Peso (kg):");
+    panelEditarPerfilUsuario.add(etiquetaPeso);
+    etiquetaPeso.setBounds(360, 370, 110, 26);
 
-        etiquetaAltura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaAltura.setText("Altura (cm):");
-        panelEditarPerfilUsuario.add(etiquetaAltura);
-        etiquetaAltura.setBounds(340, 280, 130, 26);
+    etiquetaAltura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaAltura.setText("Altura (cm):");
+    panelEditarPerfilUsuario.add(etiquetaAltura);
+    etiquetaAltura.setBounds(340, 320, 130, 26);
 
-        cajaAltura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        cajaAltura.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                cajaAlturaFocusLost(evt);
-            }
-        });
-        cajaAltura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cajaAlturaActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(cajaAltura);
-        cajaAltura.setBounds(480, 330, 160, 35);
+    cajaAltura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    cajaAltura.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        cajaAlturaFocusLost(evt);
+      }
+    });
+    cajaAltura.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cajaAlturaActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(cajaAltura);
+    cajaAltura.setBounds(480, 370, 160, 37);
 
-        cajaPeso.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        cajaPeso.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                cajaPesoFocusLost(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(cajaPeso);
-        cajaPeso.setBounds(480, 280, 160, 35);
+    cajaPeso.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    cajaPeso.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        cajaPesoFocusLost(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(cajaPeso);
+    cajaPeso.setBounds(480, 320, 160, 37);
 
-        btnAceptarUsuario.setBackground(new java.awt.Color(255, 0, 102));
-        btnAceptarUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        btnAceptarUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        btnAceptarUsuario.setText("Aceptar");
-        btnAceptarUsuario.setContentAreaFilled(false);
-        btnAceptarUsuario.setOpaque(true);
-        btnAceptarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarUsuarioActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(btnAceptarUsuario);
-        btnAceptarUsuario.setBounds(850, 590, 200, 40);
+    btnAceptarUsuario.setBackground(new java.awt.Color(255, 0, 102));
+    btnAceptarUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    btnAceptarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+    btnAceptarUsuario.setText("Aceptar");
+    btnAceptarUsuario.setContentAreaFilled(false);
+    btnAceptarUsuario.setOpaque(true);
+    btnAceptarUsuario.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAceptarUsuarioActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(btnAceptarUsuario);
+    btnAceptarUsuario.setBounds(850, 630, 200, 40);
 
-        etiquetaTitulo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        etiquetaTitulo.setForeground(new java.awt.Color(255, 0, 102));
-        etiquetaTitulo.setText("Editar perfil del usuario");
-        panelEditarPerfilUsuario.add(etiquetaTitulo);
-        etiquetaTitulo.setBounds(390, 0, 380, 44);
+    etiquetaTitulo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+    etiquetaTitulo.setForeground(new java.awt.Color(255, 0, 102));
+    etiquetaTitulo.setText("Editar perfil del usuario");
+    panelEditarPerfilUsuario.add(etiquetaTitulo);
+    etiquetaTitulo.setBounds(390, 0, 380, 44);
 
-        etiquetaNacionalidadUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaNacionalidadUsuario.setText("Nacionalidad:");
-        panelEditarPerfilUsuario.add(etiquetaNacionalidadUsuario);
-        etiquetaNacionalidadUsuario.setBounds(330, 180, 160, 29);
+    etiquetaNacionalidadUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaNacionalidadUsuario.setText("Nacionalidad:");
+    panelEditarPerfilUsuario.add(etiquetaNacionalidadUsuario);
+    etiquetaNacionalidadUsuario.setBounds(330, 220, 160, 29);
 
-        listaNacionalidadesUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        listaNacionalidadesUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaNacionalidadesUsuarioActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(listaNacionalidadesUsuario);
-        listaNacionalidadesUsuario.setBounds(480, 180, 160, 35);
+    listaNacionalidadesUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    listaNacionalidadesUsuario.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        listaNacionalidadesUsuarioActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(listaNacionalidadesUsuario);
+    listaNacionalidadesUsuario.setBounds(480, 220, 160, 37);
 
-        etiquetaSexo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaSexo.setText("Sexo:");
-        panelEditarPerfilUsuario.add(etiquetaSexo);
-        etiquetaSexo.setBounds(410, 370, 70, 29);
+    etiquetaSexo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaSexo.setText("Sexo:");
+    panelEditarPerfilUsuario.add(etiquetaSexo);
+    etiquetaSexo.setBounds(410, 410, 70, 29);
 
-        rBtnMasculinoUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        rBtnMasculinoUsuario.setText("Masculino");
-        rBtnMasculinoUsuario.setContentAreaFilled(false);
-        rBtnMasculinoUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rBtnMasculinoUsuarioActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(rBtnMasculinoUsuario);
-        rBtnMasculinoUsuario.setBounds(480, 370, 150, 35);
+    rBtnMasculinoUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    rBtnMasculinoUsuario.setText("Masculino");
+    rBtnMasculinoUsuario.setContentAreaFilled(false);
+    rBtnMasculinoUsuario.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        rBtnMasculinoUsuarioActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(rBtnMasculinoUsuario);
+    rBtnMasculinoUsuario.setBounds(480, 410, 150, 35);
 
-        rBtnFemeninoUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        rBtnFemeninoUsuario.setText("Femenino");
-        rBtnFemeninoUsuario.setContentAreaFilled(false);
-        rBtnFemeninoUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rBtnFemeninoUsuarioActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(rBtnFemeninoUsuario);
-        rBtnFemeninoUsuario.setBounds(630, 370, 160, 35);
+    rBtnFemeninoUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    rBtnFemeninoUsuario.setText("Femenino");
+    rBtnFemeninoUsuario.setContentAreaFilled(false);
+    rBtnFemeninoUsuario.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        rBtnFemeninoUsuarioActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(rBtnFemeninoUsuario);
+    rBtnFemeninoUsuario.setBounds(630, 410, 160, 35);
 
-        etiquetaRestricciones.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaRestricciones.setText("Restricciones:");
-        panelEditarPerfilUsuario.add(etiquetaRestricciones);
-        etiquetaRestricciones.setBounds(320, 410, 150, 26);
+    etiquetaRestricciones.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaRestricciones.setText("Restricciones:");
+    panelEditarPerfilUsuario.add(etiquetaRestricciones);
+    etiquetaRestricciones.setBounds(320, 450, 150, 26);
 
-        checkBoxCeliaco.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        checkBoxCeliaco.setText("Celíaco");
-        checkBoxCeliaco.setContentAreaFilled(false);
-        checkBoxCeliaco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxCeliacoActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(checkBoxCeliaco);
-        checkBoxCeliaco.setBounds(480, 410, 120, 35);
+    checkBoxCeliaco.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    checkBoxCeliaco.setText("Celíaco");
+    checkBoxCeliaco.setContentAreaFilled(false);
+    checkBoxCeliaco.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        checkBoxCeliacoActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(checkBoxCeliaco);
+    checkBoxCeliaco.setBounds(480, 450, 120, 35);
 
-        checkBoxIntoleranteLactosa.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        checkBoxIntoleranteLactosa.setText("Intolerante a la lactosa");
-        checkBoxIntoleranteLactosa.setContentAreaFilled(false);
-        checkBoxIntoleranteLactosa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxIntoleranteLactosaActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(checkBoxIntoleranteLactosa);
-        checkBoxIntoleranteLactosa.setBounds(590, 410, 271, 37);
+    checkBoxIntoleranteLactosa.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    checkBoxIntoleranteLactosa.setText("Intolerante a la lactosa");
+    checkBoxIntoleranteLactosa.setContentAreaFilled(false);
+    checkBoxIntoleranteLactosa.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        checkBoxIntoleranteLactosaActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(checkBoxIntoleranteLactosa);
+    checkBoxIntoleranteLactosa.setBounds(590, 450, 276, 35);
 
-        checkBoxDiabetico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        checkBoxDiabetico.setText("Diabético");
-        checkBoxDiabetico.setContentAreaFilled(false);
-        checkBoxDiabetico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxDiabeticoActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(checkBoxDiabetico);
-        checkBoxDiabetico.setBounds(880, 410, 140, 35);
+    checkBoxDiabetico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    checkBoxDiabetico.setText("Diabético");
+    checkBoxDiabetico.setContentAreaFilled(false);
+    checkBoxDiabetico.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        checkBoxDiabeticoActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(checkBoxDiabetico);
+    checkBoxDiabetico.setBounds(880, 450, 140, 35);
 
-        checkBoxHipertension.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        checkBoxHipertension.setText("Hipertensión");
-        checkBoxHipertension.setContentAreaFilled(false);
-        checkBoxHipertension.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxHipertensionActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(checkBoxHipertension);
-        checkBoxHipertension.setBounds(480, 450, 170, 35);
+    checkBoxHipertension.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    checkBoxHipertension.setText("Hipertensión");
+    checkBoxHipertension.setContentAreaFilled(false);
+    checkBoxHipertension.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        checkBoxHipertensionActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(checkBoxHipertension);
+    checkBoxHipertension.setBounds(480, 490, 170, 35);
 
-        etiquetaErrorNombre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelEditarPerfilUsuario.add(etiquetaErrorNombre);
-        etiquetaErrorNombre.setBounds(660, 80, 400, 30);
+    etiquetaErrorNombre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    panelEditarPerfilUsuario.add(etiquetaErrorNombre);
+    etiquetaErrorNombre.setBounds(660, 80, 400, 30);
 
-        etiquetaErrorApellido.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelEditarPerfilUsuario.add(etiquetaErrorApellido);
-        etiquetaErrorApellido.setBounds(660, 130, 370, 30);
+    etiquetaErrorApellido.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    panelEditarPerfilUsuario.add(etiquetaErrorApellido);
+    etiquetaErrorApellido.setBounds(660, 130, 370, 30);
 
-        etiquetaErrorNombreUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelEditarPerfilUsuario.add(etiquetaErrorNombreUsuario);
-        etiquetaErrorNombreUsuario.setBounds(660, 180, 390, 30);
+    etiquetaErrorNombreUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    panelEditarPerfilUsuario.add(etiquetaErrorNombreUsuario);
+    etiquetaErrorNombreUsuario.setBounds(660, 210, 390, 30);
 
-        etiquetaErrorAltura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelEditarPerfilUsuario.add(etiquetaErrorAltura);
-        etiquetaErrorAltura.setBounds(660, 280, 310, 30);
+    etiquetaErrorAltura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    panelEditarPerfilUsuario.add(etiquetaErrorAltura);
+    etiquetaErrorAltura.setBounds(660, 310, 310, 30);
 
-        etiquetaErrorPeso.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelEditarPerfilUsuario.add(etiquetaErrorPeso);
-        etiquetaErrorPeso.setBounds(660, 330, 310, 30);
+    etiquetaErrorPeso.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    panelEditarPerfilUsuario.add(etiquetaErrorPeso);
+    etiquetaErrorPeso.setBounds(660, 360, 310, 30);
 
-        etiquetaMensajeAlAceptar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelEditarPerfilUsuario.add(etiquetaMensajeAlAceptar);
-        etiquetaMensajeAlAceptar.setBounds(670, 550, 450, 26);
+    etiquetaMensajeAlAceptar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    panelEditarPerfilUsuario.add(etiquetaMensajeAlAceptar);
+    etiquetaMensajeAlAceptar.setBounds(670, 590, 450, 26);
 
-        fotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"))); // NOI18N
-        fotoPerfil.setMaximumSize(new java.awt.Dimension(210, 240));
-        fotoPerfil.setMinimumSize(new java.awt.Dimension(210, 240));
-        fotoPerfil.setPreferredSize(new java.awt.Dimension(210, 240));
-        panelEditarPerfilUsuario.add(fotoPerfil);
-        fotoPerfil.setBounds(30, 150, 210, 220);
+    fotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaUsuario.jpg"))); // NOI18N
+    fotoPerfil.setMaximumSize(new java.awt.Dimension(210, 240));
+    fotoPerfil.setMinimumSize(new java.awt.Dimension(210, 240));
+    fotoPerfil.setPreferredSize(new java.awt.Dimension(210, 240));
+    panelEditarPerfilUsuario.add(fotoPerfil);
+    fotoPerfil.setBounds(30, 150, 210, 220);
 
-        fechaNacimiento.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fechaNacimientoFocusLost(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(fechaNacimiento);
-        fechaNacimiento.setBounds(480, 230, 160, 28);
+    fechaNacimiento.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        fechaNacimientoFocusLost(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(fechaNacimiento);
+    fechaNacimiento.setBounds(480, 270, 160, 29);
 
-        etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panelEditarPerfilUsuario.add(etiquetaErrorFechaNacimiento);
-        etiquetaErrorFechaNacimiento.setBounds(660, 230, 310, 30);
+    etiquetaErrorFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    panelEditarPerfilUsuario.add(etiquetaErrorFechaNacimiento);
+    etiquetaErrorFechaNacimiento.setBounds(660, 260, 310, 30);
 
-        etiquetaPreferencias.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaPreferencias.setText("Preferencias:");
-        panelEditarPerfilUsuario.add(etiquetaPreferencias);
-        etiquetaPreferencias.setBounds(320, 490, 150, 26);
+    etiquetaPreferencias.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    etiquetaPreferencias.setText("Preferencias:");
+    panelEditarPerfilUsuario.add(etiquetaPreferencias);
+    etiquetaPreferencias.setBounds(320, 530, 150, 26);
 
-        rBVegano.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        rBVegano.setText("Vegano");
-        rBVegano.setContentAreaFilled(false);
-        rBVegano.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rBVeganoActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(rBVegano);
-        rBVegano.setBounds(470, 490, 120, 37);
+    rBVegano.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    rBVegano.setText("Vegano");
+    rBVegano.setContentAreaFilled(false);
+    rBVegano.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        rBVeganoActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(rBVegano);
+    rBVegano.setBounds(470, 530, 120, 35);
 
-        rBVegetariano.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        rBVegetariano.setText("Vegetariano");
-        rBVegetariano.setContentAreaFilled(false);
-        rBVegetariano.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rBVegetarianoActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(rBVegetariano);
-        rBVegetariano.setBounds(590, 490, 170, 37);
+    rBVegetariano.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    rBVegetariano.setText("Vegetariano");
+    rBVegetariano.setContentAreaFilled(false);
+    rBVegetariano.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        rBVegetarianoActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(rBVegetariano);
+    rBVegetariano.setBounds(590, 530, 170, 35);
 
-        rBMacrobiotico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        rBMacrobiotico.setText("Macrobiótico");
-        rBMacrobiotico.setContentAreaFilled(false);
-        rBMacrobiotico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rBMacrobioticoActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(rBMacrobiotico);
-        rBMacrobiotico.setBounds(760, 490, 180, 37);
+    rBMacrobiotico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    rBMacrobiotico.setText("Macrobiótico");
+    rBMacrobiotico.setContentAreaFilled(false);
+    rBMacrobiotico.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        rBMacrobioticoActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(rBMacrobiotico);
+    rBMacrobiotico.setBounds(760, 530, 180, 35);
 
-        rBOrganico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        rBOrganico.setText("Orgánico");
-        rBOrganico.setContentAreaFilled(false);
-        rBOrganico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rBOrganicoActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(rBOrganico);
-        rBOrganico.setBounds(940, 490, 140, 37);
+    rBOrganico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    rBOrganico.setText("Orgánico");
+    rBOrganico.setContentAreaFilled(false);
+    rBOrganico.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        rBOrganicoActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(rBOrganico);
+    rBOrganico.setBounds(940, 530, 140, 35);
 
-        btnCambiarFoto.setBackground(new java.awt.Color(255, 0, 102));
-        btnCambiarFoto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        btnCambiarFoto.setForeground(new java.awt.Color(255, 255, 255));
-        btnCambiarFoto.setText("Cambiar Foto");
-        btnCambiarFoto.setContentAreaFilled(false);
-        btnCambiarFoto.setOpaque(true);
-        btnCambiarFoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCambiarFotoActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(btnCambiarFoto);
-        btnCambiarFoto.setBounds(30, 390, 210, 37);
+    btnCambiarFoto.setBackground(new java.awt.Color(255, 0, 102));
+    btnCambiarFoto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    btnCambiarFoto.setForeground(new java.awt.Color(255, 255, 255));
+    btnCambiarFoto.setText("Cambiar Foto");
+    btnCambiarFoto.setContentAreaFilled(false);
+    btnCambiarFoto.setOpaque(true);
+    btnCambiarFoto.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnCambiarFotoActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(btnCambiarFoto);
+    btnCambiarFoto.setBounds(30, 390, 210, 37);
 
-        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
-        btnVolver.setBorderPainted(false);
-        btnVolver.setContentAreaFilled(false);
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
-        panelEditarPerfilUsuario.add(btnVolver);
-        btnVolver.setBounds(30, 10, 100, 80);
+    btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
+    btnVolver.setBorderPainted(false);
+    btnVolver.setContentAreaFilled(false);
+    btnVolver.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnVolverActionPerformed(evt);
+      }
+    });
+    panelEditarPerfilUsuario.add(btnVolver);
+    btnVolver.setBounds(30, 10, 100, 80);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelEditarPerfilUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelEditarPerfilUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-    }// </editor-fold>//GEN-END:initComponents
+    jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    jLabel2.setText("Contraseña:");
+    panelEditarPerfilUsuario.add(jLabel2);
+    jLabel2.setBounds(340, 180, 130, 29);
+
+    cajaPassword.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    panelEditarPerfilUsuario.add(cajaPassword);
+    cajaPassword.setBounds(480, 180, 160, 30);
+
+    etiquetaErrorPassword.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    panelEditarPerfilUsuario.add(etiquetaErrorPassword);
+    etiquetaErrorPassword.setBounds(660, 180, 460, 30);
+
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+    this.setLayout(layout);
+    layout.setHorizontalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(panelEditarPerfilUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap())
+    );
+    layout.setVerticalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(panelEditarPerfilUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap())
+    );
+  }// </editor-fold>//GEN-END:initComponents
 
     private void cajaNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cajaNombreFocusLost
         String nombre = cajaNombre.getText();
@@ -457,10 +473,11 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             Date fecNac = fechaNacimiento.getCalendar().getTime();
             fNacimientoValido = fNacimientoValido && fecNac.before(diaActual);
         }
+        boolean passwordValido = !cajaPassword.getText().trim().isEmpty();
         boolean altura = pidoDatoNumerico(cajaAltura.getText(), 0, 265, etiquetaErrorAltura);
         boolean peso = pidoDatoNumerico(cajaPeso.getText(), 0, 265, etiquetaErrorPeso);
         boolean sexoPred = sexoPredeterminado();
-        if (nombreValido && apellidoValido
+        if (nombreValido && apellidoValido && passwordValido
                 && altura && peso && fNacimientoValido) {
             usuario.setNombre(cajaNombre.getText());
             usuario.setApellidos(cajaApellidos.getText());
@@ -473,6 +490,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             } else {
                 usuario.setSexo("Femenino");
             }
+            usuario.setPassword(cajaPassword.getText());
             usuario.setAlturaCm(Double.parseDouble(cajaAltura.getText()));
             usuario.setPesoKg(Double.parseDouble(cajaPeso.getText()));
             usuario.setFotoPerfil((ImageIcon) fotoPerfil.getIcon());
@@ -487,6 +505,11 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             if (apellidoValido == false) {
                 etiquetaErrorApellido.setText("El apellido no puede ser vacío");
             }
+            
+            if (!passwordValido) {
+              etiquetaErrorPassword.setText("La contraseña no puede ser vacía");
+            }
+            
             if (fNacimientoValido == false) {
                 etiquetaErrorFechaNacimiento.setText("Fecha de nacimiento no válida");
             }
@@ -601,49 +624,52 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         return new ImageIcon(bufferedImage, imageIcon.getDescription());
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptarUsuario;
-    private javax.swing.JButton btnCambiarFoto;
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JTextField cajaAltura;
-    private javax.swing.JTextField cajaApellidos;
-    private javax.swing.JTextField cajaNombre;
-    private javax.swing.JTextField cajaPeso;
-    private javax.swing.JCheckBox checkBoxCeliaco;
-    private javax.swing.JCheckBox checkBoxDiabetico;
-    private javax.swing.JCheckBox checkBoxHipertension;
-    private javax.swing.JCheckBox checkBoxIntoleranteLactosa;
-    private javax.swing.JLabel etiquetaAltura;
-    private javax.swing.JLabel etiquetaApellidos;
-    private javax.swing.JLabel etiquetaErrorAltura;
-    private javax.swing.JLabel etiquetaErrorApellido;
-    private javax.swing.JLabel etiquetaErrorFechaNacimiento;
-    private javax.swing.JLabel etiquetaErrorNombre;
-    private javax.swing.JLabel etiquetaErrorNombreUsuario;
-    private javax.swing.JLabel etiquetaErrorPeso;
-    private javax.swing.JLabel etiquetaFDNaciomiento;
-    private javax.swing.JLabel etiquetaFotoPerfil;
-    private javax.swing.JLabel etiquetaMensajeAlAceptar;
-    private javax.swing.JLabel etiquetaNacionalidadUsuario;
-    private javax.swing.JLabel etiquetaNombre;
-    private javax.swing.JLabel etiquetaPeso;
-    private javax.swing.JLabel etiquetaPreferencias;
-    private javax.swing.JLabel etiquetaRestricciones;
-    private javax.swing.JLabel etiquetaSexo;
-    private javax.swing.JLabel etiquetaTitulo;
-    private com.toedter.calendar.JDateChooser fechaNacimiento;
-    private javax.swing.JLabel fotoPerfil;
-    private javax.swing.ButtonGroup grupoBotonesPreferencias;
-    private javax.swing.ButtonGroup grupoBotonesSexo;
-    private javax.swing.JComboBox listaNacionalidadesUsuario;
-    private javax.swing.JPanel panelEditarPerfilUsuario;
-    private javax.swing.JRadioButton rBMacrobiotico;
-    private javax.swing.JRadioButton rBOrganico;
-    private javax.swing.JRadioButton rBVegano;
-    private javax.swing.JRadioButton rBVegetariano;
-    private javax.swing.JRadioButton rBtnFemeninoUsuario;
-    private javax.swing.JRadioButton rBtnMasculinoUsuario;
-    // End of variables declaration//GEN-END:variables
+  // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton btnAceptarUsuario;
+  private javax.swing.JButton btnCambiarFoto;
+  private javax.swing.JButton btnVolver;
+  private javax.swing.JTextField cajaAltura;
+  private javax.swing.JTextField cajaApellidos;
+  private javax.swing.JTextField cajaNombre;
+  private javax.swing.JTextField cajaPassword;
+  private javax.swing.JTextField cajaPeso;
+  private javax.swing.JCheckBox checkBoxCeliaco;
+  private javax.swing.JCheckBox checkBoxDiabetico;
+  private javax.swing.JCheckBox checkBoxHipertension;
+  private javax.swing.JCheckBox checkBoxIntoleranteLactosa;
+  private javax.swing.JLabel etiquetaAltura;
+  private javax.swing.JLabel etiquetaApellidos;
+  private javax.swing.JLabel etiquetaErrorAltura;
+  private javax.swing.JLabel etiquetaErrorApellido;
+  private javax.swing.JLabel etiquetaErrorFechaNacimiento;
+  private javax.swing.JLabel etiquetaErrorNombre;
+  private javax.swing.JLabel etiquetaErrorNombreUsuario;
+  private javax.swing.JLabel etiquetaErrorPassword;
+  private javax.swing.JLabel etiquetaErrorPeso;
+  private javax.swing.JLabel etiquetaFDNaciomiento;
+  private javax.swing.JLabel etiquetaFotoPerfil;
+  private javax.swing.JLabel etiquetaMensajeAlAceptar;
+  private javax.swing.JLabel etiquetaNacionalidadUsuario;
+  private javax.swing.JLabel etiquetaNombre;
+  private javax.swing.JLabel etiquetaPeso;
+  private javax.swing.JLabel etiquetaPreferencias;
+  private javax.swing.JLabel etiquetaRestricciones;
+  private javax.swing.JLabel etiquetaSexo;
+  private javax.swing.JLabel etiquetaTitulo;
+  private com.toedter.calendar.JDateChooser fechaNacimiento;
+  private javax.swing.JLabel fotoPerfil;
+  private javax.swing.ButtonGroup grupoBotonesPreferencias;
+  private javax.swing.ButtonGroup grupoBotonesSexo;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JComboBox listaNacionalidadesUsuario;
+  private javax.swing.JPanel panelEditarPerfilUsuario;
+  private javax.swing.JRadioButton rBMacrobiotico;
+  private javax.swing.JRadioButton rBOrganico;
+  private javax.swing.JRadioButton rBVegano;
+  private javax.swing.JRadioButton rBVegetariano;
+  private javax.swing.JRadioButton rBtnFemeninoUsuario;
+  private javax.swing.JRadioButton rBtnMasculinoUsuario;
+  // End of variables declaration//GEN-END:variables
 
     private boolean pidoDatoNumerico(String dato, int min, int max, JLabel etiqueta) {
         boolean pidiendo = false;
@@ -673,6 +699,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
         this.cajaNombre.setText(usuario.getNombre());
         this.cajaApellidos.setText(usuario.getApellidos());
         this.listaNacionalidadesUsuario.setSelectedItem(usuario.getNacionalidad());
+        this.cajaPassword.setText(usuario.getPassword());
         try {
             Date fechaNacimientoDate;
             fechaNacimientoDate = new SimpleDateFormat("dd/MM/yyyy").parse(usuario.getFechaNacimiento());

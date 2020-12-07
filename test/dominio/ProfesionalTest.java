@@ -343,4 +343,10 @@ public class ProfesionalTest {
         boolean test = obj.equals("soy string");
         assertFalse(test);
     } 
+    
+    @Test
+    public void testTipoUsuario() {
+      Profesional profesional = new Profesional();
+      assertEquals(TipoUsuario.PROFESIONAL, profesional.getTipo());
+    }
 }

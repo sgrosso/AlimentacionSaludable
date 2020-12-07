@@ -11,8 +11,10 @@ public abstract class Persona implements Serializable {
   private String nombre;
   private String apellidos;
   private String nombreUsuario;
+  private String password;
   private String fechaNacimiento;
   private ImageIcon fotoPerfil;
+  
 
   //Cosntructor
   public Persona(String nombre, String apellidos, String nombreUsuario,
@@ -64,7 +66,21 @@ public abstract class Persona implements Serializable {
   public void setFotoPerfil(ImageIcon fotoPerfil) {
     this.fotoPerfil = fotoPerfil;
   }
-
+  
+  public String getPassword() {
+    return this.password;
+  }
+  
+  public void setPassword(String password) {
+    this.password = password;
+  }
+  
+  public boolean tieneCredenciales(String nombreUsuario, String password) {
+    return this.nombreUsuario.equals(nombreUsuario) && this.password.equals(password);
+  }
+  
+  public abstract TipoUsuario getTipo();
+  
   @Override
   public int hashCode() {
     return 47 * 7 + Objects.hashCode(this.nombreUsuario);
