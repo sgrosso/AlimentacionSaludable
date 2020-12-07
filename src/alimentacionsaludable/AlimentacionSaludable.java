@@ -2,7 +2,6 @@ package alimentacionsaludable;
 
 import dominio.Sistema;
 import interfaz.Login;
-import interfaz.PanelCambioDeUsuario;
 import interfaz.PanelPrincipal;
 import java.io.IOException;
 import javax.swing.JOptionPane;
@@ -16,11 +15,16 @@ public class AlimentacionSaludable {
   /**
    * @param args the command line arguments
    */
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) {
     Sistema sistema = new Sistema();
 
     boolean errorCargarDatos = false;
-    sistema.cargarSistema();
+    
+    try {
+      sistema.cargarSistema();
+    } catch (IOException | ClassNotFoundException exception) {
+      errorCargarDatos = true;
+    }
 
     PanelPrincipal pantallaPrincipal = new PanelPrincipal(sistema);
 

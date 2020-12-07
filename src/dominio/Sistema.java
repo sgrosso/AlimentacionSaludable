@@ -2,12 +2,12 @@ package dominio;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -21,7 +21,7 @@ public class Sistema implements Serializable {
   private List<Profesional> listaProfesionales;
   private TipoUsuario usuarioActivo;
   private Persona usuarioLogueado;
-  
+
   //Constructor
   public Sistema(List<Alimento> listaAlimentos,
       List<Usuario> listaUsuarios,
@@ -72,51 +72,35 @@ public class Sistema implements Serializable {
   public void setUsuarioActivo(TipoUsuario usuarioActivo) {
     this.usuarioActivo = usuarioActivo;
   }
-  
+
   public Persona getUsuarioLogueado() {
     return this.usuarioLogueado;
   }
-  
+
   public void setUsuarioLogueado(Persona unUsuarioLogueado) {
     this.usuarioLogueado = unUsuarioLogueado;
   }
-
+  
   //CARGAR Y GUARDAR SISTEMA
-    //CARGAR Y GUARDAR SISTEMA
-    public void cargarSistema() {
-        try {
-            ObjectInputStream in = new ObjectInputStream
-                                   (new FileInputStream("sis.ser"));
-            ArrayList<Alimento> listAlimentos = (ArrayList<Alimento>)
-                                                in.readObject();
-            listaAlimentos = listAlimentos;
-            ArrayList<Usuario> listUsuarios = (ArrayList<Usuario>)
-                                              in.readObject();
-            listaUsuarios = listUsuarios;
-            ArrayList<Profesional> listProfesionales = (ArrayList<Profesional>)
-                                                        in.readObject();
-            listaProfesionales = listProfesionales;
-            in.close();
-        } catch (Exception ex) {
-            listaAlimentos = new ArrayList<Alimento>();
-            listaUsuarios = new ArrayList<Usuario>();
-            listaProfesionales = new ArrayList<Profesional>();
-        }
+  public void cargarSistema() throws IOException, ClassNotFoundException {
+    try (ObjectInputStream datosSerializados = new ObjectInputStream(
+        Files.newInputStream(Path.of("sis.ser")))) {
+      listaAlimentos = (List<Alimento>) datosSerializados.readObject();
+      listaUsuarios = (List<Usuario>) datosSerializados.readObject();
+      listaProfesionales = (List<Profesional>) datosSerializados.readObject();
     }
+  }
 
-    public void guardarSistema() {
-        try {
-            ObjectOutputStream out = new ObjectOutputStream
-                                         (new FileOutputStream("sis.ser"));
-            out.writeObject(listaAlimentos);
-            out.writeObject(listaUsuarios);
-            out.writeObject(listaProfesionales);
-            out.flush();
-            out.close();
-        } catch (IOException ex) {
-        }
+  public void guardarSistema() throws IOException {
+    try (ObjectOutputStream datosSerializados = new ObjectOutputStream(
+        Files.newOutputStream(Path.of("sis.ser")))) {
+      datosSerializados.writeObject(listaAlimentos);
+      datosSerializados.writeObject(listaUsuarios);
+      datosSerializados.writeObject(listaProfesionales);
+      datosSerializados.flush();
     }
-
+  }
+  
   //Metodo para validarque el dato sea numericoF
   public boolean pidoDatoNumerico(int dato, int min, int max) {
     return dato >= min && dato <= max;
@@ -130,47 +114,7 @@ public class Sistema implements Serializable {
     graphics2D.dispose();
     return new ImageIcon(bufferedImage, imageIcon.getDescription());
   }
-
-  public void registroUsuario(String unNombre, String unApellido, String unUsuario,
-      String unSexo, String unaFechaNacimiento, double unaAltura, ImageIcon unaFotoPerfil,
-      double unPeso, Pais unaNacionalidad) {
-    Usuario usuario = new Usuario();
-    usuario.setNombre(unNombre);
-    usuario.setApellidos(unApellido);
-    usuario.setNombreUsuario(unUsuario);
-    usuario.setNacionalidad(Pais.values()[unaNacionalidad.ordinal()]);
-    usuario.setFechaNacimiento(unaFechaNacimiento);
-    usuario.setSexo(unSexo);
-    usuario.setAlturaCm(unaAltura);
-    usuario.setPesoKg(unPeso);
-    usuario.setFotoPerfil(unaFotoPerfil);
-    if (!this.getListaUsuarios().contains(usuario)) {
-      this.getListaUsuarios().add(usuario);
-    }
-  }
-
-  public void registroProfesional(String unNombre, String unApellido,
-      String unNombreUsuario,
-      String unNombreTitulo,
-      Pais unPais,
-      ImageIcon unaFotoPerfil,
-      String unaFechaNacimiento,
-      String unaFechaGraduacion,
-      Pais unPaisTitulo) {
-    Profesional profesional = new Profesional();
-    profesional.setNombre(unNombre);
-    profesional.setApellidos(unApellido);
-    profesional.setNombreUsuario(unNombreUsuario);
-    profesional.setFechaNacimiento(unaFechaNacimiento);
-    profesional.setNombreTituloProf(unNombreTitulo);
-    profesional.setFechaGraduacion(unaFechaGraduacion);
-    profesional.setPaisObtuvoTitulo(unPaisTitulo);
-    profesional.setFotoPerfil(unaFotoPerfil);
-    if (!this.getListaProfesionales().contains(profesional)) {
-      this.getListaProfesionales().add(profesional);
-    }
-  }
-
+  
   public void registroAlimento(String nombreAlim, TipoAlimento unTipo,
       boolean[] unaListaNutrientes) {
     Alimento alimento = new Alimento();
@@ -181,17 +125,18 @@ public class Sistema implements Serializable {
       this.getListaAlimentos().add(alimento);
     }
   }
-  
+
   public Persona obtenerUsuario(String nombreUsuario, String password) {
     List<Usuario> usuarios = this.getListaUsuarios();
     List<Profesional> profesionales = this.getListaProfesionales();
-    Persona unaPersona = null;
     
+    Persona unaPersona;
+
     unaPersona = usuarios.stream()
         .filter(usuario -> usuario.tieneCredenciales(nombreUsuario, password))
         .findFirst()
         .orElse(null);
-    
+
     if (unaPersona == null) {
       unaPersona = profesionales
           .stream()

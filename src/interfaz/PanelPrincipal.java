@@ -2,6 +2,8 @@ package interfaz;
 
 import dominio.Sistema;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class PanelPrincipal extends javax.swing.JFrame {
@@ -32,8 +34,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-
+      try {
         sistema.guardarSistema();
+      } catch (IOException ex) {
+        Logger.getLogger(PanelPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }//GEN-LAST:event_formWindowClosing
 
     public Sistema getSistema() {

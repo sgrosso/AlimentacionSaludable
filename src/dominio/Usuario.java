@@ -28,28 +28,6 @@ public class Usuario extends Persona implements Serializable {
   private static final String SEXO_FEMENINO = "Femenino";
 
   //Costructor
-  public Usuario(Pais nacionalidad, double pesoKg, double alturaCm,
-      Preferencias preferenciasAlimentarias, Restricciones restricciones,
-      PlanDeAlimentacion plan, String sexo, String nombre,
-      String apellidos, String nombreUsuario, String fechaNacimiento,
-      ImageIcon fotoPerfil) {
-    super(nombre, apellidos, nombreUsuario, fechaNacimiento, fotoPerfil);
-    this.nacionalidad = nacionalidad;
-    this.pesoKg = pesoKg;
-    this.alturaCm = alturaCm;
-    this.preferenciasAlimentarias = preferenciasAlimentarias;
-    this.restricciones = restricciones;
-    this.listaRestricciones = new boolean[5];
-    this.plan = plan;
-    this.necesitoPlan = false;
-    this.profesionalAsignado = new Profesional();
-    this.sexo = sexo;
-    this.historialComidas = new ArrayList<>();
-    this.historialDelDia = new ComidaPorDia();
-    this.casillaDeEntrada = new ArrayList<>();
-    this.fechaUltimaAdicion = "no se ingreso";
-  }
-
   public Usuario() {
     super("no ingreso nombre", "no ingreso apellido", "no ingreso usuario",
         "no ingreso fecha nacimiento", null);
