@@ -11,46 +11,46 @@ import javax.swing.border.LineBorder;
 
 public class InterfazBotonesProfesional extends javax.swing.JPanel {
 
-    //Atrbutos
-    private Sistema sistema;
-    private JFrame ventana;
-    private JPanel actual;
-    public Profesional usuarioActivo;
+  //Atrbutos
+  private Sistema sistema;
+  private JFrame ventana;
+  private JPanel actual;
+  public Profesional usuarioActivo;
 
-    //Cosntructor
-    public InterfazBotonesProfesional(Sistema unSistema, JFrame unaVentana,
-            Profesional unProfesional) {
-        initComponents();
-        sistema = unSistema;
-        ventana = unaVentana;
-        usuarioActivo = unProfesional;
-        actual = new PanelPerfilProfesional(unSistema, this, unaVentana);
-        ventana.add(this);
-        ventana.add(actual);
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnHome.setBorder(border);
-        actualizarPerfil();
+  //Cosntructor
+  public InterfazBotonesProfesional(Sistema unSistema, JFrame unaVentana,
+      Profesional unProfesional) {
+    initComponents();
+    sistema = unSistema;
+    ventana = unaVentana;
+    usuarioActivo = unProfesional;
+    actual = new PanelPerfilProfesional(unSistema, this, unaVentana);
+    ventana.add(this);
+    ventana.add(actual);
+    deselectButtons();
+    Border border = new LineBorder(Color.BLACK, 3);
+    btnHome.setBorder(border);
+    actualizarPerfil();
 
-    }
+  }
 
-    public JPanel getActual() {
-        return actual;
-    }
+  public JPanel getActual() {
+    return actual;
+  }
 
-    public void setActual(JPanel actual) {
-        this.actual = actual;
-    }
+  public void setActual(JPanel actual) {
+    this.actual = actual;
+  }
 
-    public Profesional getUsuarioActivo() {
-        return usuarioActivo;
-    }
+  public Profesional getUsuarioActivo() {
+    return usuarioActivo;
+  }
 
-    public void setUsuarioActivo(Profesional usuarioActivo) {
-        this.usuarioActivo = usuarioActivo;
-    }
+  public void setUsuarioActivo(Profesional usuarioActivo) {
+    this.usuarioActivo = usuarioActivo;
+  }
 
-    @SuppressWarnings("unchecked")
+  @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -147,52 +147,51 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnHome.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelPerfilProfesional(sistema, this, ventana);
-        ventana.add(actual);
-        ventana.pack();
+      deselectButtons();
+      Border border = new LineBorder(Color.BLACK, 3);
+      btnHome.setBorder(border);
+      ventana.remove(actual);
+      actual = new PanelPerfilProfesional(sistema, this, ventana);
+      ventana.add(actual);
+      ventana.pack();
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnConsultaDirectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaDirectaActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnConsultaDirecta.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelConsultaProfesionalDesdeProfesional(sistema, this, ventana);
-        ventana.add(actual);
-        ventana.pack();
+      deselectButtons();
+      Border border = new LineBorder(Color.BLACK, 3);
+      btnConsultaDirecta.setBorder(border);
+      ventana.remove(actual);
+      actual = new PanelConsultaProfesionalDesdeProfesional(sistema, this, ventana);
+      ventana.add(actual);
+      ventana.pack();
     }//GEN-LAST:event_btnConsultaDirectaActionPerformed
 
     private void btnRealizarPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarPlanActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnRealizarPlan.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelSeleccionarPlanARealizar(sistema, this, ventana);
-        ventana.add(actual);
-        ventana.pack();
+      deselectButtons();
+      Border border = new LineBorder(Color.BLACK, 3);
+      btnRealizarPlan.setBorder(border);
+      ventana.remove(actual);
+      actual = new PanelSeleccionarPlanARealizar(sistema, this, ventana);
+      ventana.add(actual);
+      ventana.pack();
     }//GEN-LAST:event_btnRealizarPlanActionPerformed
 
     private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed
-        deselectButtons();
-        Border border = new LineBorder(Color.BLACK, 3);
-        btnCambiarUsuario.setBorder(border);
-        ventana.remove(actual);
-        actual = new PanelCambioDeUsuario(ventana, sistema, this);
-        ventana.add(actual);
-        ventana.pack();
+      ventana.remove(actual);
+      ventana.remove(this);
+      Login login = new Login(ventana, sistema);
+      ventana.add(login);
+      ventana.pack();
+      ventana.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCambiarUsuarioActionPerformed
 
-    private void deselectButtons() {
-        Border border = new BevelBorder(0);
-        btnCambiarUsuario.setBorder(border);
-        btnConsultaDirecta.setBorder(border);
-        btnHome.setBorder(border);
-        btnRealizarPlan.setBorder(border);
-    }
+  private void deselectButtons() {
+    Border border = new BevelBorder(0);
+    btnCambiarUsuario.setBorder(border);
+    btnConsultaDirecta.setBorder(border);
+    btnHome.setBorder(border);
+    btnRealizarPlan.setBorder(border);
+  }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiarUsuario;
@@ -205,8 +204,8 @@ public class InterfazBotonesProfesional extends javax.swing.JPanel {
     private javax.swing.JLabel nombreDeUsuario;
     // End of variables declaration//GEN-END:variables
 
-    public void actualizarPerfil() {
-        this.nombreDeUsuario.setText(usuarioActivo.getNombre());
-        this.imagenUsuario.setIcon(usuarioActivo.getFotoPerfil());
-    }
+  public void actualizarPerfil() {
+    this.nombreDeUsuario.setText(usuarioActivo.getNombre());
+    this.imagenUsuario.setIcon(usuarioActivo.getFotoPerfil());
+  }
 }
