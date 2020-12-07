@@ -50,14 +50,16 @@ public class PersonaTest {
         assertEquals(expResult, result);
     }
     
-    @Test(expected = NullPointerException.class)
+    @Test
     public void testEqualsNull() {
         System.out.println("equalsNull");
         Persona obj = null;
         Persona instance = new Usuario();
-        assert(instance.equals(obj));
+        boolean expResult = false;
+        boolean result = instance.equals(obj);
+        assertEquals(expResult, result);
     }
-    
+      
     @Test
     public void testEqualsDistintoTipo() {
         System.out.println("equalsNull");

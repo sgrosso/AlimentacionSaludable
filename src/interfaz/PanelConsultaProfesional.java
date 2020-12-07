@@ -56,13 +56,14 @@ public class PanelConsultaProfesional extends javax.swing.JPanel {
         btnRedactar.setText("Redactar");
         btnRedactar.setContentAreaFilled(false);
         btnRedactar.setOpaque(true);
+        btnRedactar.setPreferredSize(new java.awt.Dimension(130, 37));
         btnRedactar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRedactarActionPerformed(evt);
             }
         });
         panelConsultaProf.add(btnRedactar);
-        btnRedactar.setBounds(710, 530, 130, 37);
+        btnRedactar.setBounds(610, 530, 140, 37);
 
         textoLeerMensaje.setColumns(20);
         textoLeerMensaje.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -70,7 +71,7 @@ public class PanelConsultaProfesional extends javax.swing.JPanel {
         jScrollPane1.setViewportView(textoLeerMensaje);
 
         panelConsultaProf.add(jScrollPane1);
-        jScrollPane1.setBounds(60, 160, 547, 347);
+        jScrollPane1.setBounds(60, 160, 530, 347);
 
         listaMensajes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         listaMensajes.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -86,7 +87,7 @@ public class PanelConsultaProfesional extends javax.swing.JPanel {
         jScrollPane2.setViewportView(listaMensajes);
 
         panelConsultaProf.add(jScrollPane2);
-        jScrollPane2.setBounds(710, 160, 280, 350);
+        jScrollPane2.setBounds(610, 160, 380, 350);
 
         btnBorrarCons.setBackground(new java.awt.Color(255, 0, 102));
         btnBorrarCons.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -94,13 +95,14 @@ public class PanelConsultaProfesional extends javax.swing.JPanel {
         btnBorrarCons.setText("Borrar");
         btnBorrarCons.setContentAreaFilled(false);
         btnBorrarCons.setOpaque(true);
+        btnBorrarCons.setPreferredSize(new java.awt.Dimension(130, 37));
         btnBorrarCons.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBorrarConsActionPerformed(evt);
             }
         });
         panelConsultaProf.add(btnBorrarCons);
-        btnBorrarCons.setBounds(880, 530, 110, 37);
+        btnBorrarCons.setBounds(770, 530, 140, 37);
 
         etiquetaTituloConsultas.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         etiquetaTituloConsultas.setForeground(new java.awt.Color(255, 0, 102));

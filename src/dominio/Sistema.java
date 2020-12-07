@@ -2,12 +2,12 @@ package dominio;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -73,24 +73,40 @@ public class Sistema implements Serializable {
   }
 
   //CARGAR Y GUARDAR SISTEMA
-  public void cargarSistema() throws IOException, ClassNotFoundException {
-    try (ObjectInputStream datosSerializados = new ObjectInputStream(
-        Files.newInputStream(Path.of("sis.ser")))) {
-      listaAlimentos = (List<Alimento>) datosSerializados.readObject();
-      listaUsuarios = (List<Usuario>) datosSerializados.readObject();
-      listaProfesionales = (List<Profesional>) datosSerializados.readObject();
+    //CARGAR Y GUARDAR SISTEMA
+    public void cargarSistema() {
+        try {
+            ObjectInputStream in = new ObjectInputStream
+                                   (new FileInputStream("sis.ser"));
+            ArrayList<Alimento> listAlimentos = (ArrayList<Alimento>)
+                                                in.readObject();
+            listaAlimentos = listAlimentos;
+            ArrayList<Usuario> listUsuarios = (ArrayList<Usuario>)
+                                              in.readObject();
+            listaUsuarios = listUsuarios;
+            ArrayList<Profesional> listProfesionales = (ArrayList<Profesional>)
+                                                        in.readObject();
+            listaProfesionales = listProfesionales;
+            in.close();
+        } catch (Exception ex) {
+            listaAlimentos = new ArrayList<Alimento>();
+            listaUsuarios = new ArrayList<Usuario>();
+            listaProfesionales = new ArrayList<Profesional>();
+        }
     }
-  }
 
-  public void guardarSistema() throws IOException {
-    try (ObjectOutputStream datosSerializados = new ObjectOutputStream(
-        Files.newOutputStream(Path.of("sis.ser")))) {
-      datosSerializados.writeObject(listaAlimentos);
-      datosSerializados.writeObject(listaUsuarios);
-      datosSerializados.writeObject(listaProfesionales);
-      datosSerializados.flush();
+    public void guardarSistema() {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream
+                                         (new FileOutputStream("sis.ser"));
+            out.writeObject(listaAlimentos);
+            out.writeObject(listaUsuarios);
+            out.writeObject(listaProfesionales);
+            out.flush();
+            out.close();
+        } catch (IOException ex) {
+        }
     }
-  }
 
   //Metodo para validarque el dato sea numericoF
   public boolean pidoDatoNumerico(int dato, int min, int max) {

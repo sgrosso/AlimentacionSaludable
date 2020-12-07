@@ -477,6 +477,7 @@ public class PanelEditarPerfilUsuario extends javax.swing.JPanel {
             usuario.setPesoKg(Double.parseDouble(cajaPeso.getText()));
             usuario.setFotoPerfil((ImageIcon) fotoPerfil.getIcon());
             etiquetaMensajeAlAceptar.setText("Usuario editado correctamente");
+            interfaz.actualizarPerfil();
 
         } else {
             etiquetaMensajeAlAceptar.setText("Error al editar el usuario");

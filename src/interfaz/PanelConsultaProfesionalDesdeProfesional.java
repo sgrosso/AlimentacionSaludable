@@ -59,7 +59,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
             }
         });
         panelConsultaProf.add(btnRedactar);
-        btnRedactar.setBounds(670, 530, 140, 37);
+        btnRedactar.setBounds(610, 530, 140, 37);
 
         textoLeerMensaje.setColumns(20);
         textoLeerMensaje.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -67,7 +67,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
         jScrollPane1.setViewportView(textoLeerMensaje);
 
         panelConsultaProf.add(jScrollPane1);
-        jScrollPane1.setBounds(50, 160, 547, 347);
+        jScrollPane1.setBounds(50, 160, 540, 347);
 
         listaMensajes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         listaMensajes.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -78,7 +78,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
         jScrollPane2.setViewportView(listaMensajes);
 
         panelConsultaProf.add(jScrollPane2);
-        jScrollPane2.setBounds(670, 160, 258, 350);
+        jScrollPane2.setBounds(608, 160, 370, 350);
 
         btnBorrarCons.setBackground(new java.awt.Color(255, 0, 102));
         btnBorrarCons.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -92,7 +92,7 @@ public class PanelConsultaProfesionalDesdeProfesional extends javax.swing.JPanel
             }
         });
         panelConsultaProf.add(btnBorrarCons);
-        btnBorrarCons.setBounds(830, 530, 100, 37);
+        btnBorrarCons.setBounds(770, 530, 140, 37);
 
         etiquetaTituloConsultas.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         etiquetaTituloConsultas.setForeground(new java.awt.Color(255, 0, 102));

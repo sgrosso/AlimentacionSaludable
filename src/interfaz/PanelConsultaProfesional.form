@@ -62,13 +62,16 @@
             <Property name="text" type="java.lang.String" value="Redactar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="true"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[130, 37]"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedactarActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="710" y="530" width="130" height="-1"/>
+              <AbsoluteConstraints x="610" y="530" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -78,7 +81,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="160" width="547" height="347"/>
+              <AbsoluteConstraints x="60" y="160" width="530" height="347"/>
             </Constraint>
           </Constraints>
 
@@ -101,7 +104,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="710" y="160" width="280" height="350"/>
+              <AbsoluteConstraints x="610" y="160" width="380" height="350"/>
             </Constraint>
           </Constraints>
 
@@ -140,13 +143,16 @@
             <Property name="text" type="java.lang.String" value="Borrar"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="true"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[130, 37]"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrarConsActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="880" y="530" width="110" height="-1"/>
+              <AbsoluteConstraints x="770" y="530" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

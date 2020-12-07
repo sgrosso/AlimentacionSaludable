@@ -24,10 +24,11 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
         actual = new PanelHomeUsuario(sistema, this, ventana);
         ventana.add(this);
         ventana.add(actual);
-        etiquetaUsuarioActual.setText(this.usuarioActual.getNombre());
         deselectButtons();
         Border border = new LineBorder(Color.BLACK, 3);
         btnHome.setBorder(border);
+        actualizarPerfil();
+
     }
 
     public JPanel getActual() {
@@ -57,13 +58,15 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
         btnPerfil = new javax.swing.JButton();
         btnCambiarUsuario = new javax.swing.JButton();
         btnAgregarComida = new javax.swing.JButton();
-        fondo = new javax.swing.JLabel();
-        etiquetaUsuarioActual = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        labelNombre = new javax.swing.JLabel();
+        nombreDeUsuario = new javax.swing.JLabel();
+        imagenUsuario = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(250, 784));
         setLayout(null);
 
-        panelBotonesUsuario.setBackground(new java.awt.Color(204, 255, 153));
+        panelBotonesUsuario.setBackground(new java.awt.Color(102, 102, 102));
         panelBotonesUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panelBotonesUsuario.setMinimumSize(new java.awt.Dimension(250, 784));
         panelBotonesUsuario.setPreferredSize(new java.awt.Dimension(250, 784));
@@ -82,7 +85,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnHome);
-        btnHome.setBounds(2, 36, 245, 46);
+        btnHome.setBounds(0, 340, 245, 46);
 
         btnPedirPlan.setBackground(new java.awt.Color(255, 0, 102));
         btnPedirPlan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -97,7 +100,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnPedirPlan);
-        btnPedirPlan.setBounds(2, 231, 245, 43);
+        btnPedirPlan.setBounds(0, 520, 245, 43);
 
         btnConsultaDirecta.setBackground(new java.awt.Color(255, 0, 102));
         btnConsultaDirecta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -112,7 +115,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnConsultaDirecta);
-        btnConsultaDirecta.setBounds(2, 167, 245, 43);
+        btnConsultaDirecta.setBounds(0, 460, 245, 43);
 
         btnPerfil.setBackground(new java.awt.Color(255, 0, 102));
         btnPerfil.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -127,9 +130,9 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnPerfil);
-        btnPerfil.setBounds(2, 103, 245, 43);
+        btnPerfil.setBounds(0, 400, 245, 43);
 
-        btnCambiarUsuario.setBackground(new java.awt.Color(255, 0, 102));
+        btnCambiarUsuario.setBackground(new java.awt.Color(51, 51, 51));
         btnCambiarUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnCambiarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnCambiarUsuario.setText("Cambiar Usuario");
@@ -142,7 +145,7 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnCambiarUsuario);
-        btnCambiarUsuario.setBounds(2, 361, 245, 45);
+        btnCambiarUsuario.setBounds(0, 640, 245, 45);
 
         btnAgregarComida.setBackground(new java.awt.Color(255, 0, 102));
         btnAgregarComida.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -157,16 +160,27 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
             }
         });
         panelBotonesUsuario.add(btnAgregarComida);
-        btnAgregarComida.setBounds(2, 300, 245, 45);
+        btnAgregarComida.setBounds(0, 580, 245, 45);
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.png"))); // NOI18N
-        panelBotonesUsuario.add(fondo);
-        fondo.setBounds(0, 0, 330, 790);
-        panelBotonesUsuario.add(etiquetaUsuarioActual);
-        etiquetaUsuarioActual.setBounds(23, 604, 282, 42);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        labelNombre.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        labelNombre.setText("Nombre Usuario:");
+        jPanel2.add(labelNombre);
+
+        nombreDeUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        nombreDeUsuario.setText("Nombre de Usuario");
+        jPanel2.add(nombreDeUsuario);
+
+        imagenUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/predeterminadaProfesional.png"))); // NOI18N
+        jPanel2.add(imagenUsuario);
+
+        panelBotonesUsuario.add(jPanel2);
+        jPanel2.setBounds(20, 20, 220, 300);
 
         add(panelBotonesUsuario);
-        panelBotonesUsuario.setBounds(-1, 0, 330, 810);
+        panelBotonesUsuario.setBounds(-1, 0, 310, 810);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -247,8 +261,15 @@ public class InterfazBotonesUsuario extends javax.swing.JPanel {
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnPedirPlan;
     private javax.swing.JButton btnPerfil;
-    private javax.swing.JLabel etiquetaUsuarioActual;
-    private javax.swing.JLabel fondo;
+    private javax.swing.JLabel imagenUsuario;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel nombreDeUsuario;
     private javax.swing.JPanel panelBotonesUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void actualizarPerfil() {
+        this.nombreDeUsuario.setText(usuarioActual.getNombre());
+        this.imagenUsuario.setIcon(usuarioActual.getFotoPerfil());
+    }
 }

@@ -34,7 +34,7 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         initComponents();
         ventana = unaVentana;
         sistema = unSistema;
-        interfazUsr = unaInterfaz;
+       interfazUsr = unaInterfaz;
         listaTiposDeUsuarios.setModel(new DefaultComboBoxModel(TipoUsuario.values()));
         actualizarLista();
     }
@@ -90,7 +90,7 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
             }
         });
         add(btnCambiarUsuario);
-        btnCambiarUsuario.setBounds(640, 500, 210, 37);
+        btnCambiarUsuario.setBounds(550, 500, 210, 37);
 
         listaUsuarios.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jScrollPane1.setViewportView(listaUsuarios);
@@ -115,11 +115,11 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
         etiquetaTiposDeUsuarios.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaTiposDeUsuarios.setText("Tipo de Usuario");
         add(etiquetaTiposDeUsuarios);
-        etiquetaTiposDeUsuarios.setBounds(60, 120, 180, 29);
+        etiquetaTiposDeUsuarios.setBounds(90, 120, 180, 29);
 
         etiquetaTitulo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         etiquetaTitulo.setForeground(new java.awt.Color(255, 0, 102));
-        etiquetaTitulo.setText("Cambio de Usuario");
+        etiquetaTitulo.setText("Selección de Usuario");
         add(etiquetaTitulo);
         etiquetaTitulo.setBounds(330, 21, 330, 44);
 
@@ -135,7 +135,7 @@ public class PanelCambioDeUsuario extends javax.swing.JPanel {
             }
         });
         add(btnPruebaAdministrador);
-        btnPruebaAdministrador.setBounds(40, 280, 250, 37);
+        btnPruebaAdministrador.setBounds(60, 240, 250, 37);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarUsuarioActionPerformed

@@ -19,11 +19,7 @@ public class AlimentacionSaludable {
     Sistema sistema = new Sistema();
 
     boolean errorCargarDatos = false;
-    try {
-      sistema.cargarSistema();
-    } catch (IOException ioException) {
-      errorCargarDatos = true;
-    }
+    sistema.cargarSistema();
 
     PanelPrincipal pantallaPrincipal = new PanelPrincipal(sistema);
 

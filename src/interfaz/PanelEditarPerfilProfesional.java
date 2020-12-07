@@ -287,6 +287,7 @@ public class PanelEditarPerfilProfesional extends javax.swing.JPanel {
             profesional.setFechaGraduacion(fGraduacion);
             profesional.setPaisObtuvoTitulo(Pais.values()[listaPaisDeGraduacion.getSelectedIndex()]);
             etiquetaMensajeAlAceptar.setText("Profesional editado correctamente");
+            interfaz.actualizarPerfil();
         } else {
             etiquetaMensajeAlAceptar.setText("Error al editar el profesional");
         }
